@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BallBehaviorScript : MonoBehaviour
@@ -8,16 +7,32 @@ public class BallBehaviorScript : MonoBehaviour
     public int targY;
 
     public float speed = 5f;
+    public float maxSpeed = 15f; 
+    public float minSpeed = 5f;
 
     public float Dis;
-    public GameObject targ;
+    private GameObject targ;
 
     public bool isOnPlayer1Side = true;
     public bool canHit = false;
 
     public int hitType = 0;
 
-    private GameObject Canvas;
+    private GameObject _canvas;
+
+    private bool canScore = false;
+
+    public bool playing = true;
+
+    private bool Player1 = true;
+    private bool hasSpedUp = false;
+    private float startSpeed = 0;
+    private int localShotChoice = 0;
+
+    //private Rigidbody2D _rb2d;
+
+    public GameObject pineapple;
+    public bool is1PlayerMode = true;
 
     public PopupManager popupManagerP1;
     public PopupManager popupManagerP2;
@@ -31,15 +46,17 @@ public class BallBehaviorScript : MonoBehaviour
 
     public float minPitch = 1f;
     public float maxPitch = 1.08f;
-    public float minSpeed = 0f;
-    public float maxSpeed = 20f;
+    public float minSpeedd = 0f;
+    public float maxSpeedd = 20f;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        targ = GameObject.FindGameObjectWithTag("Target1");
-        Canvas = GameObject.FindGameObjectWithTag("Canvas");
+        //targ = GameObject.FindGameObjectWithTag("Target1");
+        _canvas = GameObject.FindGameObjectWithTag("Canvas");
+        //_rb2d = GetComponent<Rigidbody2D>();
         MainSoundtrack.Play();
-
     }
 
     // Update is called once per frame
@@ -48,32 +65,54 @@ public class BallBehaviorScript : MonoBehaviour
         if (targ != null)
         {
             Dis = Vector2.Distance(transform.position, targ.transform.position);
+            
             if (Dis > 0)
             {
-                transform.position = Vector2.MoveTowards(transform.position, targ.transform.position, speed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, targ.transform.position, speed * Time.deltaTime);
             }
+            if (/*Dis < 0.1f*/ Dis == 0 && targ != null)
+            {
+                if (targ.tag == "Target1" || targ.tag == "Target2")
+                {
+                    if (playing && !is1PlayerMode)
+                    {
+                        _canvas.GetComponent<ScoreScript>().loseScore(isOnPlayer1Side, localShotChoice, speed);
+                    }
+                    if (playing && is1PlayerMode)
+                    {
+                        _canvas.GetComponent<ScoreScript>().loseLife();
+                    }
+                    StartCoroutine(splatDelay());
+                }
+                if (targ != null && (targ.tag == "Loop1" || targ.tag == "Loop2" || targ.tag == "Loop3" || targ.tag == "Loop4" || targ.tag == "Loop5" || targ.tag == "Loop6" || targ.tag == "Loop7" || targ.tag == "Loop8" || targ.tag == "Loop9" || targ.tag == "Loop10" || targ.tag == "Loop11" || targ.tag == "Loop12"))
+                {
+                    Loop();
+                }
+                if (targ != null && (targ.tag == "Down1" || targ.tag == "Down2" || targ.tag == "Down3" || targ.tag == "Down4" || targ.tag == "Down5" || targ.tag == "Down6" || targ.tag == "Down7" || targ.tag == "Down8" || targ.tag == "Down9" || targ.tag == "Down10" || targ.tag == "Down11" || targ.tag == "Down12"))
+                {
+                    Down();
+                }
+            }
+            
         }
 
-
-
         float speedconv = speed;
-        float t = Mathf.InverseLerp(minSpeed, maxSpeed, speedconv);
+        float t = Mathf.InverseLerp(minSpeedd, maxSpeedd, speedconv);
         MainSoundtrack.pitch = Mathf.Lerp(minPitch, maxPitch, t);
     }
     public void perfectHit()
     {
-        Debug.Log("Perfect!");
-
-        if (speed < 14)
+        //Debug.Log("Perfect!");
+        if (speed < maxSpeed && !is1PlayerMode)
         {
-            //speed = speed * 1.1f;
-            StartCoroutine(DelayedWhileLoop(0.5f));
+            speed += 1f;
+            //StartCoroutine(DelayedWhileLoop(0.5f));
         }
-        if (speed > 20)
+        if (speed > maxSpeed && !is1PlayerMode)
         {
-            speed = 20f;
+            speed = maxSpeed;
         }
-        Canvas.GetComponent<ScoreScript>().perfectScore(isOnPlayer1Side);
+        _canvas.GetComponent<ScoreScript>().perfectScore(isOnPlayer1Side, speed);
         StartCoroutine((Tweening(2f)));
         TriggerEffect();
         Sqelch.Play();
@@ -81,18 +120,17 @@ public class BallBehaviorScript : MonoBehaviour
     }
     public void lateHit()
     {
-        Debug.Log("Too late!");
-
-        if (speed > 5)
+        //Debug.Log("Too late!");
+        if (speed > minSpeed && !is1PlayerMode)
         {
-            //speed = speed * 0.75f;
-            StartCoroutine(DelayedWhileLoop(-0.5f));
+            speed -= 1f;
+            //StartCoroutine(DelayedWhileLoop(-0.5f));
         }
-        if (speed < 5)
+        if (speed < minSpeed && !is1PlayerMode)
         {
-            speed = 5f;
+            speed = minSpeed;
         }
-        Canvas.GetComponent<ScoreScript>().poorScore(isOnPlayer1Side);
+        _canvas.GetComponent<ScoreScript>().poorScore(isOnPlayer1Side, speed);
         StartCoroutine((Tweening(1.5f)));
         TriggerEffect();
         Sqelch.Play();
@@ -100,105 +138,120 @@ public class BallBehaviorScript : MonoBehaviour
     }
     public void earlyHit()
     {
-        Debug.Log("Too early!");
-
-        if (speed > 5)
+        //Debug.Log("Too early!");
+        if (speed > minSpeed && !is1PlayerMode)
         {
-            //speed = speed * 0.75f;
-            StartCoroutine(DelayedWhileLoop(-0.5f));
+            speed -= 1f;
+            //StartCoroutine(DelayedWhileLoop(-0.5f));
         }
-        if (speed < 5)
+        if (speed < minSpeed && !is1PlayerMode)
         {
-            speed = 5f;
-            
+            speed = minSpeed;
         }
-        Canvas.GetComponent<ScoreScript>().poorScore(isOnPlayer1Side);
+        _canvas.GetComponent<ScoreScript>().poorScore(isOnPlayer1Side, speed);
         StartCoroutine((Tweening(1.5f)));
         TriggerEffect();
         Sqelch.Play();
         MissedHit.Play();
     }
-
-
-    public void PlayerAbility()
-    {
-        /*if (isPlayer1 && isOnPlayer1Side)
-        {
-
-        }*/
-
-
-
-
-    }
-    
-    
-    
-    public void testForHit(bool isPlayer1)
+    public void testForHit(bool isPlayer1, int shotChoice)
     {
         if (isPlayer1 && isOnPlayer1Side)
         {
             if (canHit)
             {
-                if (hitType == 1)
+                if (canScore)
                 {
-                    earlyHit();
-                    popupManagerP1.ShowPopup("Too early!");
-                }
-                if (hitType == 2)
-                {
-                    perfectHit();
-                    popupManagerP1.ShowPopup("Perfect!");
-                }
-                if (hitType == 3)
-                {
-                    lateHit();
-                    popupManagerP1.ShowPopup("Too late!");
+                    if (hitType == 1)
+                    {
+                        earlyHit();
+                    }
+                    if (hitType == 2)
+                    {
+                        perfectHit();
+                    }
+                    if (hitType == 3)
+                    {
+                        lateHit();
+                    }
                 }
                 canHit = false;
-                setTarg();
+                canScore = true;
+                _canvas.GetComponent<ScoreScript>().play();
+                _canvas.GetComponent<ScoreScript>().timeRun = true;
+                Player1 = isPlayer1;
+                setTarg(shotChoice);
             }
         }
         if (!isPlayer1 && !isOnPlayer1Side)
         {
             if (canHit)
             {
-                if (hitType == 1)
+                if (canScore)
                 {
-                    earlyHit();
-                    popupManagerP2.ShowPopup("Too early!");
+                    if (hitType == 1)
+                    {
+                        earlyHit();
+                    }
+                    if (hitType == 2)
+                    {
+                        perfectHit();
+                    }
+                    if (hitType == 3)
+                    {
+                        lateHit();
+                    }
                 }
-                if (hitType == 2)
-                {
-                    perfectHit();
-                    popupManagerP2.ShowPopup("Perfect!");
-                }
-                if (hitType == 3)
-                {
-                    lateHit();
-                    popupManagerP2.ShowPopup("Too late!");
-                }
+                Player1 = isPlayer1;
                 canHit = false;
-                setTarg();
+                canScore = true;
+                setTarg(shotChoice);
             }
         }
     }
-    public void setTarg()
+    public void setTarg(int shotChoice)
     {
-        if (isOnPlayer1Side)
+        if (shotChoice == 1)
         {
-            targ = GameObject.FindGameObjectWithTag("Target1");
+            if (isOnPlayer1Side)
+            {
+                targ = GameObject.FindGameObjectWithTag("Target1");
+            }
+            if (!isOnPlayer1Side)
+            {
+                targ = GameObject.FindGameObjectWithTag("Target2");
+            }
         }
-        if (!isOnPlayer1Side)
+        if (shotChoice == 2)
         {
-            targ = GameObject.FindGameObjectWithTag("Target2");
+            if (Player1)
+            {
+                targ = GameObject.FindGameObjectWithTag("Down1");
+            }
+            if (!Player1)
+            {
+                targ = GameObject.FindGameObjectWithTag("Down12");
+            }
         }
+        if (shotChoice == 3)
+        {
+            if (Player1)
+            {
+                targ = GameObject.FindGameObjectWithTag("Loop1");
+            }
+            if (!Player1)
+            {
+                targ = GameObject.FindGameObjectWithTag("Loop12");
+            }
+        }
+        localShotChoice = shotChoice;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "HitZone")
         {
             canHit = true;
+            hasSpedUp = false;
         }
         if ((collision.gameObject.tag == "Early") /*&& canHit*/)
         {
@@ -214,9 +267,24 @@ public class BallBehaviorScript : MonoBehaviour
         }
         if (((collision.gameObject.tag == "Wall")))
         {
-            canHit = true;
-            hitType = 2;
-            testForHit(isOnPlayer1Side);
+            if (playing)
+            {
+                canHit = true;
+                int localHitType = Random.Range(1, 100);
+                hitType = 2;
+                if (localHitType > 0 && localHitType < 51)
+                {
+                    testForHit(isOnPlayer1Side, 1);
+                }
+                if (localHitType > 50 && localHitType < 75)
+                {
+                    testForHit(isOnPlayer1Side, 2);
+                }
+                if (localHitType > 74 && localHitType < 100)
+                {
+                    testForHit(isOnPlayer1Side, 3);
+                }
+            }
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
@@ -230,7 +298,296 @@ public class BallBehaviorScript : MonoBehaviour
             isOnPlayer1Side = false;
         }
     }
-    
+    public void restart()
+    {
+        _canvas.GetComponent<ScoreScript>().timeRun = false;
+        canHit = true;
+        canScore = false;
+        if (isOnPlayer1Side)
+        {
+            transform.position = new Vector2(-5.58f, -1.96f);
+        }
+        if (!isOnPlayer1Side)
+        {
+            transform.position = new Vector2(5.58f, -1.96f);
+        }
+        if (is1PlayerMode && !isOnPlayer1Side)
+        {
+            StartCoroutine(autoRestart());
+        }
+    }
+    public IEnumerator splatDelay()
+    {
+        canHit = false;
+        if (playing)
+        {
+            //Debug.Log("Stopped");
+            targ = null;
+            canScore = false;
+            speed = minSpeed;
+            //_rb2d.velocity = Vector3.zero;
+            startSpeed = minSpeed;
+        }
+        yield return new WaitForSeconds(1);
+        splat();
+        if (playing)
+        {
+            restart();
+        }
+    }
+    public IEnumerator autoRestart()
+    {
+        yield return new WaitForSeconds(1);
+        hitType = Random.Range(1, 4);
+        testForHit(isOnPlayer1Side, hitType);
+        Debug.Log("StartAgain");
+    }
+
+    public void splat()
+    {
+        if (pineapple != null)
+        {
+            Instantiate(pineapple, transform.position, Quaternion.identity);
+        }
+        if (!playing)
+        {
+            this.gameObject.SetActive(false);
+        }
+    }
+    public void player1SpeedUp(int multiplier)
+    {
+        if (is1PlayerMode && speed < maxSpeed)
+        {
+            speed = 7.5f + (2.5f * multiplier);
+        }
+    }
+
+
+
+    //Everything below here is a long-winded way to make the pineapple follow a path of objects for the different shots
+
+    public void Down()
+    {
+        if (!hasSpedUp)
+        {
+            startSpeed = speed;
+            hasSpedUp = true;
+        }
+        if (Player1 && targ.tag == "Down1")
+        {
+            targ = GameObject.FindGameObjectWithTag("Down2");
+            //speed = speed * 1.25f;
+        }
+        else if (Player1 && targ.tag == "Down2")
+        {
+            targ = GameObject.FindGameObjectWithTag("Down3");
+        }
+        else if (Player1 && targ.tag == "Down3")
+        {
+            targ = GameObject.FindGameObjectWithTag("Down4");
+        }
+        else if (Player1 && targ.tag == "Down4")
+        {
+            targ = GameObject.FindGameObjectWithTag("Down5");
+        }
+        else if (Player1 && targ.tag == "Down5")
+        {
+            targ = GameObject.FindGameObjectWithTag("Down6");
+        }
+        else if (Player1 && targ.tag == "Down6")
+        {
+            targ = GameObject.FindGameObjectWithTag("Down7");
+        }
+        else if (Player1 && targ.tag == "Down7")
+        {
+            targ = GameObject.FindGameObjectWithTag("Down8");
+        }
+        else if (Player1 && targ.tag == "Down8")
+        {
+            targ = GameObject.FindGameObjectWithTag("Down9");
+        }
+        else if (Player1 && targ.tag == "Down9")
+        {
+            targ = GameObject.FindGameObjectWithTag("Down10");
+        }
+        else if (Player1 && targ.tag == "Down10")
+        {
+            targ = GameObject.FindGameObjectWithTag("Down11");
+        }
+        else if (Player1 && targ.tag == "Down11")
+        {
+            targ = GameObject.FindGameObjectWithTag("Down12");
+        }
+        else if (Player1 && targ.tag == "Down12")
+        {
+            targ = GameObject.FindGameObjectWithTag("Target1");
+            //speed = startSpeed;
+        }
+
+
+        if (!Player1 && targ.tag == "Down12")
+        {
+            targ = GameObject.FindGameObjectWithTag("Down11");
+            //speed = speed * 1.25f;
+        }
+        else if (!Player1 && targ.tag == "Down11")
+        {
+            targ = GameObject.FindGameObjectWithTag("Down10");
+        }
+        else if (!Player1 && targ.tag == "Down10")
+        {
+            targ = GameObject.FindGameObjectWithTag("Down9");
+        }
+        else if (!Player1 && targ.tag == "Down9")
+        {
+            targ = GameObject.FindGameObjectWithTag("Down8");
+        }
+        else if (!Player1 && targ.tag == "Down8")
+        {
+            targ = GameObject.FindGameObjectWithTag("Down7");
+        }
+        else if (!Player1 && targ.tag == "Down7")
+        {
+            targ = GameObject.FindGameObjectWithTag("Down6");
+        }
+        else if (!Player1 && targ.tag == "Down6")
+        {
+            targ = GameObject.FindGameObjectWithTag("Down5");
+        }
+        else if (!Player1 && targ.tag == "Down5")
+        {
+            targ = GameObject.FindGameObjectWithTag("Down4");
+        }
+        else if (!Player1 && targ.tag == "Down4")
+        {
+            targ = GameObject.FindGameObjectWithTag("Down3");
+        }
+        else if (!Player1 && targ.tag == "Down3")
+        {
+            targ = GameObject.FindGameObjectWithTag("Down2");
+        }
+        else if (!Player1 && targ.tag == "Down2")
+        {
+            targ = GameObject.FindGameObjectWithTag("Down1");
+        }
+        else if (!Player1 && targ.tag == "Down1")
+        {
+            targ = GameObject.FindGameObjectWithTag("Target2");
+            //speed = startSpeed;
+        }
+    }
+
+    public void Loop()
+    {
+        if (!hasSpedUp)
+        {
+            startSpeed = speed;
+            hasSpedUp = true;
+        }
+        if (Player1 && targ.tag == "Loop1")
+        {
+            targ = GameObject.FindGameObjectWithTag("Loop2");
+            //speed = speed * 1.25f;
+        }
+        else if (Player1 && targ.tag == "Loop2")
+        {
+            targ = GameObject.FindGameObjectWithTag("Loop3");
+        }
+        else if(Player1 && targ.tag == "Loop3")
+        {
+            targ = GameObject.FindGameObjectWithTag("Loop4");
+        }
+        else if (Player1 && targ.tag == "Loop4")
+        {
+            targ = GameObject.FindGameObjectWithTag("Loop5");
+        }
+        else if (Player1 && targ.tag == "Loop5")
+        {
+            targ = GameObject.FindGameObjectWithTag("Loop6");
+        }
+        else if (Player1 && targ.tag == "Loop6")
+        {
+            targ = GameObject.FindGameObjectWithTag("Loop7");
+        }
+        else if (Player1 && targ.tag == "Loop7")
+        {
+            targ = GameObject.FindGameObjectWithTag("Loop8");
+        }
+        else if (Player1 && targ.tag == "Loop8")
+        {
+            targ = GameObject.FindGameObjectWithTag("Loop9");
+        }
+        else if (Player1 && targ.tag == "Loop9")
+        {
+            targ = GameObject.FindGameObjectWithTag("Loop10");
+        }
+        else if (Player1 && targ.tag == "Loop10")
+        {
+            targ = GameObject.FindGameObjectWithTag("Loop11");
+        }
+        else if (Player1 && targ.tag == "Loop11")
+        {
+            targ = GameObject.FindGameObjectWithTag("Loop12");
+        }
+        else if (Player1 && targ.tag == "Loop12")
+        {
+            targ = GameObject.FindGameObjectWithTag("Target1");
+            //speed = startSpeed;
+        }
+
+
+        if (!Player1 && targ.tag == "Loop12")
+        {
+            targ = GameObject.FindGameObjectWithTag("Loop11");
+            //speed = speed * 1.25f;
+        }
+        else if (!Player1 && targ.tag == "Loop11")
+        {
+            targ = GameObject.FindGameObjectWithTag("Loop10");
+        }
+        else if (!Player1 && targ.tag == "Loop10")
+        {
+            targ = GameObject.FindGameObjectWithTag("Loop9");
+        }
+        else if (!Player1 && targ.tag == "Loop9")
+        {
+            targ = GameObject.FindGameObjectWithTag("Loop8");
+        }
+        else if (!Player1 && targ.tag == "Loop8")
+        {
+            targ = GameObject.FindGameObjectWithTag("Loop7");
+        }
+        else if (!Player1 && targ.tag == "Loop7")
+        {
+            targ = GameObject.FindGameObjectWithTag("Loop6");
+        }
+        else if (!Player1 && targ.tag == "Loop6")
+        {
+            targ = GameObject.FindGameObjectWithTag("Loop5");
+        }
+        else if (!Player1 && targ.tag == "Loop5")
+        {
+            targ = GameObject.FindGameObjectWithTag("Loop4");
+        }
+        else if (!Player1 && targ.tag == "Loop4")
+        {
+            targ = GameObject.FindGameObjectWithTag("Loop3");
+        }
+        else if (!Player1 && targ.tag == "Loop3")
+        {
+            targ = GameObject.FindGameObjectWithTag("Loop2");
+        }
+        else if (!Player1 && targ.tag == "Loop2")
+        {
+            targ = GameObject.FindGameObjectWithTag("Loop1");
+        }
+        else if (!Player1 && targ.tag == "Loop1")
+        {
+            targ = GameObject.FindGameObjectWithTag("Target2");
+            //speed = startSpeed;
+        }
+    }
+
 
     public IEnumerator Tweening(float TweenAmount)
     {
@@ -257,11 +614,29 @@ public class BallBehaviorScript : MonoBehaviour
         int Delayvalue = 0;
         while (Delayvalue < 5)
         {
-            
+
             speed = speed + SpeedDel;
             Delayvalue += 1;
             yield return new WaitForSeconds(0.1f); // Delay for 1 second
         }
     }
-
 }
+
+
+
+//Vector3 targ = _player.transform.position;
+//targ.z = 0f;
+
+//        Vector3 objectPos = transform.position;
+//targ.x = targ.x - objectPos.x;
+//        targ.y = targ.y - objectPos.y;
+
+//        float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg;
+//transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
+
+//Dis = Vector2.Distance(transform.position, _player.transform.position);
+//if (Dis > 0 && _isMoving)
+//{
+//    transform.position = Vector2.MoveTowards(transform.position, _player.transform.position, speed* Time.deltaTime);
+//}

@@ -6033,6 +6033,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer1: 0
+  Ball: {fileID: 0}
 --- !u!1 &586481419
 GameObject:
   m_ObjectHideFlags: 0
@@ -6127,7 +6128,7 @@ GameObject:
   m_Component:
   - component: {fileID: 587961486}
   - component: {fileID: 587961485}
-  - component: {fileID: 587961487}
+  - component: {fileID: 587961494}
   - component: {fileID: 587961488}
   - component: {fileID: 587961489}
   - component: {fileID: 587961490}
@@ -6209,37 +6210,6 @@ Transform:
   - {fileID: 582967455}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &587961487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 587961484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1984e9104edb7204a98ee2610beb308d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targX: 0
-  targY: 0
-  speed: 20
-  Dis: 0
-  targ: {fileID: 0}
-  isOnPlayer1Side: 1
-  canHit: 0
-  hitType: 0
-  popupManagerP1: {fileID: 562378244}
-  popupManagerP2: {fileID: 1234718896}
-  ParticleBurst: {fileID: 582967453}
-  Sqelch: {fileID: 587961490}
-  MissedHit: {fileID: 587961492}
-  PerfectHit: {fileID: 587961493}
-  MainSoundtrack: {fileID: 587961491}
-  minPitch: 1
-  maxPitch: 1.8
-  minSpeed: 0
-  maxSpeed: 20
 --- !u!50 &587961488
 Rigidbody2D:
   serializedVersion: 4
@@ -6686,6 +6656,41 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &587961494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587961484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f23f9c090697514899a2054e0ccd498, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targX: 0
+  targY: 0
+  speed: 5
+  maxSpeed: 15
+  minSpeed: 5
+  Dis: 0
+  isOnPlayer1Side: 1
+  canHit: 0
+  hitType: 0
+  playing: 1
+  pineapple: {fileID: 0}
+  is1PlayerMode: 1
+  popupManagerP1: {fileID: 562378244}
+  popupManagerP2: {fileID: 1234718896}
+  ParticleBurst: {fileID: 582967453}
+  Sqelch: {fileID: 587961490}
+  MissedHit: {fileID: 587961492}
+  PerfectHit: {fileID: 587961493}
+  MainSoundtrack: {fileID: 587961491}
+  minPitch: 1
+  maxPitch: 1.08
+  minSpeedd: 0
+  maxSpeedd: 20
 --- !u!1 &621873790
 GameObject:
   m_ObjectHideFlags: 0
@@ -8580,6 +8585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer1: 1
+  Ball: {fileID: 0}
 --- !u!1 &1994744441
 GameObject:
   m_ObjectHideFlags: 0
