@@ -105,8 +105,8 @@ public class BallBehaviorScript : MonoBehaviour
         //Debug.Log("Perfect!");
         if (speed < maxSpeed && !is1PlayerMode)
         {
-            speed += 1f;
-            //StartCoroutine(DelayedWhileLoop(0.5f));
+            //speed += 1f;
+            StartCoroutine(DelayedWhileLoop(0.5f));
         }
         if (speed > maxSpeed && !is1PlayerMode)
         {
@@ -123,8 +123,8 @@ public class BallBehaviorScript : MonoBehaviour
         //Debug.Log("Too late!");
         if (speed > minSpeed && !is1PlayerMode)
         {
-            speed -= 1f;
-            //StartCoroutine(DelayedWhileLoop(-0.5f));
+            //speed -= 1f;
+            StartCoroutine(DelayedWhileLoop(-0.5f));
         }
         if (speed < minSpeed && !is1PlayerMode)
         {
@@ -141,8 +141,8 @@ public class BallBehaviorScript : MonoBehaviour
         //Debug.Log("Too early!");
         if (speed > minSpeed && !is1PlayerMode)
         {
-            speed -= 1f;
-            //StartCoroutine(DelayedWhileLoop(-0.5f));
+            //speed -= 1f;
+            StartCoroutine(DelayedWhileLoop(-0.5f));
         }
         if (speed < minSpeed && !is1PlayerMode)
         {
