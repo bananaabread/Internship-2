@@ -165,14 +165,17 @@ public class BallBehaviorScript : MonoBehaviour
                     if (hitType == 1)
                     {
                         earlyHit();
+                        popupManagerP1.ShowPopup("Too Early");
                     }
                     if (hitType == 2)
                     {
                         perfectHit();
+                        popupManagerP1.ShowPopup("Perfect");
                     }
                     if (hitType == 3)
                     {
                         lateHit();
+                        popupManagerP1.ShowPopup("Too Late");
                     }
                 }
                 canHit = false;
