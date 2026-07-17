@@ -409,12 +409,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f344376e22ae62f47bf0a0faca4204ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score1: 0
-  score2: 0
-  bonusScore1: 0
-  bonusScore2: 0
-  player1Score: {fileID: 507178916}
-  player2Score: {fileID: 1703903386}
 --- !u!1 &432987110
 GameObject:
   m_ObjectHideFlags: 0
@@ -6029,11 +6023,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 583228813}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc49b70baf21f4046a320cf76a5387f3, type: 3}
+  m_Script: {fileID: 11500000, guid: cfdb5ab65a4714e4f97ac8a76c6e0160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer1: 0
-  Ball: {fileID: 0}
+  cooldownTime: 1
+  playing: 1
+  is1PlayerScene: 0
+  canRestart: 0
 --- !u!1 &586481419
 GameObject:
   m_ObjectHideFlags: 0
@@ -8497,7 +8494,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1868698752}
   - component: {fileID: 1868698751}
-  - component: {fileID: 1868698753}
+  - component: {fileID: 1868698754}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
@@ -8572,7 +8569,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1639922302}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1868698753
+--- !u!114 &1868698754
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8581,11 +8578,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1868698750}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc49b70baf21f4046a320cf76a5387f3, type: 3}
+  m_Script: {fileID: 11500000, guid: cfdb5ab65a4714e4f97ac8a76c6e0160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer1: 1
-  Ball: {fileID: 0}
+  cooldownTime: 1
+  playing: 1
+  is1PlayerScene: 0
+  canRestart: 0
 --- !u!1 &1994744441
 GameObject:
   m_ObjectHideFlags: 0
