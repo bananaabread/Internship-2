@@ -49,8 +49,6 @@ public class BallBehaviorScript : MonoBehaviour
     public float minSpeedd = 0f;
     public float maxSpeedd = 20f;
 
-    public float testValue = 0f;
-
 
     // Start is called before the first frame update
     void Start()
