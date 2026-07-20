@@ -195,14 +195,17 @@ public class BallBehaviorScript : MonoBehaviour
                     if (hitType == 1)
                     {
                         earlyHit();
+                        popupManagerP2.ShowPopup("Too Early");
                     }
                     if (hitType == 2)
                     {
                         perfectHit();
+                        popupManagerP2.ShowPopup("Perfect");
                     }
                     if (hitType == 3)
                     {
                         lateHit();
+                        popupManagerP2.ShowPopup("Too Late");
                     }
                 }
                 Player1 = isPlayer1;
@@ -331,6 +334,7 @@ public class BallBehaviorScript : MonoBehaviour
             //_rb2d.velocity = Vector3.zero;
             startSpeed = minSpeed;
         }
+        Sqelch.Play();
         yield return new WaitForSeconds(1);
         splat();
         if (playing)
