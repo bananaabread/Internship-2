@@ -19,7 +19,6 @@ public class PlayerControllerScript : MonoBehaviour
     void Start()
     {
         Ball = GameObject.FindGameObjectWithTag("Ball");
-        Debug.Log("Got the ball");
     }
 
     // Update is called once per frame
@@ -80,6 +79,10 @@ public class PlayerControllerScript : MonoBehaviour
                     SceneManager.LoadScene("2PlayerScene");
                 }
             }
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(0);
         }
     }
     public IEnumerator cooldown()

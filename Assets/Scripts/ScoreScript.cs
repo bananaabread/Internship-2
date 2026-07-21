@@ -36,10 +36,17 @@ public class ScoreScript : MonoBehaviour
 
     public int lives = 3;
 
+    private GameObject audioControl;
+    private bool hasPlayedSound = false;
+
+    public bool is1PlayerMode = true;
+
     // Start is called before the first frame update
     void Start()
     {
         ball = GameObject.FindGameObjectWithTag("Ball");
+        audioControl = GameObject.FindGameObjectWithTag("AudioCtrl");
+        if (audioControl != null) Debug.Log("Found");
         restartPrompt.SetActive(false);
         if (!ball.GetComponent<BallBehaviorScript>().is1PlayerMode)
         {
@@ -96,6 +103,26 @@ public class ScoreScript : MonoBehaviour
             {
                 player.GetComponent<PlayerControllerScript>().playing = false;
             }
+
+
+            if (audioControl != null && !hasPlayedSound)
+            {
+                if (score1 > 10000 && is1PlayerMode) //Replace 100000 with highscore
+                {
+                    audioControl.GetComponent<AudioManager>().PlayCelebration();
+                }
+                if (score1 < 10000 && is1PlayerMode) //Replace 100000 with highscore
+                {
+                    audioControl.GetComponent<AudioManager>().PlayFail();
+                }
+                if (!is1PlayerMode)
+                {
+                    audioControl.GetComponent<AudioManager>().PlayCelebration();
+                }
+                hasPlayedSound = true;
+            }
+
+
             StartCoroutine(waitForSceneFinish());
         }
         if (ball != null)
