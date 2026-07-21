@@ -3,7 +3,43 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Wall
+  - Target1
+  - Down7
+  - Down11
+  - Down5
+  - Down8
+  - Down10
+  - Down4
+  - Down12
+  - Down3
+  - Down1
+  - Down6
+  - Down2
+  - Down9
+  - Canvas
+  - Border2
+  - Loop3
+  - Loop10
+  - Loop4
+  - Loop12
+  - Loop8
+  - Loop2
+  - Loop1
+  - Loop11
+  - Loop7
+  - Loop6
+  - Loop5
+  - Loop9
+  - Late
+  - Perfect
+  - Target2
+  - Early
+  - HitZone
+  - Border1
+  - Ball
+  - TargStuff
   layers:
   - Default
   - TransparentFX

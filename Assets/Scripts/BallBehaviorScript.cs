@@ -93,7 +93,26 @@ public class BallBehaviorScript : MonoBehaviour
                     Down();
                 }
             }
-            
+            //if (speed > 19)
+            //{
+            //    GameObject[] hitZones = GameObject.FindGameObjectsWithTag("TargStuff");
+            //    foreach (GameObject hitZone in hitZones)
+            //    {
+            //        hitZone.transform.localScale = new Vector3(1.5f, 1, 1);
+            //    }
+            //}
+            //else
+            //{
+            //    GameObject[] hitZones = GameObject.FindGameObjectsWithTag("TargStuff");
+            //    foreach (GameObject hitZone in hitZones)
+            //    {
+            //        hitZone.transform.localScale = new Vector3(1, 1, 1);
+            //    }
+            //}
+            if (speed > maxSpeed)
+            {
+                speed = maxSpeed;
+            }
         }
 
         float speedconv = speed;
