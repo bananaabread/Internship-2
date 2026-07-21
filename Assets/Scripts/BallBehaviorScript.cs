@@ -119,6 +119,24 @@ public class BallBehaviorScript : MonoBehaviour
         float t = Mathf.InverseLerp(minSpeedd, maxSpeedd, speedconv);
         MainSoundtrack.pitch = Mathf.Lerp(minPitch, maxPitch, t);
     }
+
+
+    public void ApplySpeedBoost(float amount, float duration, int delboost)
+    {
+        StartCoroutine(SpeedBoostRoutine(amount, duration, delboost));
+    }
+
+    private IEnumerator SpeedBoostRoutine(float amount, float duration, int delboost)
+    {
+        speed = Mathf.Min(speed + amount, maxSpeed);
+        yield return new WaitForSeconds(duration);
+        if (delboost > 0)
+        {
+            speed = Mathf.Max(speed - amount, minSpeed);
+        }
+        
+    }
+
     public void perfectHit()
     {
         //Debug.Log("Perfect!");
@@ -137,43 +155,29 @@ public class BallBehaviorScript : MonoBehaviour
         Sqelch.Play();
         PerfectHit.Play();
     }
-    public void lateHit()
+
+    private void missedHit()
     {
-        //Debug.Log("Too late!");
-        if (speed > minSpeed && !is1PlayerMode)
+        if (!is1PlayerMode)
         {
-            //speed -= 1f;
-            StartCoroutine(DelayedWhileLoop(-0.5f));
-        }
-        if (speed < minSpeed && !is1PlayerMode)
-        {
-            speed = minSpeed;
+            if (speed > minSpeed)
+            {
+                StartCoroutine(DelayedWhileLoop(-0.5f));
+            }
+            else
+            {
+                speed = minSpeed;
+            }
         }
         _canvas.GetComponent<ScoreScript>().poorScore(isOnPlayer1Side, speed);
-        StartCoroutine((Tweening(1.5f)));
+        StartCoroutine(Tweening(1.5f));
         TriggerEffect();
         Sqelch.Play();
         MissedHit.Play();
     }
-    public void earlyHit()
-    {
-        //Debug.Log("Too early!");
-        if (speed > minSpeed && !is1PlayerMode)
-        {
-            //speed -= 1f;
-            StartCoroutine(DelayedWhileLoop(-0.5f));
-        }
-        if (speed < minSpeed && !is1PlayerMode)
-        {
-            speed = minSpeed;
-        }
-        _canvas.GetComponent<ScoreScript>().poorScore(isOnPlayer1Side, speed);
-        StartCoroutine((Tweening(1.5f)));
-        TriggerEffect();
-        Sqelch.Play();
-        MissedHit.Play();
-    }
-    public void testForHit(bool isPlayer1, int shotChoice)
+
+
+    public bool testForHit(bool isPlayer1, int shotChoice)
     {
         if (isPlayer1 && isOnPlayer1Side)
         {
@@ -183,7 +187,7 @@ public class BallBehaviorScript : MonoBehaviour
                 {
                     if (hitType == 1)
                     {
-                        earlyHit();
+                        missedHit();
                         popupManagerP1.ShowPopup("Too Early");
                     }
                     if (hitType == 2)
@@ -193,7 +197,7 @@ public class BallBehaviorScript : MonoBehaviour
                     }
                     if (hitType == 3)
                     {
-                        lateHit();
+                        missedHit();
                         popupManagerP1.ShowPopup("Too Late");
                     }
                 }
@@ -203,6 +207,7 @@ public class BallBehaviorScript : MonoBehaviour
                 _canvas.GetComponent<ScoreScript>().timeRun = true;
                 Player1 = isPlayer1;
                 setTarg(shotChoice);
+                return true;
             }
         }
         if (!isPlayer1 && !isOnPlayer1Side)
@@ -213,7 +218,7 @@ public class BallBehaviorScript : MonoBehaviour
                 {
                     if (hitType == 1)
                     {
-                        earlyHit();
+                        missedHit();
                         popupManagerP2.ShowPopup("Too Early");
                     }
                     if (hitType == 2)
@@ -223,7 +228,7 @@ public class BallBehaviorScript : MonoBehaviour
                     }
                     if (hitType == 3)
                     {
-                        lateHit();
+                        missedHit();
                         popupManagerP2.ShowPopup("Too Late");
                     }
                 }
@@ -231,85 +236,54 @@ public class BallBehaviorScript : MonoBehaviour
                 canHit = false;
                 canScore = true;
                 setTarg(shotChoice);
+                return true;
             }
         }
+        return false;
     }
     public void setTarg(int shotChoice)
     {
-        if (shotChoice == 1)
+        switch (shotChoice)
         {
-            if (isOnPlayer1Side)
-            {
-                targ = GameObject.FindGameObjectWithTag("Target1");
-            }
-            if (!isOnPlayer1Side)
-            {
-                targ = GameObject.FindGameObjectWithTag("Target2");
-            }
-        }
-        if (shotChoice == 2)
-        {
-            if (Player1)
-            {
-                targ = GameObject.FindGameObjectWithTag("Down1");
-            }
-            if (!Player1)
-            {
-                targ = GameObject.FindGameObjectWithTag("Down12");
-            }
-        }
-        if (shotChoice == 3)
-        {
-            if (Player1)
-            {
-                targ = GameObject.FindGameObjectWithTag("Loop1");
-            }
-            if (!Player1)
-            {
-                targ = GameObject.FindGameObjectWithTag("Loop12");
-            }
+            case 1:
+                targ = GameObject.FindGameObjectWithTag(isOnPlayer1Side ? "Target1" : "Target2");
+                break;
+            case 2:
+                targ = GameObject.FindGameObjectWithTag(Player1 ? "Down1" : "Down12");
+                break;
+            case 3:
+                targ = GameObject.FindGameObjectWithTag(Player1 ? "Loop1" : "Loop12");
+                break;
         }
         localShotChoice = shotChoice;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "HitZone")
+        switch (collision.gameObject.tag) // changed this into a switch 
         {
-            canHit = true;
-            hasSpedUp = false;
-        }
-        if ((collision.gameObject.tag == "Early") /*&& canHit*/)
-        {
-            hitType = 1;
-        }
-        if ((collision.gameObject.tag == "Perfect") /*&& canHit*/)
-        {
-            hitType = 2;
-        }
-        if ((collision.gameObject.tag == "Late") /*&& canHit*/)
-        {
-            hitType = 3;
-        }
-        if (((collision.gameObject.tag == "Wall")))
-        {
-            if (playing)
-            {
+            case "HitZone":
                 canHit = true;
-                int localHitType = Random.Range(1, 100);
+                hasSpedUp = false;
+                break;
+            case "Early":
+                hitType = 1;
+                break;
+            case "Perfect":
                 hitType = 2;
-                if (localHitType > 0 && localHitType < 51)
+                break;
+            case "Late":
+                hitType = 3;
+                break;
+            case "Wall":
+                if (playing)
                 {
-                    testForHit(isOnPlayer1Side, 1);
+                    canHit = true;
+                    hitType = 2;
+                    int roll = Random.Range(1, 100);
+                    int shotChoice = roll <= 50 ? 1 : roll <= 74 ? 2 : 3;
+                    testForHit(isOnPlayer1Side, shotChoice);
                 }
-                if (localHitType > 50 && localHitType < 75)
-                {
-                    testForHit(isOnPlayer1Side, 2);
-                }
-                if (localHitType > 74 && localHitType < 100)
-                {
-                    testForHit(isOnPlayer1Side, 3);
-                }
-            }
+                break;
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
@@ -643,7 +617,7 @@ public class BallBehaviorScript : MonoBehaviour
 
             speed = speed + SpeedDel;
             Delayvalue += 1;
-            yield return new WaitForSeconds(0.1f); // Delay for 1 second
+            yield return new WaitForSeconds(0.1f); // Delay for 0.1 second
         }
     }
 }

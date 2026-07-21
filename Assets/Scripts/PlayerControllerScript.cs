@@ -15,6 +15,7 @@ public class PlayerControllerScript : MonoBehaviour
 
     public bool canRestart = false;
 
+    public AbilityManager abilityManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -65,6 +66,45 @@ public class PlayerControllerScript : MonoBehaviour
                 isOnCooldown = true;
                 StartCoroutine(cooldown());
             }
+            if (isPlayer1 && Input.GetKeyDown(KeyCode.A))
+            {
+                if (abilityManager.RequiresHit(abilityManager.CurrentAbilityP1))
+                {
+                    if (!isOnCooldown)
+                    {
+                        if (Ball.GetComponent<BallBehaviorScript>().testForHit(isPlayer1, 1))
+                        {
+                            abilityManager.RunCurrentAbilityP1();
+                        }
+                        isOnCooldown = true;
+                        StartCoroutine(cooldown());
+                    }
+                }
+                else
+                {
+                    abilityManager.RunCurrentAbilityP1();
+                }
+            }
+            if (!isPlayer1 && Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                if (abilityManager.RequiresHit(abilityManager.CurrentAbilityP2))
+                {
+                    if (!isOnCooldown)
+                    {
+                        if (Ball.GetComponent<BallBehaviorScript>().testForHit(isPlayer1, 1))
+                        {
+                            abilityManager.RunCurrentAbilityP2();
+                        }
+                        isOnCooldown = true;
+                        StartCoroutine(cooldown());
+                    }
+                }
+                else
+                {
+                    abilityManager.RunCurrentAbilityP2();
+                }
+            }
+
         }
         if (!playing && canRestart)
         {
