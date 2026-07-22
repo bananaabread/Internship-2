@@ -42,6 +42,7 @@ TagManager:
   - TargStuff
   - AudioCtrl
   - FpsManager
+  - VSync
   layers:
   - Default
   - TransparentFX

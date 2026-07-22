@@ -1,27 +1,54 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LimitFps : MonoBehaviour
 {
     [SerializeField] private int maxFrameRate = 60;
     private bool vSyncEnabled = false;
 
+    public static LimitFps Instance;
+
+    private GameObject VSync;
+    private bool hasSetVSync = false;
+
+    public void Start()
+    {
+        if (PlayerPrefs.GetInt("VSyncOn", 1) == 0)
+        {
+            vSyncEnabled = false;
+        }
+        if (PlayerPrefs.GetInt("VSyncOn", 1) == 1)
+        {
+            vSyncEnabled = true;
+        }
+    }
     public void Awake()
     {
         DontDestroyOnLoad(this);
 
-        if (!vSyncEnabled)
+        if (Instance == null)
         {
-            Application.targetFrameRate = maxFrameRate;
+            Instance = this;
         }
         else
         {
-            QualitySettings.vSyncCount = 1;
+            Destroy(this.gameObject);
         }
     }
     public void Update()
     {
+        VSync = GameObject.FindGameObjectWithTag("VSync");
+        if (VSync != null && !hasSetVSync)
+        {
+            VSync.GetComponent<Toggle>().isOn = vSyncEnabled;
+            hasSetVSync = true;
+        }
+        if (VSync == null && hasSetVSync)
+        {
+            hasSetVSync = false;
+        }
         if (!vSyncEnabled)
         {
             Application.targetFrameRate = maxFrameRate;
@@ -38,15 +65,16 @@ public class LimitFps : MonoBehaviour
         maxFrameRate = value;
     }
 
-    public void ToggleVSync()
+    public void ToggleVSync(bool toggle)
     {
+        vSyncEnabled = toggle;
         if (vSyncEnabled)
         {
-            vSyncEnabled = false;
+            PlayerPrefs.SetInt("VSyncOn", 1);
         }
-        else if (!vSyncEnabled)
+        if (!vSyncEnabled)
         {
-            vSyncEnabled = true;
+            PlayerPrefs.SetInt("VSyncOn", 0);
         }
     }
 }

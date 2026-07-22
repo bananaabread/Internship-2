@@ -1,17 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenuScript : MonoBehaviour
 {
-    public GameObject settingsPanel;
-    public GameObject FrameRateText;
+    public GameObject Settings;
+    //public GameObject settingsPanel;
+    //public GameObject FrameRateText;
     public GameObject FrameRateOption;
-    public GameObject vSync;
-    public GameObject BackButton;
+    //public GameObject vSync;
+    //public GameObject BackButton;
 
     public GameObject SoloButton;
     public GameObject VsButton;
@@ -23,10 +25,28 @@ public class MainMenuScript : MonoBehaviour
     public GameObject QuitButtonReal;
 
     private GameObject frameRateManager;
+    public GameObject VSync;
 
     private void Start()
     {
+        //if (VSync != null)
+        //{
+        //    if (PlayerPrefs.GetInt("VSyncOn", 1) == 0)
+        //    {
+        //        VSync.GetComponent<Toggle>().isOn = false;
+        //    }
+        //    if (PlayerPrefs.GetInt("VSyncOn", 1) == 1)
+        //    {
+        //        VSync.GetComponent<Toggle>().isOn = true;
+        //    }
+        //}
         frameRateManager = GameObject.FindGameObjectWithTag("FpsManager");
+        StartCoroutine(removeMenu());
+    }
+    public IEnumerator removeMenu()
+    {
+        yield return new WaitForSeconds(0.01f);
+        Settings.SetActive(false);
     }
     public void StartSoloMode()
     {
@@ -38,11 +58,12 @@ public class MainMenuScript : MonoBehaviour
     }
     public void OpenSettings()
     {
-        settingsPanel.SetActive(true);
-        FrameRateText.SetActive(true);
-        FrameRateOption.SetActive(true);
-        vSync.SetActive(true);
-        BackButton.SetActive(true);
+        Settings.SetActive(true);
+        //settingsPanel.SetActive(true);
+        //FrameRateText.SetActive(true);
+        //FrameRateOption.SetActive(true);
+        //vSync.SetActive(true);
+        //BackButton.SetActive(true);
 
         SoloButton.GetComponent<ButtonScript>().enabled = false;
         VsButton.GetComponent<ButtonScript>().enabled = false;
@@ -55,11 +76,12 @@ public class MainMenuScript : MonoBehaviour
     }
     public void CloseSettings()
     {
-        settingsPanel.SetActive(false);
-        FrameRateText.SetActive(false);
-        FrameRateOption.SetActive(false);
-        vSync.SetActive(false);
-        BackButton.SetActive(false);
+        Settings.SetActive(false);
+        //settingsPanel.SetActive(false);
+        //FrameRateText.SetActive(false);
+        //FrameRateOption.SetActive(false);
+        //vSync.SetActive(false);
+        //BackButton.SetActive(false);
 
         SoloButton.GetComponent<ButtonScript>().enabled = true;
         VsButton.GetComponent<ButtonScript>().enabled = true;
@@ -85,7 +107,7 @@ public class MainMenuScript : MonoBehaviour
     public void VsyncToggle()
     {
         FrameRateOption.GetComponent<TMP_Dropdown>().interactable = !FrameRateOption.GetComponent<TMP_Dropdown>().interactable;
-        frameRateManager.GetComponent<LimitFps>().ToggleVSync();
+        frameRateManager.GetComponent<LimitFps>().ToggleVSync(VSync.GetComponent<Toggle>().isOn);
     }
     public void Exit()
     {

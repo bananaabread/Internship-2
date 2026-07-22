@@ -46,7 +46,6 @@ public class ScoreScript : MonoBehaviour
     {
         ball = GameObject.FindGameObjectWithTag("Ball");
         audioControl = GameObject.FindGameObjectWithTag("AudioCtrl");
-        if (audioControl != null) Debug.Log("Found");
         restartPrompt.SetActive(false);
         if (!ball.GetComponent<BallBehaviorScript>().is1PlayerMode)
         {
