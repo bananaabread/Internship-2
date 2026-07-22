@@ -41,6 +41,7 @@ TagManager:
   - Ball
   - TargStuff
   - AudioCtrl
+  - FpsManager
   layers:
   - Default
   - TransparentFX
