@@ -33,6 +33,7 @@ public class BallBehaviorScript : MonoBehaviour
     //private Rigidbody2D _rb2d;
 
     public GameObject pineapple;
+    public SpriteRenderer pineapplespriteRend;
     public bool is1PlayerMode = true;
 
     public PopupManager popupManagerP1;
@@ -53,6 +54,9 @@ public class BallBehaviorScript : MonoBehaviour
     public List<GameObject> upTargets;
     public List<GameObject> downTargets;
     private int targNum = 0;
+
+    public float rotationSpeed = 50f;
+
 
 
     // Start is called before the first frame update
@@ -107,6 +111,10 @@ public class BallBehaviorScript : MonoBehaviour
         float speedconv = speed;
         float t = Mathf.InverseLerp(minSpeedd, maxSpeedd, speedconv);
         MainSoundtrack.pitch = Mathf.Lerp(minPitch, maxPitch, t);
+
+
+
+        transform.Rotate(new Vector3(0,0, rotationSpeed * Time.deltaTime));
     }
 
 
@@ -124,6 +132,21 @@ public class BallBehaviorScript : MonoBehaviour
             speed = Mathf.Max(speed - amount, minSpeed);
         }
         
+    }
+
+    public void SetAlpha(SpriteRenderer spriteRenderer, float alpha, float duration)
+    {
+        StartCoroutine(InvisAbil(spriteRenderer,  alpha,  duration));
+    }
+
+    private IEnumerator InvisAbil(SpriteRenderer spriteRenderer, float alpha, float duration)
+    {
+        Color c = spriteRenderer.color;
+        c.a = alpha;
+        spriteRenderer.color = c;
+        yield return new WaitForSeconds(duration);
+        c.a = 1;
+        spriteRenderer.color = c;
     }
 
     public void perfectHit()
@@ -311,6 +334,7 @@ public class BallBehaviorScript : MonoBehaviour
         _canvas.GetComponent<ScoreScript>().timeRun = false;
         canHit = true;
         canScore = false;
+        rotationSpeed = 0;
         if (isOnPlayer1Side)
         {
             transform.position = new Vector2(-5.58f, -1.96f);
@@ -347,6 +371,7 @@ public class BallBehaviorScript : MonoBehaviour
     public IEnumerator autoRestart()
     {
         yield return new WaitForSeconds(1);
+        rotationSpeed = 100;
         hitType = Random.Range(1, 4);
         testForHit(isOnPlayer1Side, hitType);
         Debug.Log("StartAgain");
