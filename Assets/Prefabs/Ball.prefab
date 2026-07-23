@@ -5003,7 +5003,7 @@ MonoBehaviour:
   hitType: 0
   playing: 1
   pineapple: {fileID: 7238184777527461364, guid: 88c8928f0d051d240abaeec26a2884cf, type: 3}
-  is1PlayerMode: 0
+  is1PlayerMode: 1
   popupManagerP1: {fileID: 0}
   popupManagerP2: {fileID: 0}
   ParticleBurst: {fileID: 8579910409234055053}
@@ -5015,6 +5015,32 @@ MonoBehaviour:
   maxPitch: 1.08
   minSpeedd: 0
   maxSpeedd: 20
+  upTargets:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  downTargets:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!50 &3535910133532817931
 Rigidbody2D:
   serializedVersion: 4

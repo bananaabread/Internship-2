@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class BallBehaviorScript : MonoBehaviour
@@ -25,7 +27,6 @@ public class BallBehaviorScript : MonoBehaviour
     public bool playing = true;
 
     private bool Player1 = true;
-    private bool hasSpedUp = false;
     private float startSpeed = 0;
     private int localShotChoice = 0;
 
@@ -48,6 +49,10 @@ public class BallBehaviorScript : MonoBehaviour
     public float maxPitch = 1.08f;
     public float minSpeedd = 0f;
     public float maxSpeedd = 20f;
+
+    public List<GameObject> upTargets;
+    public List<GameObject> downTargets;
+    private int targNum = 0;
 
 
     // Start is called before the first frame update
@@ -84,31 +89,15 @@ public class BallBehaviorScript : MonoBehaviour
                     }
                     StartCoroutine(splatDelay());
                 }
-                if (targ != null && (targ.tag == "Loop1" || targ.tag == "Loop2" || targ.tag == "Loop3" || targ.tag == "Loop4" || targ.tag == "Loop5" || targ.tag == "Loop6" || targ.tag == "Loop7" || targ.tag == "Loop8" || targ.tag == "Loop9" || targ.tag == "Loop10" || targ.tag == "Loop11" || targ.tag == "Loop12"))
+                if (targ != null && (upTargets.Contains(targ)))
                 {
-                    Loop();
+                    Up();
                 }
-                if (targ != null && (targ.tag == "Down1" || targ.tag == "Down2" || targ.tag == "Down3" || targ.tag == "Down4" || targ.tag == "Down5" || targ.tag == "Down6" || targ.tag == "Down7" || targ.tag == "Down8" || targ.tag == "Down9" || targ.tag == "Down10" || targ.tag == "Down11" || targ.tag == "Down12"))
+                if (targ != null && (downTargets.Contains(targ)))
                 {
                     Down();
                 }
             }
-            //if (speed > 19)
-            //{
-            //    GameObject[] hitZones = GameObject.FindGameObjectsWithTag("TargStuff");
-            //    foreach (GameObject hitZone in hitZones)
-            //    {
-            //        hitZone.transform.localScale = new Vector3(1.5f, 1, 1);
-            //    }
-            //}
-            //else
-            //{
-            //    GameObject[] hitZones = GameObject.FindGameObjectsWithTag("TargStuff");
-            //    foreach (GameObject hitZone in hitZones)
-            //    {
-            //        hitZone.transform.localScale = new Vector3(1, 1, 1);
-            //    }
-            //}
             if (speed > maxSpeed)
             {
                 speed = maxSpeed;
@@ -243,16 +232,37 @@ public class BallBehaviorScript : MonoBehaviour
     }
     public void setTarg(int shotChoice)
     {
+        switch (Player1)
+        {
+            case true: 
+                targNum = 0;
+                break;
+            case false:
+                targNum = 11;
+                break;
+        }
         switch (shotChoice)
         {
             case 1:
                 targ = GameObject.FindGameObjectWithTag(isOnPlayer1Side ? "Target1" : "Target2");
                 break;
             case 2:
-                targ = GameObject.FindGameObjectWithTag(Player1 ? "Down1" : "Down12");
+                foreach (GameObject downTarget in downTargets)
+                {
+                    if (downTargets.IndexOf(downTarget) == targNum)
+                    {
+                        targ = downTarget;
+                    }
+                }
                 break;
             case 3:
-                targ = GameObject.FindGameObjectWithTag(Player1 ? "Loop1" : "Loop12");
+                foreach (GameObject upTarget in upTargets)
+                {
+                    if (upTargets.IndexOf(upTarget) == targNum)
+                    {
+                        targ = upTarget;
+                    }
+                }
                 break;
         }
         localShotChoice = shotChoice;
@@ -263,7 +273,6 @@ public class BallBehaviorScript : MonoBehaviour
         {
             case "HitZone":
                 canHit = true;
-                hasSpedUp = false;
                 break;
             case "Early":
                 hitType = 1;
@@ -363,228 +372,77 @@ public class BallBehaviorScript : MonoBehaviour
     }
 
 
-
-    //Everything below here is a long-winded way to make the pineapple follow a path of objects for the different shots
+    //Changed this to using a List so that it is easier to visuallise
 
     public void Down()
     {
-        if (!hasSpedUp)
+        if (Player1)
         {
-            startSpeed = speed;
-            hasSpedUp = true;
+            if (Dis == 0 && targNum != 11)
+            {
+                targNum++;
+            }
+            if (Dis == 0 && targNum == 11)
+            {
+                targ = GameObject.FindGameObjectWithTag("Target1");
+            }
         }
-        if (Player1 && targ.tag == "Down1")
+        if (!Player1)
         {
-            targ = GameObject.FindGameObjectWithTag("Down2");
-            //speed = speed * 1.25f;
+            if (Dis == 0 && targNum != 0)
+            {
+                targNum--;
+            }
+            if (Dis == 0 && targNum == 0)
+            {
+                targ = GameObject.FindGameObjectWithTag("Target2");
+            }
         }
-        else if (Player1 && targ.tag == "Down2")
+        if (downTargets.Contains(targ))
         {
-            targ = GameObject.FindGameObjectWithTag("Down3");
-        }
-        else if (Player1 && targ.tag == "Down3")
-        {
-            targ = GameObject.FindGameObjectWithTag("Down4");
-        }
-        else if (Player1 && targ.tag == "Down4")
-        {
-            targ = GameObject.FindGameObjectWithTag("Down5");
-        }
-        else if (Player1 && targ.tag == "Down5")
-        {
-            targ = GameObject.FindGameObjectWithTag("Down6");
-        }
-        else if (Player1 && targ.tag == "Down6")
-        {
-            targ = GameObject.FindGameObjectWithTag("Down7");
-        }
-        else if (Player1 && targ.tag == "Down7")
-        {
-            targ = GameObject.FindGameObjectWithTag("Down8");
-        }
-        else if (Player1 && targ.tag == "Down8")
-        {
-            targ = GameObject.FindGameObjectWithTag("Down9");
-        }
-        else if (Player1 && targ.tag == "Down9")
-        {
-            targ = GameObject.FindGameObjectWithTag("Down10");
-        }
-        else if (Player1 && targ.tag == "Down10")
-        {
-            targ = GameObject.FindGameObjectWithTag("Down11");
-        }
-        else if (Player1 && targ.tag == "Down11")
-        {
-            targ = GameObject.FindGameObjectWithTag("Down12");
-        }
-        else if (Player1 && targ.tag == "Down12")
-        {
-            targ = GameObject.FindGameObjectWithTag("Target1");
-            //speed = startSpeed;
-        }
-
-
-        if (!Player1 && targ.tag == "Down12")
-        {
-            targ = GameObject.FindGameObjectWithTag("Down11");
-            //speed = speed * 1.25f;
-        }
-        else if (!Player1 && targ.tag == "Down11")
-        {
-            targ = GameObject.FindGameObjectWithTag("Down10");
-        }
-        else if (!Player1 && targ.tag == "Down10")
-        {
-            targ = GameObject.FindGameObjectWithTag("Down9");
-        }
-        else if (!Player1 && targ.tag == "Down9")
-        {
-            targ = GameObject.FindGameObjectWithTag("Down8");
-        }
-        else if (!Player1 && targ.tag == "Down8")
-        {
-            targ = GameObject.FindGameObjectWithTag("Down7");
-        }
-        else if (!Player1 && targ.tag == "Down7")
-        {
-            targ = GameObject.FindGameObjectWithTag("Down6");
-        }
-        else if (!Player1 && targ.tag == "Down6")
-        {
-            targ = GameObject.FindGameObjectWithTag("Down5");
-        }
-        else if (!Player1 && targ.tag == "Down5")
-        {
-            targ = GameObject.FindGameObjectWithTag("Down4");
-        }
-        else if (!Player1 && targ.tag == "Down4")
-        {
-            targ = GameObject.FindGameObjectWithTag("Down3");
-        }
-        else if (!Player1 && targ.tag == "Down3")
-        {
-            targ = GameObject.FindGameObjectWithTag("Down2");
-        }
-        else if (!Player1 && targ.tag == "Down2")
-        {
-            targ = GameObject.FindGameObjectWithTag("Down1");
-        }
-        else if (!Player1 && targ.tag == "Down1")
-        {
-            targ = GameObject.FindGameObjectWithTag("Target2");
-            //speed = startSpeed;
+            foreach (GameObject downTarget in downTargets)
+            {
+                if (downTargets.IndexOf(downTarget) == targNum)
+                {
+                    targ = downTarget;
+                }
+            }
         }
     }
 
-    public void Loop()
+    public void Up()
     {
-        if (!hasSpedUp)
+        if (Player1)
         {
-            startSpeed = speed;
-            hasSpedUp = true;
+            if (Dis == 0 && targNum != 11)
+            {
+                targNum++;
+            }
+            if (Dis == 0 && targNum == 11)
+            {
+                targ = GameObject.FindGameObjectWithTag("Target1");
+            }
         }
-        if (Player1 && targ.tag == "Loop1")
+        if (!Player1)
         {
-            targ = GameObject.FindGameObjectWithTag("Loop2");
-            //speed = speed * 1.25f;
+            if (Dis == 0 && targNum != 0)
+            {
+                targNum--;
+            }
+            if (Dis == 0 && targNum == 0)
+            {
+                targ = GameObject.FindGameObjectWithTag("Target2");
+            }
         }
-        else if (Player1 && targ.tag == "Loop2")
+        if (upTargets.Contains(targ))
         {
-            targ = GameObject.FindGameObjectWithTag("Loop3");
-        }
-        else if(Player1 && targ.tag == "Loop3")
-        {
-            targ = GameObject.FindGameObjectWithTag("Loop4");
-        }
-        else if (Player1 && targ.tag == "Loop4")
-        {
-            targ = GameObject.FindGameObjectWithTag("Loop5");
-        }
-        else if (Player1 && targ.tag == "Loop5")
-        {
-            targ = GameObject.FindGameObjectWithTag("Loop6");
-        }
-        else if (Player1 && targ.tag == "Loop6")
-        {
-            targ = GameObject.FindGameObjectWithTag("Loop7");
-        }
-        else if (Player1 && targ.tag == "Loop7")
-        {
-            targ = GameObject.FindGameObjectWithTag("Loop8");
-        }
-        else if (Player1 && targ.tag == "Loop8")
-        {
-            targ = GameObject.FindGameObjectWithTag("Loop9");
-        }
-        else if (Player1 && targ.tag == "Loop9")
-        {
-            targ = GameObject.FindGameObjectWithTag("Loop10");
-        }
-        else if (Player1 && targ.tag == "Loop10")
-        {
-            targ = GameObject.FindGameObjectWithTag("Loop11");
-        }
-        else if (Player1 && targ.tag == "Loop11")
-        {
-            targ = GameObject.FindGameObjectWithTag("Loop12");
-        }
-        else if (Player1 && targ.tag == "Loop12")
-        {
-            targ = GameObject.FindGameObjectWithTag("Target1");
-            //speed = startSpeed;
-        }
-
-
-        if (!Player1 && targ.tag == "Loop12")
-        {
-            targ = GameObject.FindGameObjectWithTag("Loop11");
-            //speed = speed * 1.25f;
-        }
-        else if (!Player1 && targ.tag == "Loop11")
-        {
-            targ = GameObject.FindGameObjectWithTag("Loop10");
-        }
-        else if (!Player1 && targ.tag == "Loop10")
-        {
-            targ = GameObject.FindGameObjectWithTag("Loop9");
-        }
-        else if (!Player1 && targ.tag == "Loop9")
-        {
-            targ = GameObject.FindGameObjectWithTag("Loop8");
-        }
-        else if (!Player1 && targ.tag == "Loop8")
-        {
-            targ = GameObject.FindGameObjectWithTag("Loop7");
-        }
-        else if (!Player1 && targ.tag == "Loop7")
-        {
-            targ = GameObject.FindGameObjectWithTag("Loop6");
-        }
-        else if (!Player1 && targ.tag == "Loop6")
-        {
-            targ = GameObject.FindGameObjectWithTag("Loop5");
-        }
-        else if (!Player1 && targ.tag == "Loop5")
-        {
-            targ = GameObject.FindGameObjectWithTag("Loop4");
-        }
-        else if (!Player1 && targ.tag == "Loop4")
-        {
-            targ = GameObject.FindGameObjectWithTag("Loop3");
-        }
-        else if (!Player1 && targ.tag == "Loop3")
-        {
-            targ = GameObject.FindGameObjectWithTag("Loop2");
-        }
-        else if (!Player1 && targ.tag == "Loop2")
-        {
-            targ = GameObject.FindGameObjectWithTag("Loop1");
-        }
-        else if (!Player1 && targ.tag == "Loop1")
-        {
-            targ = GameObject.FindGameObjectWithTag("Target2");
-            //speed = startSpeed;
+            foreach (GameObject upTarget in upTargets)
+            {
+                if (upTargets.IndexOf(upTarget) == targNum)
+                {
+                    targ = upTarget;
+                }
+            }
         }
     }
 

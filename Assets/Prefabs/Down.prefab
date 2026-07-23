@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6950871232661539133}
   - component: {fileID: 2660531466495557897}
   m_Layer: 0
-  m_Name: Loop7
-  m_TagString: Down7
+  m_Name: Down7
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,8 +95,8 @@ GameObject:
   - component: {fileID: 6189764382347253393}
   - component: {fileID: 4895488486540850486}
   m_Layer: 0
-  m_Name: Loop11
-  m_TagString: Down11
+  m_Name: Down11
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179,8 +179,8 @@ GameObject:
   - component: {fileID: 6122195578715842531}
   - component: {fileID: 2597413865587921248}
   m_Layer: 0
-  m_Name: Loop5
-  m_TagString: Down5
+  m_Name: Down5
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -263,8 +263,8 @@ GameObject:
   - component: {fileID: 8784387774085432286}
   - component: {fileID: 2598067639624217071}
   m_Layer: 0
-  m_Name: Loop8
-  m_TagString: Down8
+  m_Name: Down8
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -347,8 +347,8 @@ GameObject:
   - component: {fileID: 2980125509285868530}
   - component: {fileID: 609737247934167879}
   m_Layer: 0
-  m_Name: Loop10
-  m_TagString: Down10
+  m_Name: Down10
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -431,8 +431,8 @@ GameObject:
   - component: {fileID: 8852177126295624148}
   - component: {fileID: 8864844823441149458}
   m_Layer: 0
-  m_Name: Loop4
-  m_TagString: Down4
+  m_Name: Down4
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -515,8 +515,8 @@ GameObject:
   - component: {fileID: 2467740831609343426}
   - component: {fileID: 4609823733965249951}
   m_Layer: 0
-  m_Name: Loop12
-  m_TagString: Down12
+  m_Name: Down12
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -599,8 +599,8 @@ GameObject:
   - component: {fileID: 6583774780867355101}
   - component: {fileID: 2433607291323265061}
   m_Layer: 0
-  m_Name: Loop3
-  m_TagString: Down3
+  m_Name: Down3
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -683,8 +683,8 @@ GameObject:
   - component: {fileID: 1444538541385007032}
   - component: {fileID: 5108525391939293951}
   m_Layer: 0
-  m_Name: Loop1
-  m_TagString: Down1
+  m_Name: Down1
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -767,8 +767,8 @@ GameObject:
   - component: {fileID: 542490994692129006}
   - component: {fileID: 8225077258536844480}
   m_Layer: 0
-  m_Name: Loop6
-  m_TagString: Down6
+  m_Name: Down6
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -851,8 +851,8 @@ GameObject:
   - component: {fileID: 1007066547602253786}
   - component: {fileID: 3672658538657258426}
   m_Layer: 0
-  m_Name: Loop2
-  m_TagString: Down2
+  m_Name: Down2
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -934,7 +934,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1110840887151263584}
   m_Layer: 0
-  m_Name: Loops (1)
+  m_Name: Down
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -978,8 +978,8 @@ GameObject:
   - component: {fileID: 180011249699814574}
   - component: {fileID: 2758580396882318182}
   m_Layer: 0
-  m_Name: Loop9
-  m_TagString: Down9
+  m_Name: Down9
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
