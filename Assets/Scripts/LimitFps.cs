@@ -15,18 +15,22 @@ public class LimitFps : MonoBehaviour
 
     public void Start()
     {
+        VSync = GameObject.FindGameObjectWithTag("VSync");
         if (PlayerPrefs.GetInt("VSyncOn", 1) == 0)
         {
             vSyncEnabled = false;
+            VSync.GetComponent<Toggle>().isOn = false;
         }
         if (PlayerPrefs.GetInt("VSyncOn", 1) == 1)
         {
             vSyncEnabled = true;
+            VSync.GetComponent<Toggle>().isOn = true;
         }
     }
     public void Awake()
     {
         DontDestroyOnLoad(this);
+        VSync = GameObject.FindGameObjectWithTag("VSync");
 
         if (Instance == null)
         {

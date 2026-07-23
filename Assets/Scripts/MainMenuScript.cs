@@ -29,19 +29,43 @@ public class MainMenuScript : MonoBehaviour
 
     private void Start()
     {
-        //if (VSync != null)
-        //{
-        //    if (PlayerPrefs.GetInt("VSyncOn", 1) == 0)
-        //    {
-        //        VSync.GetComponent<Toggle>().isOn = false;
-        //    }
-        //    if (PlayerPrefs.GetInt("VSyncOn", 1) == 1)
-        //    {
-        //        VSync.GetComponent<Toggle>().isOn = true;
-        //    }
-        //}
         frameRateManager = GameObject.FindGameObjectWithTag("FpsManager");
         StartCoroutine(removeMenu());
+        if (PlayerPrefs.GetInt("FrameRate", 60) == 30)
+        {
+            FrameRateOption.GetComponent<TMP_Dropdown>().value = 0;
+        }
+        if (PlayerPrefs.GetInt("FrameRate", 60) == 60)
+        {
+            FrameRateOption.GetComponent<TMP_Dropdown>().value = 1;
+        }
+        if (PlayerPrefs.GetInt("FrameRate", 60) == 90)
+        {
+            FrameRateOption.GetComponent<TMP_Dropdown>().value = 2;
+        }
+        if (PlayerPrefs.GetInt("FrameRate", 60) == 120)
+        {
+            FrameRateOption.GetComponent<TMP_Dropdown>().value = 3;
+        }
+        if (PlayerPrefs.GetInt("FrameRate", 60) == 240)
+        {
+            FrameRateOption.GetComponent<TMP_Dropdown>().value = 4;
+        }
+        if (PlayerPrefs.GetInt("FrameRate", 60) == -1)
+        {
+            FrameRateOption.GetComponent<TMP_Dropdown>().value = 5;
+        }
+    }
+    private void Update()
+    {
+        if (VSync.GetComponent<Toggle>().isOn)
+        {
+            FrameRateOption.GetComponent<TMP_Dropdown>().interactable = false;
+        }
+        if (!VSync.GetComponent<Toggle>().isOn)
+        {
+            FrameRateOption.GetComponent<TMP_Dropdown>().interactable = true;
+        }
     }
     public IEnumerator removeMenu()
     {
@@ -97,16 +121,16 @@ public class MainMenuScript : MonoBehaviour
         int index = FrameRateOption.GetComponent<TMP_Dropdown>().value;
         switch (index)
         {
-            case 0: frameRateManager.GetComponent<LimitFps>().SetRate(30); break;
-            case 1: frameRateManager.GetComponent<LimitFps>().SetRate(60); break;
-            case 2: frameRateManager.GetComponent<LimitFps>().SetRate(90); break;
-            case 3: frameRateManager.GetComponent<LimitFps>().SetRate(120); break;
-            case 4: frameRateManager.GetComponent<LimitFps>().SetRate(240); break;
+            case 0: frameRateManager.GetComponent<LimitFps>().SetRate(30); PlayerPrefs.SetInt("FrameRate", 30); break;
+            case 1: frameRateManager.GetComponent<LimitFps>().SetRate(60); PlayerPrefs.SetInt("FrameRate", 60); break;
+            case 2: frameRateManager.GetComponent<LimitFps>().SetRate(90); PlayerPrefs.SetInt("FrameRate", 90); break;
+            case 3: frameRateManager.GetComponent<LimitFps>().SetRate(120); PlayerPrefs.SetInt("FrameRate", 120); break;
+            case 4: frameRateManager.GetComponent<LimitFps>().SetRate(240); PlayerPrefs.SetInt("FrameRate", 240); break;
+            case 5: frameRateManager.GetComponent<LimitFps>().SetRate(-1); PlayerPrefs.SetInt("FrameRate", -1); break;
         }
     }
     public void VsyncToggle()
     {
-        FrameRateOption.GetComponent<TMP_Dropdown>().interactable = !FrameRateOption.GetComponent<TMP_Dropdown>().interactable;
         frameRateManager.GetComponent<LimitFps>().ToggleVSync(VSync.GetComponent<Toggle>().isOn);
     }
     public void Exit()

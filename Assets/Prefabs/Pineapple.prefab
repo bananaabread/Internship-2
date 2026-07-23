@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8483160184708695000}
   - component: {fileID: 7169661878729170058}
   - component: {fileID: 1732406361062127922}
+  - component: {fileID: 7925877081947949190}
   m_Layer: 3
   m_Name: Pineapple
   m_TagString: Ball
@@ -148,3 +149,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &7925877081947949190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7238184777527461364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80e9e90daa430c243ab16725b5b2ea15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxBlinks: 4

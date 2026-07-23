@@ -43,6 +43,7 @@ TagManager:
   - AudioCtrl
   - FpsManager
   - VSync
+  - Floor
   layers:
   - Default
   - TransparentFX
