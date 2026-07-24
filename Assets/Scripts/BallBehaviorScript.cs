@@ -229,7 +229,7 @@ public class BallBehaviorScript : MonoBehaviour
                 
                 if (shotChoice == 1 || shotChoice == 3)
                 {
-                    P1Anim.SetTrigger("punch");
+                    //P1Anim.SetTrigger("punch");
                 }
                 else if(shotChoice == 2)
                 {

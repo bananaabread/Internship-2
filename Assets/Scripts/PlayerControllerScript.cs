@@ -37,7 +37,7 @@ public class PlayerControllerScript : MonoBehaviour
                 Ball.GetComponent<BallBehaviorScript>().testForHit(isPlayer1, 1);
                 isOnCooldown = true;
                 StartCoroutine(cooldown());
-                P1Anim.SetTrigger("punch");
+                //P1Anim.SetTrigger("punch");
 
 
             }
