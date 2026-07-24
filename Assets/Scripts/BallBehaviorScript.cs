@@ -57,7 +57,11 @@ public class BallBehaviorScript : MonoBehaviour
 
     public float rotationSpeed = 50f;
 
+    public Animator P1Anim;
+    public Animator P2Anim;
 
+    public bool IsHittingp1 = false;
+    public bool IsHittingp2 = false;
 
     // Start is called before the first frame update
     void Start()
@@ -209,6 +213,7 @@ public class BallBehaviorScript : MonoBehaviour
                     {
                         missedHit();
                         popupManagerP1.ShowPopup("Too Early");
+                        
                     }
                     if (hitType == 2)
                     {
@@ -221,12 +226,22 @@ public class BallBehaviorScript : MonoBehaviour
                         popupManagerP1.ShowPopup("Too Late");
                     }
                 }
+                
+                if (shotChoice == 1 || shotChoice == 3)
+                {
+                    P1Anim.SetTrigger("punch");
+                }
+                else if(shotChoice == 2)
+                {
+                    //otheranim
+                }
                 canHit = false;
                 canScore = true;
                 _canvas.GetComponent<ScoreScript>().play();
                 _canvas.GetComponent<ScoreScript>().timeRun = true;
                 Player1 = isPlayer1;
                 setTarg(shotChoice);
+                
                 return true;
             }
         }
@@ -252,9 +267,18 @@ public class BallBehaviorScript : MonoBehaviour
                             break;
                     }
                 }
+                
+                if (shotChoice == 1 || shotChoice == 3)
+                {
+                    P2Anim.SetTrigger("punch");
+                }
+                else if (shotChoice == 2)
+                {
+                    //otheranim
+                }
                 Player1 = isPlayer1;
                 canHit = false;
-                canScore = true;
+                
                 setTarg(shotChoice);
                 return true;
             }

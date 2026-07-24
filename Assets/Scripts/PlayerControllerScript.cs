@@ -16,6 +16,11 @@ public class PlayerControllerScript : MonoBehaviour
     public bool canRestart = false;
 
     public AbilityManager abilityManager;
+
+    public Animator P1Anim;
+    public Animator P2Anim;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,13 +37,19 @@ public class PlayerControllerScript : MonoBehaviour
                 Ball.GetComponent<BallBehaviorScript>().testForHit(isPlayer1, 1);
                 isOnCooldown = true;
                 StartCoroutine(cooldown());
+                P1Anim.SetTrigger("punch");
+
 
             }
             if (!isPlayer1 && Input.GetKeyDown(KeyCode.LeftArrow) && !isOnCooldown)
             {
+                P2Anim.ResetTrigger("punchup");
+                P2Anim.SetTrigger("punch");
                 Ball.GetComponent<BallBehaviorScript>().testForHit(isPlayer1, 1);
                 isOnCooldown = true;
                 StartCoroutine(cooldown());
+                
+
             }
             if (isPlayer1 && Input.GetKeyDown(KeyCode.S) && !isOnCooldown)
             {
@@ -52,6 +63,9 @@ public class PlayerControllerScript : MonoBehaviour
                 Ball.GetComponent<BallBehaviorScript>().testForHit(isPlayer1, 2);
                 isOnCooldown = true;
                 StartCoroutine(cooldown());
+                P2Anim.ResetTrigger("punchup");
+                P2Anim.SetTrigger("punch");
+
             }
             if (isPlayer1 && Input.GetKeyDown(KeyCode.W) && !isOnCooldown)
             {
@@ -65,6 +79,9 @@ public class PlayerControllerScript : MonoBehaviour
                 Ball.GetComponent<BallBehaviorScript>().testForHit(isPlayer1, 3);
                 isOnCooldown = true;
                 StartCoroutine(cooldown());
+                P2Anim.ResetTrigger("punch");
+                P2Anim.SetTrigger("punchup");
+
             }
             if (isPlayer1 && Input.GetKeyDown(KeyCode.A))
             {
@@ -87,6 +104,7 @@ public class PlayerControllerScript : MonoBehaviour
             }
             if (!isPlayer1 && Input.GetKeyDown(KeyCode.RightArrow))
             {
+
                 if (abilityManager.RequiresHit(abilityManager.CurrentAbilityP2))
                 {
                     if (!isOnCooldown)
@@ -96,6 +114,8 @@ public class PlayerControllerScript : MonoBehaviour
                             abilityManager.RunCurrentAbilityP2();
                         }
                         isOnCooldown = true;
+                        P2Anim.ResetTrigger("punchup");
+                        P2Anim.SetTrigger("punch");
                         StartCoroutine(cooldown());
                     }
                 }
