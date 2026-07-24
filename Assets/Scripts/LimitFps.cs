@@ -13,24 +13,23 @@ public class LimitFps : MonoBehaviour
     private GameObject VSync;
     private bool hasSetVSync = false;
 
+    public GameObject settingsPanel;
+
     public void Start()
     {
-        VSync = GameObject.FindGameObjectWithTag("VSync");
         if (PlayerPrefs.GetInt("VSyncOn", 1) == 0)
         {
             vSyncEnabled = false;
-            VSync.GetComponent<Toggle>().isOn = false;
         }
         if (PlayerPrefs.GetInt("VSyncOn", 1) == 1)
         {
             vSyncEnabled = true;
-            VSync.GetComponent<Toggle>().isOn = true;
         }
+        VSync = GameObject.FindGameObjectWithTag("VSync");
     }
     public void Awake()
     {
         DontDestroyOnLoad(this);
-        VSync = GameObject.FindGameObjectWithTag("VSync");
 
         if (Instance == null)
         {
@@ -44,6 +43,20 @@ public class LimitFps : MonoBehaviour
     public void Update()
     {
         VSync = GameObject.FindGameObjectWithTag("VSync");
+        //if (VSync != null)
+        //{
+        //    if (VSync.activeInHierarchy == true)
+        //    {
+        //        if (vSyncEnabled && VSync.GetComponent<Toggle>() != null)
+        //        {
+        //            VSync.GetComponent<Toggle>().isOn = true;
+        //        }
+        //        if (!vSyncEnabled && VSync.GetComponent<Toggle>() != null)
+        //        {
+        //            VSync.GetComponent<Toggle>().isOn = false;
+        //        }
+        //    }
+        //}
         if (VSync != null && !hasSetVSync)
         {
             VSync.GetComponent<Toggle>().isOn = vSyncEnabled;

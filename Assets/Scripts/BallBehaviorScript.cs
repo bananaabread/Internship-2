@@ -102,6 +102,14 @@ public class BallBehaviorScript : MonoBehaviour
             {
                 speed = maxSpeed;
             }
+            if (canHit)
+            {
+                GetComponent<Outline>().enabled = true;
+            }
+            else
+            {
+                GetComponent<Outline>().enabled = false;
+            }
         }
 
         float speedconv = speed;
@@ -205,20 +213,20 @@ public class BallBehaviorScript : MonoBehaviour
             {
                 if (canScore)
                 {
-                    if (hitType == 1)
+                    switch (hitType)
                     {
-                        missedHit();
-                        popupManagerP2.ShowPopup("Too Early");
-                    }
-                    if (hitType == 2)
-                    {
-                        perfectHit();
-                        popupManagerP2.ShowPopup("Perfect");
-                    }
-                    if (hitType == 3)
-                    {
-                        missedHit();
-                        popupManagerP2.ShowPopup("Too Late");
+                        case 1:
+                            missedHit();
+                            popupManagerP2.ShowPopup("Too Early");
+                            break;
+                        case 2:
+                            perfectHit();
+                            popupManagerP2.ShowPopup("Perfect");
+                            break;
+                        case 3:
+                            missedHit();
+                            popupManagerP2.ShowPopup("Too Late");
+                            break;
                     }
                 }
                 Player1 = isPlayer1;
@@ -327,6 +335,7 @@ public class BallBehaviorScript : MonoBehaviour
     public IEnumerator splatDelay()
     {
         canHit = false;
+        TriggerEffect();
         if (playing)
         {
             //Debug.Log("Stopped");

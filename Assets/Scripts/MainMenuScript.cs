@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -27,34 +28,70 @@ public class MainMenuScript : MonoBehaviour
     private GameObject frameRateManager;
     public GameObject VSync;
 
+    [SerializeField] private AudioMixer _audioMixer;
+    private float savedMasterValue;
+    private float savedMusicValue;
+    private float savedSFXValue;
+
+    //public string typeCheck;
+
+    public Slider MasterSlider;
+    public Slider MusicSlider;
+    public Slider SFXSlider;
+
     private void Start()
     {
         frameRateManager = GameObject.FindGameObjectWithTag("FpsManager");
-        StartCoroutine(removeMenu());
-        if (PlayerPrefs.GetInt("FrameRate", 60) == 30)
+        //StartCoroutine(removeMenu());
+        Settings.SetActive(false);
+        switch (PlayerPrefs.GetInt("FrameRate", 60))
         {
-            FrameRateOption.GetComponent<TMP_Dropdown>().value = 0;
+            case 30:
+                FrameRateOption.GetComponent<TMP_Dropdown>().value = 0;
+                break;
+            case 60:
+                FrameRateOption.GetComponent<TMP_Dropdown>().value = 1;
+                break;
+            case 90:
+                FrameRateOption.GetComponent<TMP_Dropdown>().value = 2;
+                break;
+            case 120:
+                FrameRateOption.GetComponent<TMP_Dropdown>().value = 3;
+                break;
+            case 240:
+                FrameRateOption.GetComponent<TMP_Dropdown>().value = 4;
+                break;
+            case -1:
+                FrameRateOption.GetComponent<TMP_Dropdown>().value = 5;
+                break;
         }
-        if (PlayerPrefs.GetInt("FrameRate", 60) == 60)
-        {
-            FrameRateOption.GetComponent<TMP_Dropdown>().value = 1;
-        }
-        if (PlayerPrefs.GetInt("FrameRate", 60) == 90)
-        {
-            FrameRateOption.GetComponent<TMP_Dropdown>().value = 2;
-        }
-        if (PlayerPrefs.GetInt("FrameRate", 60) == 120)
-        {
-            FrameRateOption.GetComponent<TMP_Dropdown>().value = 3;
-        }
-        if (PlayerPrefs.GetInt("FrameRate", 60) == 240)
-        {
-            FrameRateOption.GetComponent<TMP_Dropdown>().value = 4;
-        }
-        if (PlayerPrefs.GetInt("FrameRate", 60) == -1)
-        {
-            FrameRateOption.GetComponent<TMP_Dropdown>().value = 5;
-        }
+
+        savedMasterValue = PlayerPrefs.GetFloat("SavedMasterVolume", 1);
+        MasterSlider.value = PlayerPrefs.GetFloat("SavedMasterVolume", 1);
+        _audioMixer.SetFloat("MasterVolume", Mathf.Log10(savedMasterValue) * 20);
+
+        savedMusicValue = PlayerPrefs.GetFloat("SavedMusicVolume", 1);
+        MusicSlider.value = PlayerPrefs.GetFloat("SavedMusicVolume", 1);
+        _audioMixer.SetFloat("MusicVolume", Mathf.Log10(savedMusicValue) * 20);
+
+        savedSFXValue = PlayerPrefs.GetFloat("SavedSFXVolume", 1);
+        SFXSlider.value = PlayerPrefs.GetFloat("SavedSFXVolume", 1);
+        _audioMixer.SetFloat("SFXVolume", Mathf.Log10(savedSFXValue) * 20);
+    }
+    public void SetMasterVolume()
+    {
+        _audioMixer.SetFloat("MasterVolume", Mathf.Log10(MasterSlider.value) * 20);
+        PlayerPrefs.SetFloat("SavedMasterVolume", MasterSlider.value);
+    }
+    public void SetMusicVolume()
+    {
+        _audioMixer.SetFloat("MusicVolume", Mathf.Log10(MusicSlider.value) * 20);
+        PlayerPrefs.SetFloat("SavedMusicVolume", MusicSlider.value);
+    }
+    public void SetSFXVolume()
+    {
+        _audioMixer.SetFloat("SFXVolume", Mathf.Log10(SFXSlider.value) * 20);
+        PlayerPrefs.SetFloat("SavedSFXVolume", SFXSlider.value);
     }
     private void Update()
     {

@@ -41,6 +41,9 @@ public class ScoreScript : MonoBehaviour
 
     public bool is1PlayerMode = true;
 
+    public ParticleSystem p1VictoryParticles;
+    public ParticleSystem p2VictoryParticles;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -117,9 +120,18 @@ public class ScoreScript : MonoBehaviour
                 if (!is1PlayerMode)
                 {
                     audioControl.GetComponent<AudioManager>().PlayCelebration();
+                    if (score1 > score2)
+                    {
+                        p1VictoryParticles.Play();
+                    }
+                    if (score1 < score2)
+                    {
+                        p2VictoryParticles.Play();
+                    }
                 }
                 hasPlayedSound = true;
             }
+
 
 
             StartCoroutine(waitForSceneFinish());

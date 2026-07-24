@@ -1620,6 +1620,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4177372674332169894, guid: c008c464f8b05c64aa1987bd7b2d1449, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.044
+      objectReference: {fileID: 0}
     - target: {fileID: 5471667043918729087, guid: c008c464f8b05c64aa1987bd7b2d1449, type: 3}
       propertyPath: m_Name
       value: Player1
@@ -1914,7 +1918,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 960286862758532925, guid: 1523d0757a193fb459736e0cc4820bdd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.047
+      value: 0.044
       objectReference: {fileID: 0}
     - target: {fileID: 2584108174111858593, guid: 1523d0757a193fb459736e0cc4820bdd, type: 3}
       propertyPath: m_Name
@@ -1992,6 +1996,10 @@ PrefabInstance:
     - target: {fileID: 3247110012537177579, guid: 78920ec8a21c08b4abad1df5678dca5f, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -147.30005
+      objectReference: {fileID: 0}
+    - target: {fileID: 3265669777349419628, guid: 78920ec8a21c08b4abad1df5678dca5f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 3567957080101185517, guid: 78920ec8a21c08b4abad1df5678dca5f, type: 3}
       propertyPath: m_Camera

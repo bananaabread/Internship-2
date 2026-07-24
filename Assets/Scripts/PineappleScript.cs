@@ -7,6 +7,8 @@ public class PineappleScript : MonoBehaviour
     private int blinkNum = 0;
     public int maxBlinks = 4;
 
+    public ParticleSystem splats;
+
     void Update()
     {
         if (blinkNum == maxBlinks)
@@ -20,6 +22,7 @@ public class PineappleScript : MonoBehaviour
         if (collision.gameObject.tag == "Floor")
         {
             StartCoroutine(WaitToBlink());
+            splats.Play();
         }
     }
     private IEnumerator WaitToBlink()
