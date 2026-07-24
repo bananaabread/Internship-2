@@ -8,6 +8,7 @@ public class PopupManager : MonoBehaviour
     public TMP_Text popupText;
     public Transform moveTarget;
 
+    public BallBehaviorScript BBs;
     public void ShowPopup(string message)
     {
         popupText.text = message;
@@ -25,7 +26,7 @@ public class PopupManager : MonoBehaviour
 
         while (t < 1f)
         {
-            t += Time.deltaTime * 2f;
+            t += Time.deltaTime * (Mathf.Lerp(5, 99, BBs.speed) + 0.1f) ;
             popupPanel.transform.position = Vector3.Lerp(startPos, endPos, t);
             yield return null;
         }

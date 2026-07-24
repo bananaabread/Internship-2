@@ -21,13 +21,24 @@ public class AbilityManager : MonoBehaviour
         switch (CurrentAbilityP1)
         {
             case 1:
-                HardHittingSwing(true);
+                HardHittingSwing(false);
                 break;
             case 2:
                 FreezeBall(true);
                 break;
-                
-                
+            case 3:
+                SlowBall(true);
+                break;
+            case 4:
+                //multipleballs
+                break;
+            case 5:
+                InvisBall(true);
+                break;
+            case 6:
+                //change pos of hit ranges
+                break;
+
         }
 
         isP1OnCooldown = true;
@@ -47,13 +58,16 @@ public class AbilityManager : MonoBehaviour
                 FreezeBall(true);
                 break;
             case 3:
-                //slowtime
+                SlowBall(true);
                 break;
             case 4:
                 //multipleballs
                 break;
             case 5:
-                //invisball
+                InvisBall(true);
+                break;
+            case 6:
+                //change pos of hit ranges
                 break;
 
 
@@ -72,6 +86,19 @@ public class AbilityManager : MonoBehaviour
     {
         BBS.ApplySpeedBoost(-BBS.speed , 0.3f , 1);
     }
+
+    public void SlowBall(bool isPlayer1)
+    {
+        BBS.ApplySpeedBoost((-BBS.speed + 7), 0.6f, 1);
+    }
+
+    public void InvisBall (bool isPlayer1)
+    {
+        BBS.SetAlpha(BBS.pineapplespriteRend,  0.01f, 0.4f);
+        
+    }
+
+
 
     public bool RequiresHit(int abilityId)
     {

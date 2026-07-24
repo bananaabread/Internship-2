@@ -5468,6 +5468,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1263179969}
     - target: {fileID: 2916259154618074264, guid: e6716cb77998ac54d97d9814f3becd42, type: 3}
+      propertyPath: pineapplespriteRend
+      value: 
+      objectReference: {fileID: 1385215479}
+    - target: {fileID: 2916259154618074264, guid: e6716cb77998ac54d97d9814f3becd42, type: 3}
       propertyPath: upTargets.Array.data[0]
       value: 
       objectReference: {fileID: 15615072}
@@ -5988,8 +5992,8 @@ Transform:
   m_GameObject: {fileID: 432987110}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.561, y: -1.96, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalPosition: {x: 5.3525, y: -1.96, z: 0}
+  m_LocalScale: {x: 0.240625, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -6309,8 +6313,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a28d57ab369d0d94f95347e52f0694c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentAbilityP1: 2
-  CurrentAbilityP2: 1
+  CurrentAbilityP1: 5
+  CurrentAbilityP2: 5
   BBS: {fileID: 1385215471}
   AbilityCooldownTimeP1: 3
   AbilityCooldownTimeP2: 3
@@ -6797,8 +6801,8 @@ Transform:
   m_GameObject: {fileID: 880603706}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.697, y: -1.96, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalPosition: {x: 4.4622, y: -1.96, z: 0}
+  m_LocalScale: {x: 0.2375, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -6917,8 +6921,8 @@ Transform:
   m_GameObject: {fileID: 882995291}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.697, y: -1.96, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalPosition: {x: -4.4622, y: -1.96, z: 0}
+  m_LocalScale: {x: 0.2375, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -7273,9 +7277,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2239755346642437537, guid: 78920ec8a21c08b4abad1df5678dca5f, type: 3}
+      propertyPath: BBs
+      value: 
+      objectReference: {fileID: 1385215471}
+    - target: {fileID: 3136633271577107644, guid: 78920ec8a21c08b4abad1df5678dca5f, type: 3}
+      propertyPath: BBs
+      value: 
+      objectReference: {fileID: 1385215471}
     - target: {fileID: 3193614187789761928, guid: 78920ec8a21c08b4abad1df5678dca5f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -655.99994
+      value: -656
       objectReference: {fileID: 0}
     - target: {fileID: 3265669777349419628, guid: 78920ec8a21c08b4abad1df5678dca5f, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -7622,6 +7634,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f23f9c090697514899a2054e0ccd498, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!212 &1385215479 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1430629488149838666, guid: e6716cb77998ac54d97d9814f3becd42, type: 3}
+  m_PrefabInstance: {fileID: 358535403}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1415505389
 GameObject:
   m_ObjectHideFlags: 0
@@ -12781,8 +12798,8 @@ Transform:
   m_GameObject: {fileID: 1557805672}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.561, y: -1.96, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalPosition: {x: -5.3525, y: -1.96, z: 0}
+  m_LocalScale: {x: 0.240625, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
