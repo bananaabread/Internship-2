@@ -57,11 +57,9 @@ public class BallBehaviorScript : MonoBehaviour
 
     public float rotationSpeed = 50f;
 
-    public Animator P1Anim;
-    public Animator P2Anim;
+    
 
-    public bool IsHittingp1 = false;
-    public bool IsHittingp2 = false;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -268,14 +266,7 @@ public class BallBehaviorScript : MonoBehaviour
                     }
                 }
                 
-                if (shotChoice == 1 || shotChoice == 3)
-                {
-                    P2Anim.SetTrigger("punch");
-                }
-                else if (shotChoice == 2)
-                {
-                    //otheranim
-                }
+                
                 Player1 = isPlayer1;
                 canHit = false;
                 

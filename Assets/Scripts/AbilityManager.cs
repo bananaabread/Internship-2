@@ -14,6 +14,11 @@ public class AbilityManager : MonoBehaviour
     private bool isP1OnCooldown = false;
     private bool isP2OnCooldown = false;
 
+    public GameObject PanelP1;
+    public GameObject PanelP2;
+
+    
+
     public void RunCurrentAbilityP1()
     {
         if (isP1OnCooldown) return;
@@ -119,6 +124,18 @@ public class AbilityManager : MonoBehaviour
     {
         yield return new WaitForSeconds(AbilityCooldownTimeP2);
         isP2OnCooldown = false;
+    }
+
+    public void SetAbilityP1(int abilityId)
+    {
+        CurrentAbilityP1 = abilityId;
+        PanelP1.SetActive(false);
+    }
+
+    public void SetAbilityP2(int abilityId)
+    {
+        CurrentAbilityP2 = abilityId;
+        PanelP2.SetActive(false);
     }
 
 }
