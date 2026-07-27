@@ -1,3 +1,4 @@
+using System.Net;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -5,19 +6,38 @@ using UnityEngine.UI;
 
 public class ButtonScript : Selectable
 {
-    BaseEventData m_BaseEvent;
     public Transform in_targ_transform;
     public Transform out_targ_transform;
 
+    public float Dis;
+    public float speed = 5f;
+
+    public bool hasEntered = false;
+
     void Update()
     {
-        if (IsHighlighted())
+        Dis = Vector2.Distance(transform.position, in_targ_transform.position);
+        if (!hasEntered)
         {
-            transform.position = new Vector3(out_targ_transform.position.x, transform.position.y);
+            if (Dis > 0)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, new Vector3(in_targ_transform.position.x, transform.position.y, 1), speed * Time.deltaTime);
+            }
+            if (transform.position.x > in_targ_transform.position.x -0.1f && transform.position.x < in_targ_transform.position.x + 0.1f)
+            {
+                hasEntered = true;
+            }
         }
-        else
+        if (hasEntered)
         {
-            transform.position = new Vector3(in_targ_transform.position.x, transform.position.y);
+            if (IsHighlighted())
+            {
+                transform.position = new Vector3(out_targ_transform.position.x, transform.position.y);
+            }
+            else
+            {
+                transform.position = new Vector3(in_targ_transform.position.x, transform.position.y);
+            }
         }
     }
 }
