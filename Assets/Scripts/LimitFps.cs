@@ -43,20 +43,6 @@ public class LimitFps : MonoBehaviour
     public void Update()
     {
         VSync = GameObject.FindGameObjectWithTag("VSync");
-        //if (VSync != null)
-        //{
-        //    if (VSync.activeInHierarchy == true)
-        //    {
-        //        if (vSyncEnabled && VSync.GetComponent<Toggle>() != null)
-        //        {
-        //            VSync.GetComponent<Toggle>().isOn = true;
-        //        }
-        //        if (!vSyncEnabled && VSync.GetComponent<Toggle>() != null)
-        //        {
-        //            VSync.GetComponent<Toggle>().isOn = false;
-        //        }
-        //    }
-        //}
         if (VSync != null && !hasSetVSync)
         {
             VSync.GetComponent<Toggle>().isOn = vSyncEnabled;
@@ -69,6 +55,7 @@ public class LimitFps : MonoBehaviour
         if (!vSyncEnabled)
         {
             Application.targetFrameRate = maxFrameRate;
+            Debug.Log(Application.targetFrameRate);
             QualitySettings.vSyncCount = 0;
         }
         if (vSyncEnabled)

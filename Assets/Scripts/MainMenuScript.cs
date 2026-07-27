@@ -120,11 +120,6 @@ public class MainMenuScript : MonoBehaviour
     public void OpenSettings()
     {
         Settings.SetActive(true);
-        //settingsPanel.SetActive(true);
-        //FrameRateText.SetActive(true);
-        //FrameRateOption.SetActive(true);
-        //vSync.SetActive(true);
-        //BackButton.SetActive(true);
 
         SoloButton.GetComponent<ButtonScript>().enabled = false;
         VsButton.GetComponent<ButtonScript>().enabled = false;
@@ -138,11 +133,6 @@ public class MainMenuScript : MonoBehaviour
     public void CloseSettings()
     {
         Settings.SetActive(false);
-        //settingsPanel.SetActive(false);
-        //FrameRateText.SetActive(false);
-        //FrameRateOption.SetActive(false);
-        //vSync.SetActive(false);
-        //BackButton.SetActive(false);
 
         SoloButton.GetComponent<ButtonScript>().enabled = true;
         VsButton.GetComponent<ButtonScript>().enabled = true;

@@ -20,6 +20,8 @@ public class PlayerControllerScript : MonoBehaviour
     public Animator P1Anim;
     public Animator P2Anim;
 
+    private bool canEmulate = true;
+
 
     // Start is called before the first frame update
     void Start()
@@ -32,55 +34,11 @@ public class PlayerControllerScript : MonoBehaviour
     {
         if (playing)
         {
-            if (isPlayer1 && Input.GetKeyDown(KeyCode.D) && !isOnCooldown)
-            {
-                Ball.GetComponent<BallBehaviorScript>().testForHit(isPlayer1, 1);
-                isOnCooldown = true;
-                StartCoroutine(cooldown());
-                //P1Anim.SetTrigger("punch");
-
-
-            }
-            if (!isPlayer1 && Input.GetKeyDown(KeyCode.LeftArrow) && !isOnCooldown)
-            {
-                P2Anim.ResetTrigger("punchup");
-                P2Anim.SetTrigger("punch");
-                Ball.GetComponent<BallBehaviorScript>().testForHit(isPlayer1, 1);
-                isOnCooldown = true;
-                StartCoroutine(cooldown());
-                
-
-            }
-            if (isPlayer1 && Input.GetKeyDown(KeyCode.S) && !isOnCooldown)
-            {
-                Ball.GetComponent<BallBehaviorScript>().testForHit(isPlayer1, 2);
-                isOnCooldown = true;
-                StartCoroutine(cooldown());
-
-            }
-            if (!isPlayer1 && Input.GetKeyDown(KeyCode.DownArrow) && !isOnCooldown)
-            {
-                Ball.GetComponent<BallBehaviorScript>().testForHit(isPlayer1, 2);
-                isOnCooldown = true;
-                StartCoroutine(cooldown());
-                P2Anim.ResetTrigger("punchup");
-                P2Anim.SetTrigger("punch");
-
-            }
             if (isPlayer1 && Input.GetKeyDown(KeyCode.W) && !isOnCooldown)
             {
                 Ball.GetComponent<BallBehaviorScript>().testForHit(isPlayer1, 3);
                 isOnCooldown = true;
                 StartCoroutine(cooldown());
-
-            }
-            if (!isPlayer1 && Input.GetKeyDown(KeyCode.UpArrow) && !isOnCooldown)
-            {
-                Ball.GetComponent<BallBehaviorScript>().testForHit(isPlayer1, 3);
-                isOnCooldown = true;
-                StartCoroutine(cooldown());
-                P2Anim.ResetTrigger("punch");
-                P2Anim.SetTrigger("punchup");
 
             }
             if (isPlayer1 && Input.GetKeyDown(KeyCode.A))
@@ -101,6 +59,50 @@ public class PlayerControllerScript : MonoBehaviour
                 {
                     abilityManager.RunCurrentAbilityP1();
                 }
+            }
+            if (isPlayer1 && Input.GetKeyDown(KeyCode.S) && !isOnCooldown)
+            {
+                Ball.GetComponent<BallBehaviorScript>().testForHit(isPlayer1, 2);
+                isOnCooldown = true;
+                StartCoroutine(cooldown());
+
+            }
+            if (isPlayer1 && Input.GetKeyDown(KeyCode.D) && !isOnCooldown)
+            {
+                Ball.GetComponent<BallBehaviorScript>().testForHit(isPlayer1, 1);
+                isOnCooldown = true;
+                StartCoroutine(cooldown());
+                //P1Anim.SetTrigger("punch");
+
+
+            }
+            if (!isPlayer1 && Input.GetKeyDown(KeyCode.LeftArrow) && !isOnCooldown)
+            {
+                P2Anim.ResetTrigger("punchup");
+                P2Anim.SetTrigger("punch");
+                Ball.GetComponent<BallBehaviorScript>().testForHit(isPlayer1, 1);
+                isOnCooldown = true;
+                StartCoroutine(cooldown());
+                
+
+            }
+            if (!isPlayer1 && Input.GetKeyDown(KeyCode.DownArrow) && !isOnCooldown)
+            {
+                Ball.GetComponent<BallBehaviorScript>().testForHit(isPlayer1, 2);
+                isOnCooldown = true;
+                StartCoroutine(cooldown());
+                P2Anim.ResetTrigger("punchup");
+                P2Anim.SetTrigger("punch");
+
+            }
+            if (!isPlayer1 && Input.GetKeyDown(KeyCode.UpArrow) && !isOnCooldown)
+            {
+                Ball.GetComponent<BallBehaviorScript>().testForHit(isPlayer1, 3);
+                isOnCooldown = true;
+                StartCoroutine(cooldown());
+                P2Anim.ResetTrigger("punch");
+                P2Anim.SetTrigger("punchup");
+
             }
             if (!isPlayer1 && Input.GetKeyDown(KeyCode.RightArrow))
             {
@@ -149,5 +151,35 @@ public class PlayerControllerScript : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         isOnCooldown = false;
+    }
+
+    public void emulateAnim(int emulationType)
+    {
+        if (canEmulate)
+        {
+            switch (emulationType)
+            {
+                case 1:
+                    P2Anim.ResetTrigger("punchup");
+                    P2Anim.SetTrigger("punch");
+                    Debug.Log("Punch");
+                    break;
+                case 2:
+                    P2Anim.ResetTrigger("punchup");
+                    P2Anim.SetTrigger("punch");
+                    Debug.Log("Punch");
+                    break;
+                case 3:
+                    P2Anim.ResetTrigger("punch");
+                    P2Anim.SetTrigger("punchup");
+                    Debug.Log("UpperCrust!");
+                    break;
+            }
+            canEmulate = false;
+        }
+    }
+    public void emulateAgain()
+    {
+        canEmulate = true;
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 public class BallBehaviorScript : MonoBehaviour
@@ -57,6 +58,8 @@ public class BallBehaviorScript : MonoBehaviour
 
     public float rotationSpeed = 50f;
 
+    public GameObject player2;
+
     
 
     
@@ -64,9 +67,7 @@ public class BallBehaviorScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //targ = GameObject.FindGameObjectWithTag("Target1");
         _canvas = GameObject.FindGameObjectWithTag("Canvas");
-        //_rb2d = GetComponent<Rigidbody2D>();
         MainSoundtrack.Play();
     }
 
@@ -319,6 +320,10 @@ public class BallBehaviorScript : MonoBehaviour
         {
             case "HitZone":
                 canHit = true;
+                if (player2 != null)
+                {
+                    player2.GetComponent<PlayerControllerScript>().emulateAgain();
+                }
                 break;
             case "Early":
                 hitType = 1;
@@ -337,6 +342,10 @@ public class BallBehaviorScript : MonoBehaviour
                     int roll = Random.Range(1, 100);
                     int shotChoice = roll <= 50 ? 1 : roll <= 74 ? 2 : 3;
                     testForHit(isOnPlayer1Side, shotChoice);
+                    if (player2 != null)
+                    {
+                        player2.GetComponent<PlayerControllerScript>().emulateAnim(shotChoice);
+                    }
                 }
                 break;
         }
@@ -350,6 +359,13 @@ public class BallBehaviorScript : MonoBehaviour
         if (collision.gameObject.tag == "Border2")
         {
             isOnPlayer1Side = false;
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Floor")
+        {
+            ParticleBurst.Play();
         }
     }
     public void restart()
