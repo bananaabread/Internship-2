@@ -17,7 +17,10 @@ public class AbilityManager : MonoBehaviour
     public GameObject PanelP1;
     public GameObject PanelP2;
 
-    
+    public AudioSource Freeze;
+    public AudioSource Invis;
+    public AudioSource HardSwing;
+    public AudioSource Slow;
 
     public void RunCurrentAbilityP1()
     {
@@ -84,21 +87,28 @@ public class AbilityManager : MonoBehaviour
 
     public void HardHittingSwing(bool isPlayer1)
     {
+        HardSwing.Play();
         BBS.ApplySpeedBoost(10f, 0.3f , 0);
+        
     }
 
     public void FreezeBall(bool isPlayer1)
     {
+        Freeze.Play();
         BBS.ApplySpeedBoost(-BBS.speed , 0.3f , 1);
+        
     }
 
     public void SlowBall(bool isPlayer1)
     {
+        Slow.Play();
         BBS.ApplySpeedBoost((-BBS.speed + 7), 0.6f, 1);
+        
     }
 
     public void InvisBall (bool isPlayer1)
     {
+        Invis.Play();
         BBS.SetAlpha(BBS.pineapplespriteRend,  0.01f, 0.4f);
         
     }
