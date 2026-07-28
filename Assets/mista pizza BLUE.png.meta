@@ -1,0 +1,1302 @@
+fileFormatVersion: 2
+guid: e4b1516eb1648f345bc8f506112b537a
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: mista pizza BLUE_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7334
+        width: 598
+        height: 858
+      alignment: 9
+      pivot: {x: 0.5094468, y: 0.499061}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edfcb522ae03d4b42a86eb14d2aaef70
+      internalID: 913547691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_1
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 7335
+        width: 587
+        height: 857
+      alignment: 9
+      pivot: {x: 0.5109986, y: 0.48870173}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 910f9869236dd194198abb7633885f19
+      internalID: -266186271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_2
+      rect:
+        serializedVersion: 2
+        x: 1206
+        y: 7335
+        width: 596
+        height: 857
+      alignment: 9
+      pivot: {x: 0.5203106, y: 0.48776048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a71cbd1199bc2544a9bdab820def1108
+      internalID: -960807071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_3
+      rect:
+        serializedVersion: 2
+        x: 1812
+        y: 7335
+        width: 594
+        height: 857
+      alignment: 9
+      pivot: {x: 0.5190208, y: 0.48775992}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa750e76501468d4f9fe38d3378c359c
+      internalID: 1189368167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_4
+      rect:
+        serializedVersion: 2
+        x: 2420
+        y: 7331
+        width: 595
+        height: 861
+      alignment: 9
+      pivot: {x: 0.50949484, y: 0.4887542}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74162d5771850924baa777c68fd10a1b
+      internalID: 218374579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_5
+      rect:
+        serializedVersion: 2
+        x: 3026
+        y: 7330
+        width: 597
+        height: 861
+      alignment: 9
+      pivot: {x: 0.5135185, y: 0.48594248}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e79b2f72b465c3b4880bd3bf97c0e483
+      internalID: -1252995148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_6
+      rect:
+        serializedVersion: 2
+        x: 3636
+        y: 7330
+        width: 597
+        height: 861
+      alignment: 9
+      pivot: {x: 0.5094634, y: 0.48781678}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59cc0a337cb2ba94bb163ecc911e4242
+      internalID: -1761998920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_7
+      rect:
+        serializedVersion: 2
+        x: 4240
+        y: 7326
+        width: 602
+        height: 866
+      alignment: 9
+      pivot: {x: 0.5187696, y: 0.48602533}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fa1ff67acaa18d468f09092569efbdc
+      internalID: -1076796596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_8
+      rect:
+        serializedVersion: 2
+        x: 4851
+        y: 7326
+        width: 602
+        height: 866
+      alignment: 9
+      pivot: {x: 0.5214495, y: 0.48509163}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e40b13983a8cac4ea541e2817a13ea4
+      internalID: -574915448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_9
+      rect:
+        serializedVersion: 2
+        x: 5460
+        y: 7322
+        width: 607
+        height: 870
+      alignment: 9
+      pivot: {x: 0.51861423, y: 0.48887056}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e3d9917991c90b4f9ae236086e498c8
+      internalID: -1145851952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_10
+      rect:
+        serializedVersion: 2
+        x: 6076
+        y: 7322
+        width: 605
+        height: 870
+      alignment: 9
+      pivot: {x: 0.51734245, y: 0.48887056}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e9012b2fca8c2740a6f62958c941875
+      internalID: 406064160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_11
+      rect:
+        serializedVersion: 2
+        x: 6688
+        y: 7326
+        width: 607
+        height: 866
+      alignment: 9
+      pivot: {x: 0.51861423, y: 0.48602366}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49efdb34b2e305b48a1e4c9aeb4a347e
+      internalID: 1793950577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_12
+      rect:
+        serializedVersion: 2
+        x: 7302
+        y: 7322
+        width: 630
+        height: 870
+      alignment: 9
+      pivot: {x: 0.50072545, y: 0.4886657}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8599a87a5d2791a4fa5993e85eee54f7
+      internalID: -766842805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6450
+        width: 614
+        height: 879
+      alignment: 9
+      pivot: {x: 0.51849586, y: 0.48807406}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a0b9bb294a8def4dbf6a4434b0987e4
+      internalID: -1154930758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_14
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 6449
+        width: 609
+        height: 877
+      alignment: 9
+      pivot: {x: 0.51577896, y: 0.4890429}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfc2057a5f5410148a9b0ab4e3a8c667
+      internalID: -324192809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_15
+      rect:
+        serializedVersion: 2
+        x: 869
+        y: 5622
+        width: 915
+        height: 832
+      alignment: 9
+      pivot: {x: 0.69567126, y: 0.51317596}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e45fdf2f2d3a5c4c918924ef2021a70
+      internalID: 461561771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_16
+      rect:
+        serializedVersion: 2
+        x: 1859
+        y: 6450
+        width: 611
+        height: 876
+      alignment: 9
+      pivot: {x: 0.52001673, y: 0.4860394}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73864476035f8cc43aeb53b6026d1482
+      internalID: -286108340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_17
+      rect:
+        serializedVersion: 2
+        x: 2481
+        y: 6450
+        width: 615
+        height: 878
+      alignment: 9
+      pivot: {x: 0.515625, y: 0.48408136}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e7e632c099f45149b8bf7dd0076a54e
+      internalID: 1391645587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_18
+      rect:
+        serializedVersion: 2
+        x: 3103
+        y: 6452
+        width: 614
+        height: 874
+      alignment: 9
+      pivot: {x: 0.51280504, y: 0.48600745}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcd3e1b036b1ecc498a5aa43718e1bb2
+      internalID: -1312001498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_19
+      rect:
+        serializedVersion: 2
+        x: 3722
+        y: 6462
+        width: 607
+        height: 864
+      alignment: 9
+      pivot: {x: 0.51295274, y: 0.4858455}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f61be601ec5ebe64bb7e7dd1db8fd21a
+      internalID: -39227081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_20
+      rect:
+        serializedVersion: 2
+        x: 4337
+        y: 6456
+        width: 609
+        height: 873
+      alignment: 9
+      pivot: {x: 0.5028688, y: 0.48699147}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30c7d021bc29e444a964327aed05328f
+      internalID: -681070736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_21
+      rect:
+        serializedVersion: 2
+        x: 4938
+        y: 6460
+        width: 606
+        height: 866
+      alignment: 9
+      pivot: {x: 0.5245059, y: 0.48688632}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2811d0df37d9d474dab2bcf72bc6994c
+      internalID: -113702102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_22
+      rect:
+        serializedVersion: 2
+        x: 5555
+        y: 6469
+        width: 596
+        height: 857
+      alignment: 9
+      pivot: {x: 0.51319176, y: 0.48674917}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3685e5eb2dbe1234aa05ed86373ad9cb
+      internalID: 1796013260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_23
+      rect:
+        serializedVersion: 2
+        x: 6755
+        y: 6470
+        width: 783
+        height: 850
+      alignment: 9
+      pivot: {x: 0.6662364, y: 0.50205594}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0350476b5006c8a48989aa13d543f6b7
+      internalID: 1593131272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5617
+        width: 864
+        height: 832
+      alignment: 9
+      pivot: {x: 0.6911507, y: 0.50790584}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6509a87f1565c24c83111ff12500dae
+      internalID: -1882078716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_25
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 5626
+        width: 940
+        height: 825
+      alignment: 9
+      pivot: {x: 0.6912447, y: 0.518602}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 653740656a83b1841972c0589279e77a
+      internalID: -163466276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_26
+      rect:
+        serializedVersion: 2
+        x: 3656
+        y: 5609
+        width: 873
+        height: 846
+      alignment: 9
+      pivot: {x: 0.68332136, y: 0.50086457}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d9b8496d47d4e34f9ddc4113143866d
+      internalID: -667432252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_27
+      rect:
+        serializedVersion: 2
+        x: 4537
+        y: 5601
+        width: 837
+        height: 853
+      alignment: 9
+      pivot: {x: 0.6798561, y: 0.4982873}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b466ad87b930814a8eaa2ef8dd17a8f
+      internalID: 1646186028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_28
+      rect:
+        serializedVersion: 2
+        x: 5383
+        y: 5598
+        width: 805
+        height: 856
+      alignment: 9
+      pivot: {x: 0.674297, y: 0.4957321}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8597e6f247f57a47a17e7e7389fc37b
+      internalID: -1707136479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_29
+      rect:
+        serializedVersion: 2
+        x: 6195
+        y: 5591
+        width: 772
+        height: 863
+      alignment: 9
+      pivot: {x: 0.6694418, y: 0.50169456}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c59996ebc3f5954bb0683761c22fc56
+      internalID: -1961976400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_30
+      rect:
+        serializedVersion: 2
+        x: 6976
+        y: 5495
+        width: 542
+        height: 959
+      alignment: 9
+      pivot: {x: 0.5929806, y: 0.43298173}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a14c179bd7036848885c2a243c81106
+      internalID: 1471620306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_31
+      rect:
+        serializedVersion: 2
+        x: 7525
+        y: 5591
+        width: 572
+        height: 863
+      alignment: 9
+      pivot: {x: 0.5380253, y: 0.47089493}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52f802b59f2cf194fb18624eb92ee2f5
+      internalID: 966178880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4666
+        width: 556
+        height: 833
+      alignment: 9
+      pivot: {x: 0.5421322, y: 0.47512287}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5f1ce9291d15e64fa0b14b40182c317
+      internalID: -897650947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_33
+      rect:
+        serializedVersion: 2
+        x: 7643
+        y: 4498
+        width: 546
+        height: 1000
+      alignment: 9
+      pivot: {x: 0.46575323, y: 0.47610742}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c820a5aa48644b4f9a28627cbbbc6da
+      internalID: 354702783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_34
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 4683
+        width: 561
+        height: 815
+      alignment: 9
+      pivot: {x: 0.52962726, y: 0.53314084}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b27816d41f609046be38240861094b3
+      internalID: -878960459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_35
+      rect:
+        serializedVersion: 2
+        x: 1133
+        y: 4688
+        width: 550
+        height: 810
+      alignment: 9
+      pivot: {x: 0.52455413, y: 0.54104036}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dab663552d32b9a40a2d3959b8ae8c88
+      internalID: -416245768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_36
+      rect:
+        serializedVersion: 2
+        x: 1689
+        y: 4698
+        width: 555
+        height: 800
+      alignment: 9
+      pivot: {x: 0.5580243, y: 0.5337616}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b4895cdde2fbed4d932f9db116515c5
+      internalID: -274303886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_37
+      rect:
+        serializedVersion: 2
+        x: 2257
+        y: 4701
+        width: 561
+        height: 797
+      alignment: 9
+      pivot: {x: 0.5444414, y: 0.5338893}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8f764c4747fd0b4687ce42a68bc0de5
+      internalID: 1774955129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_38
+      rect:
+        serializedVersion: 2
+        x: 2827
+        y: 4703
+        width: 569
+        height: 795
+      alignment: 9
+      pivot: {x: 0.57667905, y: 0.5326676}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 614768727601f9645aa02f124116c625
+      internalID: -1477421548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_39
+      rect:
+        serializedVersion: 2
+        x: 3407
+        y: 4708
+        width: 568
+        height: 790
+      alignment: 9
+      pivot: {x: 0.5804719, y: 0.5289297}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 156a999a88e787948af529190d469270
+      internalID: 102009525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_40
+      rect:
+        serializedVersion: 2
+        x: 3985
+        y: 4711
+        width: 575
+        height: 783
+      alignment: 9
+      pivot: {x: 0.5939453, y: 0.52255446}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43b7f2f8be2c5bd4fabcd5a7529d8f2c
+      internalID: 1708135705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_41
+      rect:
+        serializedVersion: 2
+        x: 4570
+        y: 4714
+        width: 575
+        height: 784
+      alignment: 9
+      pivot: {x: 0.61743206, y: 0.4946999}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e49db49621f49c04ebca4c47d81f8b8c
+      internalID: -1605947985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_42
+      rect:
+        serializedVersion: 2
+        x: 5152
+        y: 4386
+        width: 480
+        height: 1112
+      alignment: 9
+      pivot: {x: 0.5129852, y: 0.45422494}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 171e63d423c505c4fb17392307bc49b0
+      internalID: 501563324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_43
+      rect:
+        serializedVersion: 2
+        x: 5640
+        y: 4447
+        width: 482
+        height: 1051
+      alignment: 9
+      pivot: {x: 0.52155226, y: 0.4456377}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc88e6678e46b9b4b818b32033ccdeed
+      internalID: -1093375577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_44
+      rect:
+        serializedVersion: 2
+        x: 6131
+        y: 4489
+        width: 493
+        height: 1009
+      alignment: 9
+      pivot: {x: 0.5210714, y: 0.4474926}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 419d058dcd4bda748ac12b1027c78667
+      internalID: -1310135710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_45
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3466
+        width: 508
+        height: 930
+      alignment: 9
+      pivot: {x: 0.51841176, y: 0.46054453}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 904e28db72b30944eb411d4db4a6a670
+      internalID: -2117030833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_46
+      rect:
+        serializedVersion: 2
+        x: 1239
+        y: 6451
+        width: 611
+        height: 874
+      alignment: 9
+      pivot: {x: 0.51858664, y: 0.48600745}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10f10ca8ba9f382429fdb921091d3fef
+      internalID: -1667826212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_47
+      rect:
+        serializedVersion: 2
+        x: 6164
+        y: 6466
+        width: 585
+        height: 851
+      alignment: 9
+      pivot: {x: 0.50298727, y: 0.49897352}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2cad780fc14c2441a24ddbe99e7b97a
+      internalID: 1549397863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_48
+      rect:
+        serializedVersion: 2
+        x: 2737
+        y: 5617
+        width: 911
+        height: 834
+      alignment: 9
+      pivot: {x: 0.68610245, y: 0.5087633}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff824cbaaf8bd8940a98c6ee7eec65fb
+      internalID: -821624138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_49
+      rect:
+        serializedVersion: 2
+        x: 6634
+        y: 4492
+        width: 500
+        height: 1000
+      alignment: 9
+      pivot: {x: 0.5103877, y: 0.46052492}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47aa8782f8f695542b8d6671ff6ba318
+      internalID: 1929029062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_50
+      rect:
+        serializedVersion: 2
+        x: 7139
+        y: 4492
+        width: 496
+        height: 1000
+      alignment: 9
+      pivot: {x: 0.5125663, y: 0.4636416}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83804321800af5a4e864f039ba60b416
+      internalID: -1243717075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_51
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 3470
+        width: 509
+        height: 926
+      alignment: 9
+      pivot: {x: 0.5212028, y: 0.47669062}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdda2a29f5c13e64da06ea66e70aecb4
+      internalID: 608994563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_52
+      rect:
+        serializedVersion: 2
+        x: 1031
+        y: 3476
+        width: 511
+        height: 920
+      alignment: 9
+      pivot: {x: 0.51407987, y: 0.49609002}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8eee904d29cd3cc49975906b1c8f7691
+      internalID: 1537264846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mista pizza BLUE_53
+      rect:
+        serializedVersion: 2
+        x: 1547
+        y: 3490
+        width: 526
+        height: 906
+      alignment: 9
+      pivot: {x: 0.51367813, y: 0.50238264}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99a0137a51c24b74298320cb41559080
+      internalID: 1243200910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      mista pizza BLUE_0: 913547691
+      mista pizza BLUE_1: -266186271
+      mista pizza BLUE_10: 406064160
+      mista pizza BLUE_11: 1793950577
+      mista pizza BLUE_12: -766842805
+      mista pizza BLUE_13: -1154930758
+      mista pizza BLUE_14: -324192809
+      mista pizza BLUE_15: 461561771
+      mista pizza BLUE_16: -286108340
+      mista pizza BLUE_17: 1391645587
+      mista pizza BLUE_18: -1312001498
+      mista pizza BLUE_19: -39227081
+      mista pizza BLUE_2: -960807071
+      mista pizza BLUE_20: -681070736
+      mista pizza BLUE_21: -113702102
+      mista pizza BLUE_22: 1796013260
+      mista pizza BLUE_23: 1593131272
+      mista pizza BLUE_24: -1882078716
+      mista pizza BLUE_25: -163466276
+      mista pizza BLUE_26: -667432252
+      mista pizza BLUE_27: 1646186028
+      mista pizza BLUE_28: -1707136479
+      mista pizza BLUE_29: -1961976400
+      mista pizza BLUE_3: 1189368167
+      mista pizza BLUE_30: 1471620306
+      mista pizza BLUE_31: 966178880
+      mista pizza BLUE_32: -897650947
+      mista pizza BLUE_33: 354702783
+      mista pizza BLUE_34: -878960459
+      mista pizza BLUE_35: -416245768
+      mista pizza BLUE_36: -274303886
+      mista pizza BLUE_37: 1774955129
+      mista pizza BLUE_38: -1477421548
+      mista pizza BLUE_39: 102009525
+      mista pizza BLUE_4: 218374579
+      mista pizza BLUE_40: 1708135705
+      mista pizza BLUE_41: -1605947985
+      mista pizza BLUE_42: 501563324
+      mista pizza BLUE_43: -1093375577
+      mista pizza BLUE_44: -1310135710
+      mista pizza BLUE_45: -2117030833
+      mista pizza BLUE_46: -1667826212
+      mista pizza BLUE_47: 1549397863
+      mista pizza BLUE_48: -821624138
+      mista pizza BLUE_49: 1929029062
+      mista pizza BLUE_5: -1252995148
+      mista pizza BLUE_50: -1243717075
+      mista pizza BLUE_51: 608994563
+      mista pizza BLUE_52: 1537264846
+      mista pizza BLUE_53: 1243200910
+      mista pizza BLUE_6: -1761998920
+      mista pizza BLUE_7: -1076796596
+      mista pizza BLUE_8: -574915448
+      mista pizza BLUE_9: -1145851952
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

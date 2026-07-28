@@ -17,6 +17,7 @@ public class PlayerControllerScript : MonoBehaviour
     public bool canRestart = false;
     public AbilityManager abilityManager;
     public float cooldownTime = 1f;
+    public GameObject P1Sprite;
 
     private bool isOnCooldown = false;
     private bool canEmulate = true;
@@ -32,11 +33,17 @@ public class PlayerControllerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isPlayer1)
+        {
+            P1Sprite.GetComponent<SpriteRenderer>().flipX = true;
+        }
         if (playing)
         {
             if (isPlayer1 && Input.GetKeyDown(KeyCode.W) && !isOnCooldown)
             {
                 Ball.GetComponent<BallBehaviorScript>().testForHit(isPlayer1, 3);
+                P1Anim.ResetTrigger("punch");
+                P1Anim.SetTrigger("punchup");
                 isOnCooldown = true;
                 StartCoroutine(cooldown());
 
@@ -62,6 +69,8 @@ public class PlayerControllerScript : MonoBehaviour
             }
             if (isPlayer1 && Input.GetKeyDown(KeyCode.S) && !isOnCooldown)
             {
+                P1Anim.ResetTrigger("punchup");
+                P1Anim.SetTrigger("punch");
                 Ball.GetComponent<BallBehaviorScript>().testForHit(isPlayer1, 2);
                 isOnCooldown = true;
                 StartCoroutine(cooldown());
@@ -72,7 +81,8 @@ public class PlayerControllerScript : MonoBehaviour
                 Ball.GetComponent<BallBehaviorScript>().testForHit(isPlayer1, 1);
                 isOnCooldown = true;
                 StartCoroutine(cooldown());
-                //P1Anim.SetTrigger("punch");
+                P1Anim.ResetTrigger("punchup");
+                P1Anim.SetTrigger("punch");
 
 
             }
