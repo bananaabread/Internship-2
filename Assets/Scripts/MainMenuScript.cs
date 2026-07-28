@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -9,13 +10,21 @@ using UnityEngine.UI;
 
 public class MainMenuScript : MonoBehaviour
 {
+    [Header ("Settings")]
     public GameObject Settings;
-    //public GameObject settingsPanel;
-    //public GameObject FrameRateText;
     public GameObject FrameRateOption;
-    //public GameObject vSync;
-    //public GameObject BackButton;
+    private GameObject frameRateManager;
+    public GameObject VSync;
 
+    private bool settingsEnabled = false;
+    private float DisTarg;
+    private float DisStart;
+    public float speed = 5f;
+
+    public Transform settingsStart;
+    public Transform settingsTarg;
+
+    [Header ("Buttons")]
     public GameObject SoloButton;
     public GameObject VsButton;
     public GameObject SettingsButton;
@@ -25,9 +34,7 @@ public class MainMenuScript : MonoBehaviour
     public GameObject SettingsButtonReal;
     public GameObject QuitButtonReal;
 
-    private GameObject frameRateManager;
-    public GameObject VSync;
-
+    [Header ("Audio")]
     [SerializeField] private AudioMixer _audioMixer;
     private float savedMasterValue;
     private float savedMusicValue;
@@ -43,7 +50,7 @@ public class MainMenuScript : MonoBehaviour
     {
         frameRateManager = GameObject.FindGameObjectWithTag("FpsManager");
         //StartCoroutine(removeMenu());
-        Settings.SetActive(false);
+        //Settings.SetActive(false);
         switch (PlayerPrefs.GetInt("FrameRate", 60))
         {
             case 30:
@@ -78,6 +85,34 @@ public class MainMenuScript : MonoBehaviour
         SFXSlider.value = PlayerPrefs.GetFloat("SavedSFXVolume", 1);
         _audioMixer.SetFloat("SFXVolume", Mathf.Log10(savedSFXValue) * 20);
     }
+    private void Update()
+    {
+        DisTarg = Vector2.Distance(Settings.transform.position, settingsTarg.position);
+        DisStart = Vector2.Distance(Settings.transform.position, settingsStart.position);
+        if (VSync.GetComponent<Toggle>().isOn)
+        {
+            FrameRateOption.GetComponent<TMP_Dropdown>().interactable = false;
+        }
+        if (!VSync.GetComponent<Toggle>().isOn)
+        {
+            FrameRateOption.GetComponent<TMP_Dropdown>().interactable = true;
+        }
+        switch (settingsEnabled)
+        {
+            case true:
+                if (DisTarg > 0)
+                {
+                    Settings.transform.position = Vector3.MoveTowards(Settings.transform.position, settingsTarg.position, speed * Time.deltaTime);
+                }
+                break;
+            case false:
+                if (DisStart > 0)
+                {
+                    Settings.transform.position = Vector3.MoveTowards(Settings.transform.position, settingsStart.position, speed * Time.deltaTime);
+                }
+                break;
+        }
+    }
     public void SetMasterVolume()
     {
         _audioMixer.SetFloat("MasterVolume", Mathf.Log10(MasterSlider.value) * 20);
@@ -92,17 +127,6 @@ public class MainMenuScript : MonoBehaviour
     {
         _audioMixer.SetFloat("SFXVolume", Mathf.Log10(SFXSlider.value) * 20);
         PlayerPrefs.SetFloat("SavedSFXVolume", SFXSlider.value);
-    }
-    private void Update()
-    {
-        if (VSync.GetComponent<Toggle>().isOn)
-        {
-            FrameRateOption.GetComponent<TMP_Dropdown>().interactable = false;
-        }
-        if (!VSync.GetComponent<Toggle>().isOn)
-        {
-            FrameRateOption.GetComponent<TMP_Dropdown>().interactable = true;
-        }
     }
     public IEnumerator removeMenu()
     {
@@ -119,7 +143,7 @@ public class MainMenuScript : MonoBehaviour
     }
     public void OpenSettings()
     {
-        Settings.SetActive(true);
+        settingsEnabled = true;
 
         SoloButton.GetComponent<ButtonScript>().enabled = false;
         VsButton.GetComponent<ButtonScript>().enabled = false;
@@ -132,7 +156,7 @@ public class MainMenuScript : MonoBehaviour
     }
     public void CloseSettings()
     {
-        Settings.SetActive(false);
+        settingsEnabled = false;
 
         SoloButton.GetComponent<ButtonScript>().enabled = true;
         VsButton.GetComponent<ButtonScript>().enabled = true;

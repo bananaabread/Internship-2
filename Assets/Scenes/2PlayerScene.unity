@@ -8913,6 +8913,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 362278499062683831, guid: 78920ec8a21c08b4abad1df5678dca5f, type: 3}
+      propertyPath: time
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 362278499062683831, guid: 78920ec8a21c08b4abad1df5678dca5f, type: 3}
+      propertyPath: timeWhole
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 362278499062683831, guid: 78920ec8a21c08b4abad1df5678dca5f, type: 3}
       propertyPath: is1PlayerMode
       value: 0
       objectReference: {fileID: 0}

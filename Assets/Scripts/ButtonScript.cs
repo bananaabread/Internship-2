@@ -10,7 +10,7 @@ public class ButtonScript : Selectable
     public Transform out_targ_transform;
 
     public float Dis;
-    public float speed = 5f;
+    public float speed = 15f;
 
     public bool hasEntered = false;
 
