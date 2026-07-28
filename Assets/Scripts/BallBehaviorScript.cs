@@ -309,8 +309,16 @@ public class BallBehaviorScript : MonoBehaviour
                             popupManagerP2.ShowPopup("Too Early");
                             break;
                         case 2:
-                            perfectHit();
-                            popupManagerP2.ShowPopup("Perfect");
+                            if (canGetPerfect)
+                            {
+                                perfectHit();
+                                popupManagerP2.ShowPopup("Perfect");
+                            }
+                            if (!canGetPerfect)
+                            {
+                                stayedHit();
+                                popupManagerP2.ShowPopup("No bonus");
+                            }
                             break;
                         case 3:
                             missedHit();
