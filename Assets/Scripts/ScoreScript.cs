@@ -1,9 +1,11 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class ScoreScript : MonoBehaviour
 {
+    [Header("Score")]
     public int score1 = 0;
     public int score2 = 0;
 
@@ -13,6 +15,7 @@ public class ScoreScript : MonoBehaviour
     public TextMeshProUGUI player1Score;
     public TextMeshProUGUI player2Score;
 
+    [Header("Time")]
     public float time = 60f;
     public int timeWhole = 60;
 
@@ -21,10 +24,12 @@ public class ScoreScript : MonoBehaviour
 
     private GameObject ball;
 
+    [Header ("Prompts")]
     public GameObject prompt;
     public GameObject promptPanel;
     public GameObject restartPrompt;
 
+    [Header("Life")]
     public GameObject lifePanel;
     public GameObject life1;
     public GameObject life2;
@@ -36,13 +41,15 @@ public class ScoreScript : MonoBehaviour
 
     public int lives = 3;
 
-    private GameObject audioControl;
-    private bool hasPlayedSound = false;
-
-    public bool is1PlayerMode = true;
-
+    [Header("Particles")]
     public ParticleSystem p1VictoryParticles;
     public ParticleSystem p2VictoryParticles;
+
+    [Header ("Misc")]
+    public bool is1PlayerMode = true;
+
+    private GameObject audioControl;
+    private bool hasPlayedSound = false;
 
     // Start is called before the first frame update
     void Start()
@@ -123,10 +130,18 @@ public class ScoreScript : MonoBehaviour
                     if (score1 > score2)
                     {
                         p1VictoryParticles.Play();
+                        foreach (GameObject player in players)
+                        {
+                            player.GetComponent<PlayerControllerScript>().Celebration(true);
+                        }
                     }
                     if (score1 < score2)
                     {
                         p2VictoryParticles.Play();
+                        foreach (GameObject player in players)
+                        {
+                            player.GetComponent<PlayerControllerScript>().Celebration(false);
+                        }
                     }
                 }
                 hasPlayedSound = true;
@@ -190,11 +205,6 @@ public class ScoreScript : MonoBehaviour
     public void perfectScore(bool isPlayer1, float currentSpeed)
     {
         currentSpeed = currentSpeed / 5;
-        //int scoreMultiplier = (int)currentSpeed;
-        //if (scoreMultiplier < 1)
-        //{
-        //    scoreMultiplier = 1;
-        //}
         if (isPlayer1)
         {
             score1 += 100 + bonusScore1 + (100 * (int)currentSpeed);
@@ -204,6 +214,18 @@ public class ScoreScript : MonoBehaviour
         {
             score2 += 100 + bonusScore2 + (100 * (int)currentSpeed);
             bonusScore2 += 100 + (10 * (int)currentSpeed);
+        }
+    }
+    public void neutralScore(bool isPlayer1, float currentSpeed)
+    {
+        currentSpeed = currentSpeed / 5;
+        if (isPlayer1)
+        {
+            score1 += 100 + (100 * (int)currentSpeed);
+        }
+        if (!isPlayer1)
+        {
+            score2 += 100 + (100 * (int)currentSpeed);
         }
     }
     public void poorScore(bool isPlayer1, float currentSpeed)
@@ -273,6 +295,35 @@ public class ScoreScript : MonoBehaviour
     {
         prompt.SetActive(false);
         promptPanel.SetActive(false);
+    }
+    public void Combo(bool isPlayer1, float currentSpeed)
+    {
+        currentSpeed = currentSpeed / 5;
+        if (isPlayer1)
+        {
+            //Debug.Log("Score1: " + (score1 + 100 + bonusScore1 + (100 * (int)currentSpeed)));
+            //Debug.Log("BonusScore1: " + (bonusScore1 + 100 + (10 * (int)currentSpeed)));
+            score1 += 100 + bonusScore1 + (100 * (int)currentSpeed);
+            bonusScore1 += 100 + (10 * (int)currentSpeed);
+        }
+        if (!isPlayer1)
+        {
+            //Debug.Log("Score2: " + (score2 + 100 + bonusScore2 + (100 * (int)currentSpeed)));
+            //Debug.Log("BonusScore2: " + (bonusScore2 + 100 + (10 * (int)currentSpeed)));
+            score2 += 100 + bonusScore2 + (100 * (int)currentSpeed);
+            bonusScore2 += 100 + (10 * (int)currentSpeed);
+        }
+    }
+    public void ComboEnd(bool isPlayer1)
+    {
+        if (isPlayer1)
+        {
+            bonusScore1 = 0;
+        }
+        if (!isPlayer1)
+        {
+            bonusScore2 = 0;
+        }
     }
 
     public IEnumerator waitForSceneFinish()

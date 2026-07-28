@@ -6,63 +6,60 @@ using UnityEngine;
 
 public class BallBehaviorScript : MonoBehaviour
 {
-    public int targX;
-    public int targY;
-
+    [Header("Speed")]
     public float speed = 5f;
     public float maxSpeed = 15f; 
     public float minSpeed = 5f;
-
-    public float Dis;
-    private GameObject targ;
-
-    public bool isOnPlayer1Side = true;
-    public bool canHit = false;
-
-    public int hitType = 0;
-
-    private GameObject _canvas;
-
-    private bool canScore = false;
-
-    public bool playing = true;
-
-    private bool Player1 = true;
-    private float startSpeed = 0;
-    private int localShotChoice = 0;
-
-    //private Rigidbody2D _rb2d;
-
-    public GameObject pineapple;
-    public SpriteRenderer pineapplespriteRend;
-    public bool is1PlayerMode = true;
-
-    public PopupManager popupManagerP1;
-    public PopupManager popupManagerP2;
-
-    public ParticleSystem ParticleBurst;
-
-    public AudioSource Sqelch;
-    public AudioSource MissedHit;
-    public AudioSource PerfectHit;
-    public AudioSource MainSoundtrack;
-
     public float minPitch = 1f;
     public float maxPitch = 1.08f;
     public float minSpeedd = 0f;
     public float maxSpeedd = 20f;
 
+    private float startSpeed = 0;
+
+    [Header ("Targ")]
+    public int targX;
+    public int targY;
+    public float Dis;
     public List<GameObject> upTargets;
     public List<GameObject> downTargets;
+
+    private GameObject targ;
     private int targNum = 0;
 
-    public float rotationSpeed = 50f;
+    [Header ("Popup")]
+    public PopupManager popupManagerP1;
+    public PopupManager popupManagerP2;
 
+    [Header ("Audio")]
+    public AudioSource Sqelch;
+    public AudioSource MissedHit;
+    public AudioSource PerfectHit;
+    public AudioSource MainSoundtrack;
+
+    [Header ("Checks for shots")]
+    public bool isOnPlayer1Side = true;
+    public bool is1PlayerMode = true;
+    public bool canHit = false;
+    public bool canGetPerfect = true;
+    public int hitType = 0;
+    public int lastShotChoice = 0;
+
+    private bool Player1 = true;
+    private bool canScore = false;
+
+    [Header("Pineapple stuff")]
+    public GameObject pineapple;
+    public SpriteRenderer pineapplespriteRend;
+
+    [Header ("Misc")]
+    public ParticleSystem ParticleBurst;
+    public bool playing = true;
+    public float rotationSpeed = 50f;
     public GameObject player2;
 
-    
+    private GameObject _canvas;
 
-    
 
     // Start is called before the first frame update
     void Start()
@@ -88,12 +85,13 @@ public class BallBehaviorScript : MonoBehaviour
                 {
                     if (playing && !is1PlayerMode)
                     {
-                        _canvas.GetComponent<ScoreScript>().loseScore(isOnPlayer1Side, localShotChoice, speed);
+                        _canvas.GetComponent<ScoreScript>().loseScore(isOnPlayer1Side, lastShotChoice, speed);
                     }
                     if (playing && is1PlayerMode)
                     {
                         _canvas.GetComponent<ScoreScript>().loseLife();
                     }
+                    _canvas.GetComponent<ScoreScript>().ComboEnd(isOnPlayer1Side);
                     StartCoroutine(splatDelay());
                 }
                 if (targ != null && (upTargets.Contains(targ)))
@@ -178,6 +176,24 @@ public class BallBehaviorScript : MonoBehaviour
         Sqelch.Play();
         PerfectHit.Play();
     }
+    public void stayedHit()
+    {
+        //Debug.Log("Perfect!");
+        if (speed < maxSpeed && !is1PlayerMode)
+        {
+            //speed += 1f;
+            StartCoroutine(DelayedWhileLoop(0f));
+        }
+        if (speed > maxSpeed && !is1PlayerMode)
+        {
+            speed = maxSpeed;
+        }
+        _canvas.GetComponent<ScoreScript>().neutralScore(isOnPlayer1Side, speed);
+        StartCoroutine((Tweening(2f)));
+        TriggerEffect();
+        Sqelch.Play();
+        PerfectHit.Play();
+    }
 
     private void missedHit()
     {
@@ -202,6 +218,22 @@ public class BallBehaviorScript : MonoBehaviour
 
     public bool testForHit(bool isPlayer1, int shotChoice)
     {
+        if (lastShotChoice == shotChoice)
+        {
+            SameHit();
+        }
+        if (lastShotChoice != shotChoice)
+        {
+            DifHit();
+        }
+        if ((lastShotChoice == 2 && shotChoice == 3) || (lastShotChoice == 3 && shotChoice == 2))
+        {
+            ComboHit();
+        }
+        if ((lastShotChoice == 2 || lastShotChoice == 3) && shotChoice == 1)
+        {
+            ComboEnd();
+        }
         if (isPlayer1 && isOnPlayer1Side)
         {
             if (canHit)
@@ -212,17 +244,27 @@ public class BallBehaviorScript : MonoBehaviour
                     {
                         missedHit();
                         popupManagerP1.ShowPopup("Too Early");
-                        
+
                     }
                     if (hitType == 2)
                     {
-                        perfectHit();
-                        popupManagerP1.ShowPopup("Perfect");
+                        if (canGetPerfect)
+                        {
+                            perfectHit();
+                            popupManagerP1.ShowPopup("Perfect");
+                        }
+                        if (!canGetPerfect)
+                        {
+                            stayedHit();
+                            popupManagerP1.ShowPopup("No bonus");
+                        }
+
                     }
                     if (hitType == 3)
                     {
                         missedHit();
                         popupManagerP1.ShowPopup("Too Late");
+
                     }
                 }
                 
@@ -277,6 +319,7 @@ public class BallBehaviorScript : MonoBehaviour
         }
         return false;
     }
+
     public void setTarg(int shotChoice)
     {
         switch (Player1)
@@ -312,7 +355,30 @@ public class BallBehaviorScript : MonoBehaviour
                 }
                 break;
         }
-        localShotChoice = shotChoice;
+        lastShotChoice = shotChoice;
+    }
+    public void SameHit()
+    {
+        //Debug.Log("Same");
+        canGetPerfect = false;
+    }
+    public void DifHit()
+    {
+        canGetPerfect = true;
+    }
+    public void ComboHit()
+    {
+        //Debug.Log("Combo");
+        if (!is1PlayerMode)
+        {
+            StartCoroutine(DelayedWhileLoop(0.5f));
+        }
+        _canvas.GetComponent<ScoreScript>().Combo(isOnPlayer1Side, speed);
+    }
+    public void ComboEnd()
+    {
+        //Debug.Log("ComboLost");
+        _canvas.GetComponent<ScoreScript>().ComboEnd(isOnPlayer1Side);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -414,7 +480,7 @@ public class BallBehaviorScript : MonoBehaviour
         rotationSpeed = 100;
         hitType = Random.Range(1, 4);
         testForHit(isOnPlayer1Side, hitType);
-        Debug.Log("StartAgain");
+        //Debug.Log("StartAgain");
     }
 
     public void splat()

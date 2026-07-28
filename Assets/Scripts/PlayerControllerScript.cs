@@ -4,23 +4,23 @@ using UnityEngine.SceneManagement;
 
 public class PlayerControllerScript : MonoBehaviour
 {
-    public bool isPlayer1 = true;
-    private GameObject Ball;
-
-    private bool isOnCooldown = false;
-    public float cooldownTime = 1f;
-
-    public bool playing = true;
-    public bool is1PlayerScene;
-
-    public bool canRestart = false;
-
-    public AbilityManager abilityManager;
-
+    [Header ("Animation")]
     public Animator P1Anim;
     public Animator P2Anim;
 
+    [Header ("Player checks")]
+    public bool isPlayer1 = true;
+    public bool is1PlayerScene;
+
+    [Header ("Misc")]
+    public bool playing = true;
+    public bool canRestart = false;
+    public AbilityManager abilityManager;
+    public float cooldownTime = 1f;
+
+    private bool isOnCooldown = false;
     private bool canEmulate = true;
+    private GameObject Ball;
 
 
     // Start is called before the first frame update
@@ -145,6 +145,20 @@ public class PlayerControllerScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             SceneManager.LoadScene(0);
+        }
+    }
+    public void Celebration(bool player1)
+    {
+        if (player1 == isPlayer1)
+        {
+            if (player1 == true)
+            {
+                //P1Anim.Play("Win");
+            }
+            if (player1 == false)
+            {
+                P2Anim.Play("Win");
+            }
         }
     }
     public IEnumerator cooldown()
