@@ -1848,6 +1848,10 @@ PrefabInstance:
       propertyPath: P1Anim
       value: 
       objectReference: {fileID: 1535529973}
+    - target: {fileID: 5698829962065399551, guid: c008c464f8b05c64aa1987bd7b2d1449, type: 3}
+      propertyPath: P1Sprite
+      value: 
+      objectReference: {fileID: 1535529970}
     - target: {fileID: 6764962729069788624, guid: c008c464f8b05c64aa1987bd7b2d1449, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7
