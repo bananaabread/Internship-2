@@ -22,6 +22,8 @@ public class AbilityManager : MonoBehaviour
     public AudioSource HardSwing;
     public AudioSource Slow;
 
+    public GameObject HitTypePar;
+    public GameObject HitTypePar2;
     public void RunCurrentAbilityP1()
     {
         if (isP1OnCooldown) return;
@@ -113,7 +115,13 @@ public class AbilityManager : MonoBehaviour
         
     }
 
-
+    public void IncreaseHitRange(bool isPlayer1)
+    {
+        if(isPlayer1)
+        {
+            //
+        }
+    }
 
     public bool RequiresHit(int abilityId)
     {
