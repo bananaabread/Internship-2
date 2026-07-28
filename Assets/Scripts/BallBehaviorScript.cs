@@ -215,6 +215,16 @@ public class BallBehaviorScript : MonoBehaviour
         MissedHit.Play();
     }
 
+    private void StayTheSameHit()
+    {
+        
+        _canvas.GetComponent<ScoreScript>().poorScore(isOnPlayer1Side, speed);
+        StartCoroutine(Tweening(1.5f));
+        TriggerEffect();
+        Sqelch.Play();
+        MissedHit.Play();
+    }
+
 
     public bool testForHit(bool isPlayer1, int shotChoice)
     {
@@ -270,11 +280,11 @@ public class BallBehaviorScript : MonoBehaviour
                 
                 if (shotChoice == 1 || shotChoice == 3)
                 {
-                    //P1Anim.SetTrigger("punch");
+                    
                 }
                 else if(shotChoice == 2)
                 {
-                    //otheranim
+                    
                 }
                 canHit = false;
                 canScore = true;
