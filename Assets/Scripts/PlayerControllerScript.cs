@@ -36,6 +36,7 @@ public class PlayerControllerScript : MonoBehaviour
         if (isPlayer1)
         {
             P1Sprite.GetComponent<SpriteRenderer>().flipX = true;
+            P1Sprite.transform.localScale = new Vector3(0.23f, 0.23f, 0.23f);
         }
         if (playing)
         {

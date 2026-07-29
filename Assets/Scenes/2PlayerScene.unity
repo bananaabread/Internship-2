@@ -9102,6 +9102,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 209512677}
     - target: {fileID: 5698829962065399551, guid: c008c464f8b05c64aa1987bd7b2d1449, type: 3}
+      propertyPath: P1Sprite
+      value: 
+      objectReference: {fileID: 209512674}
+    - target: {fileID: 5698829962065399551, guid: c008c464f8b05c64aa1987bd7b2d1449, type: 3}
       propertyPath: abilityManager
       value: 
       objectReference: {fileID: 518929216}

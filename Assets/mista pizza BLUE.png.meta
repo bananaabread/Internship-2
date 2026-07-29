@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -97,15 +97,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mista pizza BLUE_0
+      name: IdleBlue1
       rect:
         serializedVersion: 2
         x: 0
-        y: 7334
-        width: 598
-        height: 858
+        y: 7340
+        width: 600
+        height: 852
       alignment: 9
-      pivot: {x: 0.5094468, y: 0.499061}
+      pivot: {x: 0.47679254, y: 0.5122013}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -118,15 +118,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_1
+      name: IdleBlue2
       rect:
         serializedVersion: 2
-        x: 609
-        y: 7335
-        width: 587
-        height: 857
+        x: 604
+        y: 7340
+        width: 600
+        height: 852
       alignment: 9
-      pivot: {x: 0.5109986, y: 0.48870173}
+      pivot: {x: 0.4752347, y: 0.51279217}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -139,15 +139,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_2
+      name: IdleBlue3
       rect:
         serializedVersion: 2
-        x: 1206
-        y: 7335
-        width: 596
-        height: 857
+        x: 1204
+        y: 7336
+        width: 604
+        height: 856
       alignment: 9
-      pivot: {x: 0.5203106, y: 0.48776048}
+      pivot: {x: 0.4784859, y: 0.509339}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -160,15 +160,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_3
+      name: IdleBlue4
       rect:
         serializedVersion: 2
-        x: 1812
-        y: 7335
-        width: 594
-        height: 857
+        x: 1808
+        y: 7336
+        width: 604
+        height: 856
       alignment: 9
-      pivot: {x: 0.5190208, y: 0.48775992}
+      pivot: {x: 0.47947118, y: 0.51008564}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -181,15 +181,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_4
+      name: IdleBlue5
       rect:
         serializedVersion: 2
-        x: 2420
-        y: 7331
-        width: 595
-        height: 861
+        x: 2416
+        y: 7336
+        width: 604
+        height: 856
       alignment: 9
-      pivot: {x: 0.50949484, y: 0.4887542}
+      pivot: {x: 0.47628036, y: 0.50835496}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -202,15 +202,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_5
+      name: IdleBlue6
       rect:
         serializedVersion: 2
-        x: 3026
-        y: 7330
-        width: 597
-        height: 861
+        x: 3020
+        y: 7336
+        width: 608
+        height: 855
       alignment: 9
-      pivot: {x: 0.5135185, y: 0.48594248}
+      pivot: {x: 0.4813939, y: 0.50680053}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -223,15 +223,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_6
+      name: IdleBlue7
       rect:
         serializedVersion: 2
-        x: 3636
-        y: 7330
-        width: 597
-        height: 861
+        x: 3628
+        y: 7332
+        width: 608
+        height: 860
       alignment: 9
-      pivot: {x: 0.5094634, y: 0.48781678}
+      pivot: {x: 0.48002383, y: 0.508135}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -244,15 +244,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_7
+      name: IdleBlue8
       rect:
         serializedVersion: 2
-        x: 4240
-        y: 7326
-        width: 602
-        height: 866
+        x: 4236
+        y: 7332
+        width: 608
+        height: 860
       alignment: 9
-      pivot: {x: 0.5187696, y: 0.48602533}
+      pivot: {x: 0.48405135, y: 0.50887936}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -265,15 +265,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_8
+      name: IdleBlue9
       rect:
         serializedVersion: 2
-        x: 4851
-        y: 7326
-        width: 602
-        height: 866
+        x: 4848
+        y: 7329
+        width: 608
+        height: 863
       alignment: 9
-      pivot: {x: 0.5214495, y: 0.48509163}
+      pivot: {x: 0.48194242, y: 0.5095529}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -286,15 +286,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_9
+      name: IdleBlue10
       rect:
         serializedVersion: 2
         x: 5460
-        y: 7322
-        width: 607
-        height: 870
+        y: 7328
+        width: 608
+        height: 864
       alignment: 9
-      pivot: {x: 0.51861423, y: 0.48887056}
+      pivot: {x: 0.48030412, y: 0.5107761}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -307,15 +307,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_10
+      name: IdleBlue11
       rect:
         serializedVersion: 2
-        x: 6076
-        y: 7322
-        width: 605
-        height: 870
+        x: 6072
+        y: 7328
+        width: 612
+        height: 864
       alignment: 9
-      pivot: {x: 0.51734245, y: 0.48887056}
+      pivot: {x: 0.48285112, y: 0.50909144}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -328,15 +328,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_11
+      name: IdleBlue12
       rect:
         serializedVersion: 2
         x: 6688
-        y: 7326
-        width: 607
-        height: 866
+        y: 7324
+        width: 612
+        height: 868
       alignment: 9
-      pivot: {x: 0.51861423, y: 0.48602366}
+      pivot: {x: 0.4817445, y: 0.50950575}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -349,15 +349,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_12
+      name: IdleBlue13
       rect:
         serializedVersion: 2
-        x: 7302
-        y: 7322
-        width: 630
-        height: 870
+        x: 7300
+        y: 7324
+        width: 616
+        height: 868
       alignment: 9
-      pivot: {x: 0.50072545, y: 0.4886657}
+      pivot: {x: 0.47945574, y: 0.50711554}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -370,15 +370,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_13
+      name: IdleBlue14
       rect:
         serializedVersion: 2
         x: 0
-        y: 6450
-        width: 614
-        height: 879
+        y: 6456
+        width: 616
+        height: 868
       alignment: 9
-      pivot: {x: 0.51849586, y: 0.48807406}
+      pivot: {x: 0.48105642, y: 0.5071346}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -391,15 +391,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_14
+      name: IdleBlue15
       rect:
         serializedVersion: 2
-        x: 622
-        y: 6449
-        width: 609
-        height: 877
+        x: 616
+        y: 6452
+        width: 620
+        height: 872
       alignment: 9
-      pivot: {x: 0.51577896, y: 0.4890429}
+      pivot: {x: 0.48262408, y: 0.5074407}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -412,15 +412,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_15
+      name: PunchBlue8
       rect:
         serializedVersion: 2
-        x: 869
-        y: 5622
-        width: 915
-        height: 832
+        x: 864
+        y: 5628
+        width: 916
+        height: 820
       alignment: 9
-      pivot: {x: 0.69567126, y: 0.51317596}
+      pivot: {x: 0.66793156, y: 0.5317687}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -433,15 +433,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_16
+      name: IdleBlue17
       rect:
         serializedVersion: 2
-        x: 1859
-        y: 6450
-        width: 611
+        x: 1856
+        y: 6448
+        width: 620
         height: 876
       alignment: 9
-      pivot: {x: 0.52001673, y: 0.4860394}
+      pivot: {x: 0.48469868, y: 0.50713027}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -454,15 +454,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_17
+      name: IdleBlue18
       rect:
         serializedVersion: 2
-        x: 2481
-        y: 6450
-        width: 615
-        height: 878
+        x: 2476
+        y: 6448
+        width: 620
+        height: 876
       alignment: 9
-      pivot: {x: 0.515625, y: 0.48408136}
+      pivot: {x: 0.4856977, y: 0.50751597}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -475,15 +475,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_18
+      name: IdleBlue19
       rect:
         serializedVersion: 2
-        x: 3103
+        x: 3096
         y: 6452
-        width: 614
-        height: 874
+        width: 620
+        height: 872
       alignment: 9
-      pivot: {x: 0.51280504, y: 0.48600745}
+      pivot: {x: 0.48200566, y: 0.5068623}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -496,15 +496,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_19
+      name: IdleBlue20
       rect:
         serializedVersion: 2
-        x: 3722
-        y: 6462
-        width: 607
-        height: 864
+        x: 3716
+        y: 6456
+        width: 612
+        height: 868
       alignment: 9
-      pivot: {x: 0.51295274, y: 0.4858455}
+      pivot: {x: 0.48337212, y: 0.50703734}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -517,15 +517,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_20
+      name: IdleBlue21
       rect:
         serializedVersion: 2
-        x: 4337
-        y: 6456
-        width: 609
-        height: 873
+        x: 4332
+        y: 6460
+        width: 608
+        height: 864
       alignment: 9
-      pivot: {x: 0.5028688, y: 0.48699147}
+      pivot: {x: 0.4797548, y: 0.5095119}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -538,15 +538,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_21
+      name: IdleBlue22
       rect:
         serializedVersion: 2
-        x: 4938
-        y: 6460
-        width: 606
-        height: 866
+        x: 4940
+        y: 6464
+        width: 608
+        height: 860
       alignment: 9
-      pivot: {x: 0.5245059, y: 0.48688632}
+      pivot: {x: 0.48061332, y: 0.50690466}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -559,15 +559,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_22
+      name: IdleBlue23
       rect:
         serializedVersion: 2
-        x: 5555
-        y: 6469
-        width: 596
-        height: 857
+        x: 5552
+        y: 6468
+        width: 600
+        height: 856
       alignment: 9
-      pivot: {x: 0.51319176, y: 0.48674917}
+      pivot: {x: 0.47530842, y: 0.50847477}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -580,15 +580,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_23
+      name: PunchBlue1
       rect:
         serializedVersion: 2
-        x: 6755
+        x: 6756
         y: 6470
-        width: 783
-        height: 850
+        width: 784
+        height: 854
       alignment: 9
-      pivot: {x: 0.6662364, y: 0.50205594}
+      pivot: {x: 0.6353417, y: 0.5112259}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -601,15 +601,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_24
+      name: PunchBlue9
       rect:
         serializedVersion: 2
         x: 0
-        y: 5617
+        y: 5616
         width: 864
         height: 832
       alignment: 9
-      pivot: {x: 0.6911507, y: 0.50790584}
+      pivot: {x: 0.6600619, y: 0.5227673}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -622,15 +622,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_25
+      name: PunchBlue7
       rect:
         serializedVersion: 2
-        x: 1792
-        y: 5626
-        width: 940
-        height: 825
+        x: 1788
+        y: 5632
+        width: 948
+        height: 816
       alignment: 9
-      pivot: {x: 0.6912447, y: 0.518602}
+      pivot: {x: 0.6638619, y: 0.5328854}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -643,15 +643,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_26
+      name: PunchBlue5
       rect:
         serializedVersion: 2
-        x: 3656
-        y: 5609
-        width: 873
-        height: 846
+        x: 3652
+        y: 5608
+        width: 880
+        height: 840
       alignment: 9
-      pivot: {x: 0.68332136, y: 0.50086457}
+      pivot: {x: 0.6564603, y: 0.5196248}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -664,15 +664,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_27
+      name: PunchBlue4
       rect:
         serializedVersion: 2
-        x: 4537
-        y: 5601
-        width: 837
-        height: 853
+        x: 4532
+        y: 5600
+        width: 844
+        height: 848
       alignment: 9
-      pivot: {x: 0.6798561, y: 0.4982873}
+      pivot: {x: 0.65800524, y: 0.51495993}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -685,15 +685,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_28
+      name: PunchBlue3
       rect:
         serializedVersion: 2
-        x: 5383
-        y: 5598
-        width: 805
-        height: 856
+        x: 5380
+        y: 5596
+        width: 808
+        height: 852
       alignment: 9
-      pivot: {x: 0.674297, y: 0.4957321}
+      pivot: {x: 0.646908, y: 0.51088375}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -706,15 +706,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_29
+      name: PunchBlue2
       rect:
         serializedVersion: 2
-        x: 6195
-        y: 5591
-        width: 772
-        height: 863
+        x: 6192
+        y: 5596
+        width: 776
+        height: 852
       alignment: 9
-      pivot: {x: 0.6694418, y: 0.50169456}
+      pivot: {x: 0.6425077, y: 0.5139601}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -727,13 +727,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_30
+      name: Down1
       rect:
         serializedVersion: 2
-        x: 6976
-        y: 5495
-        width: 542
-        height: 959
+        x: 6972
+        y: 5492
+        width: 548
+        height: 956
       alignment: 9
       pivot: {x: 0.5929806, y: 0.43298173}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -748,13 +748,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_31
+      name: Down2
       rect:
         serializedVersion: 2
-        x: 7525
-        y: 5591
-        width: 572
-        height: 863
+        x: 7520
+        y: 5596
+        width: 556
+        height: 852
       alignment: 9
       pivot: {x: 0.5380253, y: 0.47089493}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -769,15 +769,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_32
+      name: Down3
       rect:
         serializedVersion: 2
         x: 0
-        y: 4666
+        y: 4672
         width: 556
-        height: 833
+        height: 820
       alignment: 9
-      pivot: {x: 0.5421322, y: 0.47512287}
+      pivot: {x: 0.5500741, y: 0.5173036}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -790,15 +790,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_33
+      name: UpperCrust5
       rect:
         serializedVersion: 2
-        x: 7643
-        y: 4498
-        width: 546
-        height: 1000
+        x: 7636
+        y: 4544
+        width: 508
+        height: 948
       alignment: 9
-      pivot: {x: 0.46575323, y: 0.47610742}
+      pivot: {x: 0.46575302, y: 0.47760138}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -811,15 +811,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_34
+      name: Down4
       rect:
         serializedVersion: 2
-        x: 565
-        y: 4683
-        width: 561
-        height: 815
+        x: 560
+        y: 4692
+        width: 564
+        height: 800
       alignment: 9
-      pivot: {x: 0.52962726, y: 0.53314084}
+      pivot: {x: 0.5622484, y: 0.52670103}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -832,15 +832,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_35
+      name: Down5
       rect:
         serializedVersion: 2
-        x: 1133
-        y: 4688
-        width: 550
-        height: 810
+        x: 1128
+        y: 4700
+        width: 556
+        height: 792
       alignment: 9
-      pivot: {x: 0.52455413, y: 0.54104036}
+      pivot: {x: 0.5470559, y: 0.5317475}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -853,15 +853,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_36
+      name: Down6
       rect:
         serializedVersion: 2
-        x: 1689
-        y: 4698
-        width: 555
-        height: 800
+        x: 1688
+        y: 4708
+        width: 564
+        height: 784
       alignment: 9
-      pivot: {x: 0.5580243, y: 0.5337616}
+      pivot: {x: 0.56193876, y: 0.53470033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -874,15 +874,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_37
+      name: Down7
       rect:
         serializedVersion: 2
-        x: 2257
-        y: 4701
-        width: 561
-        height: 797
+        x: 2252
+        y: 4712
+        width: 572
+        height: 780
       alignment: 9
-      pivot: {x: 0.5444414, y: 0.5338893}
+      pivot: {x: 0.55859375, y: 0.52634025}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -895,15 +895,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_38
+      name: Down8
       rect:
         serializedVersion: 2
-        x: 2827
-        y: 4703
-        width: 569
-        height: 795
+        x: 2824
+        y: 4716
+        width: 576
+        height: 776
       alignment: 9
-      pivot: {x: 0.57667905, y: 0.5326676}
+      pivot: {x: 0.59456635, y: 0.5231833}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -916,15 +916,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_39
+      name: Down9
       rect:
         serializedVersion: 2
-        x: 3407
-        y: 4708
-        width: 568
-        height: 790
+        x: 3400
+        y: 4720
+        width: 580
+        height: 772
       alignment: 9
-      pivot: {x: 0.5804719, y: 0.5289297}
+      pivot: {x: 0.59442896, y: 0.5213029}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -937,15 +937,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_40
+      name: Down10
       rect:
         serializedVersion: 2
-        x: 3985
-        y: 4711
-        width: 575
-        height: 783
+        x: 3980
+        y: 4720
+        width: 583
+        height: 772
       alignment: 9
-      pivot: {x: 0.5939453, y: 0.52255446}
+      pivot: {x: 0.6116179, y: 0.5168343}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -958,15 +958,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_41
+      name: Down11
       rect:
         serializedVersion: 2
-        x: 4570
-        y: 4714
-        width: 575
-        height: 784
+        x: 4564
+        y: 4724
+        width: 584
+        height: 768
       alignment: 9
-      pivot: {x: 0.61743206, y: 0.4946999}
+      pivot: {x: 0.59852916, y: 0.51482266}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -979,7 +979,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_42
+      name: UpperCrust10
       rect:
         serializedVersion: 2
         x: 5152
@@ -987,7 +987,7 @@ TextureImporter:
         width: 480
         height: 1112
       alignment: 9
-      pivot: {x: 0.5129852, y: 0.45422494}
+      pivot: {x: 0.5019033, y: 0.4613542}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1000,7 +1000,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_43
+      name: UpperCrust9
       rect:
         serializedVersion: 2
         x: 5640
@@ -1008,7 +1008,7 @@ TextureImporter:
         width: 482
         height: 1051
       alignment: 9
-      pivot: {x: 0.52155226, y: 0.4456377}
+      pivot: {x: 0.48189104, y: 0.46517408}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1021,15 +1021,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_44
+      name: UpperCrust8
       rect:
         serializedVersion: 2
-        x: 6131
-        y: 4489
-        width: 493
-        height: 1009
+        x: 6132
+        y: 4492
+        width: 496
+        height: 1000
       alignment: 9
-      pivot: {x: 0.5210714, y: 0.4474926}
+      pivot: {x: 0.4768204, y: 0.4680254}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1042,15 +1042,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_45
+      name: UpperCrust4
       rect:
         serializedVersion: 2
         x: 0
-        y: 3466
-        width: 508
-        height: 930
+        y: 3468
+        width: 512
+        height: 932
       alignment: 9
-      pivot: {x: 0.51841176, y: 0.46054453}
+      pivot: {x: 0.47235036, y: 0.48276293}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1063,15 +1063,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_46
+      name: IdleBlue16
       rect:
         serializedVersion: 2
-        x: 1239
-        y: 6451
-        width: 611
-        height: 874
+        x: 1236
+        y: 6452
+        width: 616
+        height: 872
       alignment: 9
-      pivot: {x: 0.51858664, y: 0.48600745}
+      pivot: {x: 0.48603067, y: 0.50670546}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1084,15 +1084,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_47
+      name: IdleBlue24
       rect:
         serializedVersion: 2
-        x: 6164
-        y: 6466
-        width: 585
-        height: 851
+        x: 6156
+        y: 6472
+        width: 600
+        height: 852
       alignment: 9
-      pivot: {x: 0.50298727, y: 0.49897352}
+      pivot: {x: 0.47460774, y: 0.5105645}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1105,15 +1105,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_48
+      name: PunchBlue6
       rect:
         serializedVersion: 2
-        x: 2737
-        y: 5617
-        width: 911
-        height: 834
+        x: 2736
+        y: 5616
+        width: 916
+        height: 832
       alignment: 9
-      pivot: {x: 0.68610245, y: 0.5087633}
+      pivot: {x: 0.65935105, y: 0.5253296}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1126,15 +1126,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_49
+      name: UpperCrust7
       rect:
         serializedVersion: 2
-        x: 6634
-        y: 4492
+        x: 6632
+        y: 4520
         width: 500
-        height: 1000
+        height: 972
       alignment: 9
-      pivot: {x: 0.5103877, y: 0.46052492}
+      pivot: {x: 0.46082616, y: 0.4714516}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1147,15 +1147,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_50
+      name: UpperCrust6
       rect:
         serializedVersion: 2
-        x: 7139
-        y: 4492
-        width: 496
-        height: 1000
+        x: 7132
+        y: 4528
+        width: 504
+        height: 964
       alignment: 9
-      pivot: {x: 0.5125663, y: 0.4636416}
+      pivot: {x: 0.46339828, y: 0.47392458}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1168,15 +1168,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_51
+      name: UpperCrust3
       rect:
         serializedVersion: 2
-        x: 514
-        y: 3470
-        width: 509
-        height: 926
+        x: 512
+        y: 3488
+        width: 512
+        height: 912
       alignment: 9
-      pivot: {x: 0.5212028, y: 0.47669062}
+      pivot: {x: 0.47738838, y: 0.4893052}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1189,15 +1189,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_52
+      name: UpperCrust2
       rect:
         serializedVersion: 2
-        x: 1031
-        y: 3476
-        width: 511
-        height: 920
+        x: 1028
+        y: 3508
+        width: 516
+        height: 892
       alignment: 9
-      pivot: {x: 0.51407987, y: 0.49609002}
+      pivot: {x: 0.47395596, y: 0.49671724}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1210,15 +1210,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mista pizza BLUE_53
+      name: UpperCrust1
       rect:
         serializedVersion: 2
-        x: 1547
-        y: 3490
-        width: 526
-        height: 906
+        x: 1548
+        y: 3528
+        width: 520
+        height: 872
       alignment: 9
-      pivot: {x: 0.51367813, y: 0.50238264}
+      pivot: {x: 0.47563407, y: 0.50360864}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1241,60 +1241,60 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      mista pizza BLUE_0: 913547691
-      mista pizza BLUE_1: -266186271
-      mista pizza BLUE_10: 406064160
-      mista pizza BLUE_11: 1793950577
-      mista pizza BLUE_12: -766842805
-      mista pizza BLUE_13: -1154930758
-      mista pizza BLUE_14: -324192809
-      mista pizza BLUE_15: 461561771
-      mista pizza BLUE_16: -286108340
-      mista pizza BLUE_17: 1391645587
-      mista pizza BLUE_18: -1312001498
-      mista pizza BLUE_19: -39227081
-      mista pizza BLUE_2: -960807071
-      mista pizza BLUE_20: -681070736
-      mista pizza BLUE_21: -113702102
-      mista pizza BLUE_22: 1796013260
-      mista pizza BLUE_23: 1593131272
-      mista pizza BLUE_24: -1882078716
-      mista pizza BLUE_25: -163466276
-      mista pizza BLUE_26: -667432252
-      mista pizza BLUE_27: 1646186028
-      mista pizza BLUE_28: -1707136479
-      mista pizza BLUE_29: -1961976400
-      mista pizza BLUE_3: 1189368167
-      mista pizza BLUE_30: 1471620306
-      mista pizza BLUE_31: 966178880
-      mista pizza BLUE_32: -897650947
-      mista pizza BLUE_33: 354702783
-      mista pizza BLUE_34: -878960459
-      mista pizza BLUE_35: -416245768
-      mista pizza BLUE_36: -274303886
-      mista pizza BLUE_37: 1774955129
-      mista pizza BLUE_38: -1477421548
-      mista pizza BLUE_39: 102009525
-      mista pizza BLUE_4: 218374579
-      mista pizza BLUE_40: 1708135705
-      mista pizza BLUE_41: -1605947985
-      mista pizza BLUE_42: 501563324
-      mista pizza BLUE_43: -1093375577
-      mista pizza BLUE_44: -1310135710
-      mista pizza BLUE_45: -2117030833
-      mista pizza BLUE_46: -1667826212
-      mista pizza BLUE_47: 1549397863
-      mista pizza BLUE_48: -821624138
-      mista pizza BLUE_49: 1929029062
-      mista pizza BLUE_5: -1252995148
-      mista pizza BLUE_50: -1243717075
-      mista pizza BLUE_51: 608994563
-      mista pizza BLUE_52: 1537264846
-      mista pizza BLUE_53: 1243200910
-      mista pizza BLUE_6: -1761998920
-      mista pizza BLUE_7: -1076796596
-      mista pizza BLUE_8: -574915448
-      mista pizza BLUE_9: -1145851952
+      Down1: 1471620306
+      Down10: 1708135705
+      Down11: -1605947985
+      Down2: 966178880
+      Down3: -897650947
+      Down4: -878960459
+      Down5: -416245768
+      Down6: -274303886
+      Down7: 1774955129
+      Down8: -1477421548
+      Down9: 102009525
+      IdleBlue1: 913547691
+      IdleBlue10: -1145851952
+      IdleBlue11: 406064160
+      IdleBlue12: 1793950577
+      IdleBlue13: -766842805
+      IdleBlue14: -1154930758
+      IdleBlue15: -324192809
+      IdleBlue16: -1667826212
+      IdleBlue17: -286108340
+      IdleBlue18: 1391645587
+      IdleBlue19: -1312001498
+      IdleBlue2: -266186271
+      IdleBlue20: -39227081
+      IdleBlue21: -681070736
+      IdleBlue22: -113702102
+      IdleBlue23: 1796013260
+      IdleBlue24: 1549397863
+      IdleBlue3: -960807071
+      IdleBlue4: 1189368167
+      IdleBlue5: 218374579
+      IdleBlue6: -1252995148
+      IdleBlue7: -1761998920
+      IdleBlue8: -1076796596
+      IdleBlue9: -574915448
+      PunchBlue1: 1593131272
+      PunchBlue2: -1961976400
+      PunchBlue3: -1707136479
+      PunchBlue4: 1646186028
+      PunchBlue5: -667432252
+      PunchBlue6: -821624138
+      PunchBlue7: -163466276
+      PunchBlue8: 461561771
+      PunchBlue9: -1882078716
+      UpperCrust1: 1243200910
+      UpperCrust10: 501563324
+      UpperCrust2: 1537264846
+      UpperCrust3: 608994563
+      UpperCrust4: -2117030833
+      UpperCrust5: 354702783
+      UpperCrust6: -1243717075
+      UpperCrust7: 1929029062
+      UpperCrust8: -1310135710
+      UpperCrust9: -1093375577
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
