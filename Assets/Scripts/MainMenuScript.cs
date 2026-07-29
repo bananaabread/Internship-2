@@ -16,6 +16,8 @@ public class MainMenuScript : MonoBehaviour
     private bool settingsEnabled = false;
     private float DisTarg;
     private float DisStart;
+    private float DisTargHS;
+    private float DisStartHS;
     public float speed = 5f;
 
     public Transform settingsStart;
@@ -23,7 +25,7 @@ public class MainMenuScript : MonoBehaviour
 
     [Header("HighScore")]
     public GameObject HighScorePanel;
-
+    public HighScore HSS;
     private bool highScoreEnabled = false;
 
     [Header ("Buttons")]
@@ -55,6 +57,7 @@ public class MainMenuScript : MonoBehaviour
         frameRateManager = GameObject.FindGameObjectWithTag("FpsManager");
         //StartCoroutine(removeMenu());
         //Settings.SetActive(false);
+        
         switch (PlayerPrefs.GetInt("FrameRate", 60))
         {
             case 30:
@@ -93,6 +96,9 @@ public class MainMenuScript : MonoBehaviour
     {
         DisTarg = Vector2.Distance(Settings.transform.position, settingsTarg.position);
         DisStart = Vector2.Distance(Settings.transform.position, settingsStart.position);
+
+        DisTargHS = Vector2.Distance(Settings.transform.position, settingsTarg.position);
+        DisStartHS = Vector2.Distance(Settings.transform.position, settingsStart.position);
         if (VSync.GetComponent<Toggle>().isOn)
         {
             FrameRateOption.GetComponent<TMP_Dropdown>().interactable = false;
@@ -113,6 +119,21 @@ public class MainMenuScript : MonoBehaviour
                 if (DisStart > 0)
                 {
                     Settings.transform.position = Vector3.MoveTowards(Settings.transform.position, settingsStart.position, speed * Time.deltaTime);
+                }
+                break;
+        }
+        switch (highScoreEnabled)
+        {
+            case true:
+                if (DisTarg > 0)
+                {
+                    HighScorePanel.transform.position = Vector3.MoveTowards(HighScorePanel.transform.position, settingsTarg.position, speed * Time.deltaTime);
+                }
+                break;
+            case false:
+                if (DisStart > 0)
+                {
+                    HighScorePanel.transform.position = Vector3.MoveTowards(HighScorePanel.transform.position, settingsStart.position, speed * Time.deltaTime);
                 }
                 break;
         }
@@ -177,35 +198,41 @@ public class MainMenuScript : MonoBehaviour
     }
     public void ShowHighScore()
     {
+        HSS.ToggleScoreboard();
         highScoreEnabled = true;
 
-        HideHighScore(); //Temporary, remove when high score panel is added
+        
+        
+        //HideHighScore(); //Temporary, remove when high score panel is added
 
-        //SoloButton.GetComponent<ButtonScript>().enabled = false;
-        //VsButton.GetComponent<ButtonScript>().enabled = false;
-        //SettingsButton.GetComponent<ButtonScript>().enabled = false;
-        //HighScoreButton.GetComponent<ButtonScript>().enabled = false;
-        //QuitButton.GetComponent<ButtonScript>().enabled = false;
-        //SoloButtonReal.GetComponent<Button>().enabled = false;
-        //VsButtonReal.GetComponent<Button>().enabled = false;
-        //SettingsButtonReal.GetComponent<Button>().enabled = false;
-        //HighScoreButtonReal.GetComponent<ButtonScript>().enabled = false;
-        //QuitButtonReal.GetComponent<Button>().enabled = false;
+        SoloButton.GetComponent<ButtonScript>().enabled = false;
+        VsButton.GetComponent<ButtonScript>().enabled = false;
+        SettingsButton.GetComponent<ButtonScript>().enabled = false;
+        HighScoreButton.GetComponent<ButtonScript>().enabled = false;
+        QuitButton.GetComponent<ButtonScript>().enabled = false;
+        SoloButtonReal.GetComponent<Button>().enabled = false;
+        VsButtonReal.GetComponent<Button>().enabled = false;
+        SettingsButtonReal.GetComponent<Button>().enabled = false;
+        HighScoreButtonReal.GetComponent<ButtonScript>().enabled = false;
+        QuitButtonReal.GetComponent<Button>().enabled = false;
     }
     public void HideHighScore()
     {
+        
         highScoreEnabled = false;
+        
 
-        //SoloButton.GetComponent<ButtonScript>().enabled = true;
-        //VsButton.GetComponent<ButtonScript>().enabled = true;
-        //SettingsButton.GetComponent<ButtonScript>().enabled = true;
-        //HighScoreButton.GetComponent<ButtonScript>().enabled = true;
-        //QuitButton.GetComponent<ButtonScript>().enabled = true;
-        //SoloButtonReal.GetComponent<Button>().enabled = true;
-        //VsButtonReal.GetComponent<Button>().enabled = true;
-        //SettingsButtonReal.GetComponent<Button>().enabled = true;
-        //HighScoreButtonReal.GetComponent<ButtonScript>().enabled = true;
-        //QuitButtonReal.GetComponent<Button>().enabled = true;
+        SoloButton.GetComponent<ButtonScript>().enabled = true;
+        VsButton.GetComponent<ButtonScript>().enabled = true;
+        SettingsButton.GetComponent<ButtonScript>().enabled = true;
+        HighScoreButton.GetComponent<ButtonScript>().enabled = true;
+        QuitButton.GetComponent<ButtonScript>().enabled = true;
+        SoloButtonReal.GetComponent<Button>().enabled = true;
+        VsButtonReal.GetComponent<Button>().enabled = true;
+        SettingsButtonReal.GetComponent<Button>().enabled = true;
+        HighScoreButtonReal.GetComponent<ButtonScript>().enabled = true;
+        QuitButtonReal.GetComponent<Button>().enabled = true;
+        HSS.ToggleScoreboard();
     }
     public void changeFrameRate()
     {

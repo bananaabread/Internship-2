@@ -15,17 +15,20 @@ public class HighScore : MonoBehaviour
     public TextMeshProUGUI[] ScoreboardEntries; //scoreboard
 
     private const int MaxScores = 5; //this is how many scores will be listed on the leaderboards
+    private const string BoardKey = "1Player";
 
-    private string ScoreKey(int i) => SceneManager.GetActiveScene().name + "_Score_" + i;
-    private string NameKey(int i) => SceneManager.GetActiveScene().name + "_Name_" + i;
+    private string ScoreKey(int i) => BoardKey + "_Score_" + i;
+    private string NameKey(int i) => BoardKey + "_Name_" + i;
 
     public ScoreScript ScSCR;
     private bool hasFinished = false;
 
+    public MainMenuScript MMs;
+
     void Start()
     {
-        NameEntryPanel.SetActive(false);
-        ScoreboardPanel.SetActive(false);
+        if (NameEntryPanel != null) NameEntryPanel.SetActive(false);
+        if (ScoreboardPanel != null) ScoreboardPanel.SetActive(false);
         DisplayScoreboard();
     }
     void Update()
@@ -124,5 +127,13 @@ public class HighScore : MonoBehaviour
                 ? $"{i + 1}. {names[i]} - {scores[i]:0}"
                 : $"{i + 1}. ---";
         }
+    }
+
+    public void ToggleScoreboard()
+    {
+        if (ScoreboardPanel == null) return;
+        ScoreboardPanel.SetActive(!ScoreboardPanel.activeSelf);
+        if (ScoreboardPanel.activeSelf) DisplayScoreboard();
+        
     }
 }
