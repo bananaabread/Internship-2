@@ -382,7 +382,7 @@ MonoBehaviour:
   SoloButtonReal: {fileID: 1240206561}
   VsButtonReal: {fileID: 936002620}
   SettingsButtonReal: {fileID: 1810344382}
-  HighScoreButtonReal: {fileID: 1592044284}
+  HighScoreButtonReal: {fileID: 928403570}
   QuitButtonReal: {fileID: 495819131}
   _audioMixer: {fileID: 24100000, guid: d49fbca994e16fc40905040f091fa219, type: 2}
   MasterSlider: {fileID: 1914451268}
@@ -3093,7 +3093,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -703, y: -232}
+  m_AnchoredPosition: {x: -703, y: -232.00002}
   m_SizeDelta: {x: -43, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &792631955
@@ -3350,7 +3350,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 807832823}
   in_targ_transform: {fileID: 949053248}
   out_targ_transform: {fileID: 792631954}
-  Dis: 6.978077
+  Dis: 6.9825497
   speed: 15
   hasEntered: 0
   canEnter: 0
@@ -4059,7 +4059,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -838, y: -232}
+  m_AnchoredPosition: {x: -838, y: -232.00002}
   m_SizeDelta: {x: -43, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &949053249
@@ -4217,7 +4217,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 980961875}
   in_targ_transform: {fileID: 949053248}
   out_targ_transform: {fileID: 792631954}
-  Dis: 8.682678
+  Dis: 8.688245
   speed: 15
   hasEntered: 0
   canEnter: 0
@@ -6184,7 +6184,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1592044287}
   in_targ_transform: {fileID: 949053248}
   out_targ_transform: {fileID: 792631954}
-  Dis: 8.040549
+  Dis: 8.045703
   speed: 15
   hasEntered: 0
   canEnter: 0
@@ -6480,7 +6480,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1643155218}
   in_targ_transform: {fileID: 949053248}
   out_targ_transform: {fileID: 792631954}
-  Dis: 7.5013127
+  Dis: 7.506121
   speed: 15
   hasEntered: 0
   canEnter: 0
@@ -6760,7 +6760,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1774963284}
   in_targ_transform: {fileID: 949053248}
   out_targ_transform: {fileID: 792631954}
-  Dis: 6.42506
+  Dis: 6.4291787
   speed: 15
   hasEntered: 0
   canEnter: 0

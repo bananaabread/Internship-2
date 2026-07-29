@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,6 +27,12 @@ public class LimitFps : MonoBehaviour
             vSyncEnabled = true;
         }
         VSync = GameObject.FindGameObjectWithTag("VSync");
+        if (VSync != null && !hasSetVSync)
+        {
+            VSync.GetComponent<Toggle>().isOn = vSyncEnabled;
+            hasSetVSync = true;
+        }
+        SetRate(PlayerPrefs.GetInt("FrameRate", 60));
     }
     public void Awake()
     {
@@ -42,16 +49,6 @@ public class LimitFps : MonoBehaviour
     }
     public void Update()
     {
-        VSync = GameObject.FindGameObjectWithTag("VSync");
-        if (VSync != null && !hasSetVSync)
-        {
-            VSync.GetComponent<Toggle>().isOn = vSyncEnabled;
-            hasSetVSync = true;
-        }
-        if (VSync == null && hasSetVSync)
-        {
-            hasSetVSync = false;
-        }
         if (!vSyncEnabled)
         {
             Application.targetFrameRate = maxFrameRate;
@@ -63,6 +60,8 @@ public class LimitFps : MonoBehaviour
             Application.targetFrameRate = -1;
             QualitySettings.vSyncCount = 1;
         }
+        Debug.Log(Application.targetFrameRate);
+        Debug.Log(QualitySettings.vSyncCount);
     }
     public void SetRate(int value)
     {

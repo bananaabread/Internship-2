@@ -214,7 +214,7 @@ public class MainMenuScript : MonoBehaviour
         SoloButtonReal.GetComponent<Button>().enabled = false;
         VsButtonReal.GetComponent<Button>().enabled = false;
         SettingsButtonReal.GetComponent<Button>().enabled = false;
-        HighScoreButtonReal.GetComponent<ButtonScript>().enabled = false;
+        HighScoreButtonReal.GetComponent<Button>().enabled = false;
         QuitButtonReal.GetComponent<Button>().enabled = false;
     }
     public void HideHighScore()
@@ -231,7 +231,7 @@ public class MainMenuScript : MonoBehaviour
         SoloButtonReal.GetComponent<Button>().enabled = true;
         VsButtonReal.GetComponent<Button>().enabled = true;
         SettingsButtonReal.GetComponent<Button>().enabled = true;
-        HighScoreButtonReal.GetComponent<ButtonScript>().enabled = true;
+        HighScoreButtonReal.GetComponent<Button>().enabled = true;
         QuitButtonReal.GetComponent<Button>().enabled = true;
         HSS.ToggleScoreboard();
     }
