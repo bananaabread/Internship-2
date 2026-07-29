@@ -55,6 +55,7 @@ public class BallBehaviorScript : MonoBehaviour
 
     [Header ("Misc")]
     public ParticleSystem ParticleBurst;
+    public ParticleSystem ParticleburstPerfect;
     public bool playing = false;
     public float rotationSpeed = 50f;
     public GameObject player2;
@@ -179,6 +180,7 @@ public class BallBehaviorScript : MonoBehaviour
         _canvas.GetComponent<ScoreScript>().perfectScore(isOnPlayer1Side, speed);
         StartCoroutine((Tweening(2f)));
         TriggerEffect();
+        TriggerEffectper();
         Sqelch.Play();
         PerfectHit.Play();
     }
@@ -632,6 +634,17 @@ public class BallBehaviorScript : MonoBehaviour
 
             // Plays the effect from the beginning
             ParticleBurst.Play();
+        }
+    }
+    public void TriggerEffectper()
+    {
+        if (ParticleburstPerfect != null)
+        {
+            // Stops the effect and clears any leftover particles
+            ParticleburstPerfect.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+
+            // Plays the effect from the beginning
+            ParticleburstPerfect.Play();
         }
     }
 
