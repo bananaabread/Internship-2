@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
@@ -60,6 +61,8 @@ public class BallBehaviorScript : MonoBehaviour
 
     private GameObject _canvas;
 
+    public float CurRot;
+    public float angularVelocity;
 
     // Start is called before the first frame update
     void Start()
@@ -123,7 +126,8 @@ public class BallBehaviorScript : MonoBehaviour
 
 
 
-        transform.Rotate(new Vector3(0,0, rotationSpeed * Time.deltaTime));
+        transform.Rotate(new Vector3(0,0, (rotationSpeed + speed) * Time.deltaTime));
+        CurRot = transform.eulerAngles.z;
     }
 
 
@@ -457,14 +461,16 @@ public class BallBehaviorScript : MonoBehaviour
         _canvas.GetComponent<ScoreScript>().timeRun = false;
         canHit = true;
         canScore = false;
-        rotationSpeed = 0;
+        
         if (isOnPlayer1Side)
         {
             transform.position = new Vector2(-5.58f, -1.96f);
+            rotationSpeed = 100;
         }
         if (!isOnPlayer1Side)
         {
             transform.position = new Vector2(5.58f, -1.96f);
+            rotationSpeed = 100;
         }
         if (is1PlayerMode && !isOnPlayer1Side)
         {
@@ -474,6 +480,7 @@ public class BallBehaviorScript : MonoBehaviour
     public IEnumerator splatDelay()
     {
         canHit = false;
+        rotationSpeed = 0;
         TriggerEffect();
         if (playing)
         {

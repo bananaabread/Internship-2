@@ -19,15 +19,32 @@ public class HighScore : MonoBehaviour
     private string ScoreKey(int i) => SceneManager.GetActiveScene().name + "_Score_" + i;
     private string NameKey(int i) => SceneManager.GetActiveScene().name + "_Name_" + i;
 
+    public ScoreScript ScSCR;
+    private bool hasFinished = false;
+
+    void Start()
+    {
+        NameEntryPanel.SetActive(false);
+        ScoreboardPanel.SetActive(false);
+        DisplayScoreboard();
+    }
     void Update()
     {
+        if (ScSCR == null || hasFinished) return;
+        Score = ScSCR.score1;
         ScoreText.text = "Score: " + (Score).ToString("0");
     }
 
     public void GameOver() //when game ends it shows the scoreboard
     {
+        if (hasFinished) return;
+        hasFinished = true;
+        Score = ScSCR.score1;
+        DisplayScoreboard();
         NameEntryPanel.SetActive(true);
         ScoreboardPanel.SetActive(true);
+        NameInputField.text = "";
+        NameInputField.ActivateInputField();
     }
 
     public void OnConfirmName()
@@ -38,7 +55,17 @@ public class HighScore : MonoBehaviour
         SaveScore(name);
         DisplayScoreboard();
         NameEntryPanel.SetActive(false);
+        if (ScSCR != null)
+        {
+            ScSCR.AllowRestart();
+        }
     }
+    public float GetTopScore()
+    {
+        List<float> scores = LoadScores();
+        return scores.Count > 0 ? Mathf.Max(scores.ToArray()) : 0f;
+    }
+
 
     public List<float> LoadScores()
     {
@@ -71,7 +98,7 @@ public class HighScore : MonoBehaviour
         names.Add(playerName);
 
         var combined = new List<(float score, string name)>();
-        for (int i = 0; i < scores.Count; i++)
+        for(int i = 0; i < Mathf.Min(scores.Count, names.Count); i++)
             combined.Add((scores[i], names[i]));
 
         combined.Sort((a, b) => b.score.CompareTo(a.score));
