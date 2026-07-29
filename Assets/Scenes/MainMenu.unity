@@ -1828,7 +1828,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -663.1258, y: 0, z: -658.52545, w: -454.2671}
+  m_margin: {x: -663.1258, y: 0, z: -658.52545, w: -158.03824}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2461,7 +2461,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -702.99994, y: -232}
+  m_AnchoredPosition: {x: -702.99994, y: -232.00002}
   m_SizeDelta: {x: -43, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &792631955
@@ -2718,7 +2718,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 807832823}
   in_targ_transform: {fileID: 949053248}
   out_targ_transform: {fileID: 792631954}
-  Dis: 6.9748883
+  Dis: 6.9825497
   speed: 15
   hasEntered: 0
   canEnter: 0
@@ -3269,7 +3269,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -838, y: -232}
+  m_AnchoredPosition: {x: -838, y: -232.00002}
   m_SizeDelta: {x: -43, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &949053249
@@ -3427,7 +3427,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 980961875}
   in_targ_transform: {fileID: 949053248}
   out_targ_transform: {fileID: 792631954}
-  Dis: 8.678713
+  Dis: 8.688245
   speed: 15
   hasEntered: 0
   canEnter: 0
@@ -5248,7 +5248,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1592044287}
   in_targ_transform: {fileID: 949053248}
   out_targ_transform: {fileID: 792631954}
-  Dis: 8.036874
+  Dis: 8.045703
   speed: 15
   hasEntered: 0
   canEnter: 0
@@ -5544,7 +5544,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1643155218}
   in_targ_transform: {fileID: 949053248}
   out_targ_transform: {fileID: 792631954}
-  Dis: 7.4978848
+  Dis: 7.506121
   speed: 15
   hasEntered: 0
   canEnter: 0
@@ -5743,7 +5743,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1774963284}
   in_targ_transform: {fileID: 949053248}
   out_targ_transform: {fileID: 792631954}
-  Dis: 6.4221234
+  Dis: 6.4291787
   speed: 15
   hasEntered: 0
   canEnter: 0

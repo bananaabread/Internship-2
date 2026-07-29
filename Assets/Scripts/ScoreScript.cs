@@ -29,7 +29,9 @@ public class ScoreScript : MonoBehaviour
     public GameObject promptPanel;
     public GameObject restartPrompt;
 
-    [Header("Life")]
+    public GameObject abilityPrompt;
+
+[Header("Life")]
     public GameObject lifePanel;
     public GameObject life1;
     public GameObject life2;
@@ -300,6 +302,21 @@ public class ScoreScript : MonoBehaviour
     {
         lives--;
     }
+    public void selectAbilityFirst()
+    {
+        abilityPrompt.SetActive(true);
+        StartCoroutine(removeAbilityPrompt());
+    }
+    public IEnumerator removeAbilityPrompt()
+    {
+        yield return new WaitForSeconds(1);
+        abilityPrompt.SetActive(false);
+    }
+    public void promptSetup()
+    {
+        prompt.SetActive(true);
+        promptPanel.SetActive(true);
+    }
     public void play()
     {
         prompt.SetActive(false);
@@ -338,7 +355,10 @@ public class ScoreScript : MonoBehaviour
     public IEnumerator waitForSceneFinish()
     {
         yield return new WaitForSeconds(2f);
-        promptPanel.SetActive(true);
+        if (!is1PlayerMode)
+        {
+            promptPanel.SetActive(true);
+        }
         if (!is1PlayerMode)
         {
             AllowRestart();
@@ -352,6 +372,9 @@ public class ScoreScript : MonoBehaviour
         {
             player.GetComponent<PlayerControllerScript>().canRestart = true;
         }
-        restartPrompt.SetActive(true);
+        if (!is1PlayerMode)
+        {
+            restartPrompt.SetActive(true);
+        }
     }
 }

@@ -24,6 +24,16 @@ public class AbilityManager : MonoBehaviour
 
     public GameObject HitTypePar;
     public GameObject HitTypePar2;
+
+    private int abilitiesSet = 0;
+
+    public void Update()
+    {
+        if (abilitiesSet == 2)
+        {
+            BBS.playing = true;
+        }
+    }
     public void RunCurrentAbilityP1()
     {
         if (isP1OnCooldown) return;
@@ -148,12 +158,14 @@ public class AbilityManager : MonoBehaviour
     {
         CurrentAbilityP1 = abilityId;
         PanelP1.SetActive(false);
+        abilitiesSet++;
     }
 
     public void SetAbilityP2(int abilityId)
     {
         CurrentAbilityP2 = abilityId;
         PanelP2.SetActive(false);
+        abilitiesSet++;
     }
 
 }

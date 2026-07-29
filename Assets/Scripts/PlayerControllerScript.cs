@@ -164,7 +164,7 @@ public class PlayerControllerScript : MonoBehaviour
         {
             if (player1 == true)
             {
-                //P1Anim.Play("Win");
+                P1Anim.Play("Win");
             }
             if (player1 == false)
             {

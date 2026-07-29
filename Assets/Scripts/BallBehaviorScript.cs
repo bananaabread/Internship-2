@@ -9,7 +9,7 @@ public class BallBehaviorScript : MonoBehaviour
 {
     [Header("Speed")]
     public float speed = 5f;
-    public float maxSpeed = 15f; 
+    public float maxSpeed = 15f;
     public float minSpeed = 5f;
     public float minPitch = 1f;
     public float maxPitch = 1.08f;
@@ -42,12 +42,12 @@ public class BallBehaviorScript : MonoBehaviour
     public bool isOnPlayer1Side = true;
     public bool is1PlayerMode = true;
     public bool canHit = false;
+    public bool canScore = false;
     public bool canGetPerfect = true;
     public int hitType = 0;
     public int lastShotChoice = 0;
 
     private bool Player1 = true;
-    private bool canScore = false;
 
     [Header("Pineapple stuff")]
     public GameObject pineapple;
@@ -55,9 +55,11 @@ public class BallBehaviorScript : MonoBehaviour
 
     [Header ("Misc")]
     public ParticleSystem ParticleBurst;
-    public bool playing = true;
+    public bool playing = false;
     public float rotationSpeed = 50f;
     public GameObject player2;
+
+    public GameObject outlineCircle;
 
     private GameObject _canvas;
 
@@ -112,11 +114,11 @@ public class BallBehaviorScript : MonoBehaviour
             }
             if (canHit)
             {
-                GetComponent<Outline>().enabled = true;
+                outlineCircle.GetComponent<Outline>().enabled = true;
             }
             else
             {
-                GetComponent<Outline>().enabled = false;
+                outlineCircle.GetComponent<Outline>().enabled = false;
             }
         }
 
@@ -232,112 +234,119 @@ public class BallBehaviorScript : MonoBehaviour
 
     public bool testForHit(bool isPlayer1, int shotChoice)
     {
-        if (lastShotChoice == shotChoice)
+        if (playing)
         {
-            SameHit();
-        }
-        if (lastShotChoice != shotChoice)
-        {
-            DifHit();
-        }
-        if ((lastShotChoice == 2 && shotChoice == 3) || (lastShotChoice == 3 && shotChoice == 2))
-        {
-            ComboHit();
-        }
-        if ((lastShotChoice == 2 || lastShotChoice == 3) && shotChoice == 1)
-        {
-            ComboEnd();
-        }
-        if (isPlayer1 && isOnPlayer1Side)
-        {
-            if (canHit)
+            if (lastShotChoice == shotChoice)
             {
-                if (canScore)
-                {
-                    if (hitType == 1)
-                    {
-                        missedHit();
-                        popupManagerP1.ShowPopup("Too Early");
-
-                    }
-                    if (hitType == 2)
-                    {
-                        if (canGetPerfect)
-                        {
-                            perfectHit();
-                            popupManagerP1.ShowPopup("Perfect");
-                        }
-                        if (!canGetPerfect)
-                        {
-                            stayedHit();
-                            popupManagerP1.ShowPopup("No bonus");
-                        }
-
-                    }
-                    if (hitType == 3)
-                    {
-                        missedHit();
-                        popupManagerP1.ShowPopup("Too Late");
-
-                    }
-                }
-                
-                if (shotChoice == 1 || shotChoice == 3)
-                {
-                    
-                }
-                else if(shotChoice == 2)
-                {
-                    
-                }
-                canHit = false;
-                canScore = true;
-                _canvas.GetComponent<ScoreScript>().play();
-                _canvas.GetComponent<ScoreScript>().timeRun = true;
-                Player1 = isPlayer1;
-                setTarg(shotChoice);
-                
-                return true;
+                SameHit();
             }
-        }
-        if (!isPlayer1 && !isOnPlayer1Side)
-        {
-            if (canHit)
+            if (lastShotChoice != shotChoice)
             {
-                if (canScore)
+                DifHit();
+            }
+            if ((lastShotChoice == 2 && shotChoice == 3) || (lastShotChoice == 3 && shotChoice == 2))
+            {
+                ComboHit();
+            }
+            if ((lastShotChoice == 2 || lastShotChoice == 3) && shotChoice == 1)
+            {
+                ComboEnd();
+            }
+            if (isPlayer1 && isOnPlayer1Side)
+            {
+                if (canHit)
                 {
-                    switch (hitType)
+                    if (canScore)
                     {
-                        case 1:
+                        if (hitType == 1)
+                        {
                             missedHit();
-                            popupManagerP2.ShowPopup("Too Early");
-                            break;
-                        case 2:
+                            popupManagerP1.ShowPopup("Too Early");
+
+                        }
+                        if (hitType == 2)
+                        {
                             if (canGetPerfect)
                             {
                                 perfectHit();
-                                popupManagerP2.ShowPopup("Perfect");
+                                popupManagerP1.ShowPopup("Perfect");
                             }
                             if (!canGetPerfect)
                             {
                                 stayedHit();
-                                popupManagerP2.ShowPopup("No bonus");
+                                popupManagerP1.ShowPopup("No bonus");
                             }
-                            break;
-                        case 3:
+
+                        }
+                        if (hitType == 3)
+                        {
                             missedHit();
-                            popupManagerP2.ShowPopup("Too Late");
-                            break;
+                            popupManagerP1.ShowPopup("Too Late");
+
+                        }
                     }
+
+                    if (shotChoice == 1 || shotChoice == 3)
+                    {
+
+                    }
+                    else if (shotChoice == 2)
+                    {
+
+                    }
+                    canHit = false;
+                    canScore = true;
+                    _canvas.GetComponent<ScoreScript>().play();
+                    _canvas.GetComponent<ScoreScript>().timeRun = true;
+                    Player1 = isPlayer1;
+                    setTarg(shotChoice);
+
+                    return true;
                 }
-                
-                
-                Player1 = isPlayer1;
-                canHit = false;
-                
-                setTarg(shotChoice);
-                return true;
             }
+            if (!isPlayer1 && !isOnPlayer1Side)
+            {
+                if (canHit)
+                {
+                    if (canScore)
+                    {
+                        switch (hitType)
+                        {
+                            case 1:
+                                missedHit();
+                                popupManagerP2.ShowPopup("Too Early");
+                                break;
+                            case 2:
+                                if (canGetPerfect)
+                                {
+                                    perfectHit();
+                                    popupManagerP2.ShowPopup("Perfect");
+                                }
+                                if (!canGetPerfect)
+                                {
+                                    stayedHit();
+                                    popupManagerP2.ShowPopup("No bonus");
+                                }
+                                break;
+                            case 3:
+                                missedHit();
+                                popupManagerP2.ShowPopup("Too Late");
+                                break;
+                        }
+                    }
+
+
+                    Player1 = isPlayer1;
+                    canHit = false;
+
+                    setTarg(shotChoice);
+                    return true;
+                }
+            }
+        }
+        if (!playing)
+        {
+            _canvas.GetComponent<ScoreScript>().selectAbilityFirst();
         }
         return false;
     }
@@ -518,6 +527,10 @@ public class BallBehaviorScript : MonoBehaviour
         {
             this.gameObject.SetActive(false);
         }
+    }
+    public void setPrompt()
+    {
+        _canvas.GetComponent<ScoreScript>().promptSetup();
     }
     public void player1SpeedUp(int multiplier)
     {
