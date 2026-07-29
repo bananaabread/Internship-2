@@ -12,7 +12,7 @@ public class MainMenuScript : MonoBehaviour
     public GameObject FrameRateOption;
     private GameObject frameRateManager;
     public GameObject VSync;
-
+    
     private bool settingsEnabled = false;
     private float DisTarg;
     private float DisStart;
@@ -157,7 +157,7 @@ public class MainMenuScript : MonoBehaviour
         SoloButtonReal.GetComponent<Button>().enabled = false;
         VsButtonReal.GetComponent<Button>().enabled = false;
         SettingsButtonReal.GetComponent<Button>().enabled = false;
-        HighScoreButtonReal.GetComponent<ButtonScript>().enabled = false;
+        HighScoreButtonReal.GetComponent<Button>().enabled = false;
         QuitButtonReal.GetComponent<Button>().enabled = false;
     }
     public void CloseSettings()
@@ -172,38 +172,40 @@ public class MainMenuScript : MonoBehaviour
         SoloButtonReal.GetComponent<Button>().enabled = true;
         VsButtonReal.GetComponent<Button>().enabled = true;
         SettingsButtonReal.GetComponent<Button>().enabled = true;
-        HighScoreButtonReal.GetComponent<ButtonScript>().enabled = true;
+        HighScoreButtonReal.GetComponent<Button>().enabled = true;
         QuitButtonReal.GetComponent<Button>().enabled = true;
     }
     public void ShowHighScore()
     {
         highScoreEnabled = true;
 
-        SoloButton.GetComponent<ButtonScript>().enabled = false;
-        VsButton.GetComponent<ButtonScript>().enabled = false;
-        SettingsButton.GetComponent<ButtonScript>().enabled = false;
-        HighScoreButton.GetComponent<ButtonScript>().enabled = false;
-        QuitButton.GetComponent<ButtonScript>().enabled = false;
-        SoloButtonReal.GetComponent<Button>().enabled = false;
-        VsButtonReal.GetComponent<Button>().enabled = false;
-        SettingsButtonReal.GetComponent<Button>().enabled = false;
-        HighScoreButtonReal.GetComponent<ButtonScript>().enabled = false;
-        QuitButtonReal.GetComponent<Button>().enabled = false;
+        HideHighScore(); //Temporary, remove when high score panel is added
+
+        //SoloButton.GetComponent<ButtonScript>().enabled = false;
+        //VsButton.GetComponent<ButtonScript>().enabled = false;
+        //SettingsButton.GetComponent<ButtonScript>().enabled = false;
+        //HighScoreButton.GetComponent<ButtonScript>().enabled = false;
+        //QuitButton.GetComponent<ButtonScript>().enabled = false;
+        //SoloButtonReal.GetComponent<Button>().enabled = false;
+        //VsButtonReal.GetComponent<Button>().enabled = false;
+        //SettingsButtonReal.GetComponent<Button>().enabled = false;
+        //HighScoreButtonReal.GetComponent<ButtonScript>().enabled = false;
+        //QuitButtonReal.GetComponent<Button>().enabled = false;
     }
     public void HideHighScore()
     {
         highScoreEnabled = false;
 
-        SoloButton.GetComponent<ButtonScript>().enabled = true;
-        VsButton.GetComponent<ButtonScript>().enabled = true;
-        SettingsButton.GetComponent<ButtonScript>().enabled = true;
-        HighScoreButton.GetComponent<ButtonScript>().enabled = true;
-        QuitButton.GetComponent<ButtonScript>().enabled = true;
-        SoloButtonReal.GetComponent<Button>().enabled = true;
-        VsButtonReal.GetComponent<Button>().enabled = true;
-        SettingsButtonReal.GetComponent<Button>().enabled = true;
-        HighScoreButtonReal.GetComponent<ButtonScript>().enabled = true;
-        QuitButtonReal.GetComponent<Button>().enabled = true;
+        //SoloButton.GetComponent<ButtonScript>().enabled = true;
+        //VsButton.GetComponent<ButtonScript>().enabled = true;
+        //SettingsButton.GetComponent<ButtonScript>().enabled = true;
+        //HighScoreButton.GetComponent<ButtonScript>().enabled = true;
+        //QuitButton.GetComponent<ButtonScript>().enabled = true;
+        //SoloButtonReal.GetComponent<Button>().enabled = true;
+        //VsButtonReal.GetComponent<Button>().enabled = true;
+        //SettingsButtonReal.GetComponent<Button>().enabled = true;
+        //HighScoreButtonReal.GetComponent<ButtonScript>().enabled = true;
+        //QuitButtonReal.GetComponent<Button>().enabled = true;
     }
     public void changeFrameRate()
     {
