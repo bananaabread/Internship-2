@@ -16,12 +16,14 @@ public class MainMenuScript : MonoBehaviour
     private bool settingsEnabled = false;
     private float DisTarg;
     private float DisStart;
-    private float DisTargHS;
-    private float DisStartHS;
+    
     public float speed = 5f;
 
     public Transform settingsStart;
     public Transform settingsTarg;
+
+    public Transform HSStart;
+    public Transform HSTarg;
 
     [Header("HighScore")]
     public GameObject HighScorePanel;
@@ -97,8 +99,7 @@ public class MainMenuScript : MonoBehaviour
         DisTarg = Vector2.Distance(Settings.transform.position, settingsTarg.position);
         DisStart = Vector2.Distance(Settings.transform.position, settingsStart.position);
 
-        DisTargHS = Vector2.Distance(Settings.transform.position, settingsTarg.position);
-        DisStartHS = Vector2.Distance(Settings.transform.position, settingsStart.position);
+        
         if (VSync.GetComponent<Toggle>().isOn)
         {
             FrameRateOption.GetComponent<TMP_Dropdown>().interactable = false;
@@ -127,13 +128,13 @@ public class MainMenuScript : MonoBehaviour
             case true:
                 if (DisTarg > 0)
                 {
-                    HighScorePanel.transform.position = Vector3.MoveTowards(HighScorePanel.transform.position, settingsTarg.position, speed * Time.deltaTime);
+                    HighScorePanel.transform.position = Vector3.MoveTowards(HighScorePanel.transform.position, HSTarg.position, speed * Time.deltaTime);
                 }
                 break;
             case false:
                 if (DisStart > 0)
                 {
-                    HighScorePanel.transform.position = Vector3.MoveTowards(HighScorePanel.transform.position, settingsStart.position, speed * Time.deltaTime);
+                    HighScorePanel.transform.position = Vector3.MoveTowards(HighScorePanel.transform.position, HSStart.position, speed * Time.deltaTime);
                 }
                 break;
         }
