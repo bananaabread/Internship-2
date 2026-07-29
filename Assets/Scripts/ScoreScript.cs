@@ -47,9 +47,10 @@ public class ScoreScript : MonoBehaviour
 
     [Header ("Misc")]
     public bool is1PlayerMode = true;
+    public HighScore highScore;
 
     private GameObject audioControl;
-    private bool hasPlayedSound = false;
+    private bool gameEnded = false;
 
     // Start is called before the first frame update
     void Start()
@@ -100,8 +101,10 @@ public class ScoreScript : MonoBehaviour
         {
             timeText.text = timeWhole.ToString();
         }
-        if (timeWhole == 0 || lives == 0)
+        if ((timeWhole == 0 || lives == 0) && !gameEnded)
         {
+            gameEnded = true;
+
             GameObject[] players;
             players = GameObject.FindGameObjectsWithTag("Player");
             if (ball != null)
@@ -113,14 +116,15 @@ public class ScoreScript : MonoBehaviour
                 player.GetComponent<PlayerControllerScript>().playing = false;
             }
 
+            float topScore = highScore != null ? highScore.GetTopScore() : 0f;
 
-            if (audioControl != null && !hasPlayedSound)
+            if (audioControl != null)
             {
-                if (score1 > 10000 && is1PlayerMode) //Replace 100000 with highscore
+                if (score1 > topScore && is1PlayerMode)
                 {
                     audioControl.GetComponent<AudioManager>().PlayCelebration();
                 }
-                if (score1 < 10000 && is1PlayerMode) //Replace 100000 with highscore
+                if (score1 <= topScore && is1PlayerMode)
                 {
                     audioControl.GetComponent<AudioManager>().PlayFail();
                 }
@@ -144,8 +148,13 @@ public class ScoreScript : MonoBehaviour
                         }
                     }
                 }
-                hasPlayedSound = true;
+                
             }
+            if (is1PlayerMode && highScore != null)
+            {
+                highScore.GameOver();
+            }
+
 
 
 
@@ -328,13 +337,21 @@ public class ScoreScript : MonoBehaviour
 
     public IEnumerator waitForSceneFinish()
     {
-        GameObject[] _players = GameObject.FindGameObjectsWithTag("Player");
         yield return new WaitForSeconds(2f);
+        promptPanel.SetActive(true);
+        if (!is1PlayerMode)
+        {
+            AllowRestart();
+        }
+    }
+
+    public void AllowRestart()
+    {
+        GameObject[] _players = GameObject.FindGameObjectsWithTag("Player");
         foreach (GameObject player in _players)
         {
             player.GetComponent<PlayerControllerScript>().canRestart = true;
         }
         restartPrompt.SetActive(true);
-        promptPanel.SetActive(true);
     }
 }

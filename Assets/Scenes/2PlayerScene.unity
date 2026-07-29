@@ -5867,6 +5867,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2916259154618074264, guid: e6716cb77998ac54d97d9814f3becd42, type: 3}
+      propertyPath: rotationSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2916259154618074264, guid: e6716cb77998ac54d97d9814f3becd42, type: 3}
       propertyPath: popupManagerP1
       value: 
       objectReference: {fileID: 1263179968}
@@ -7598,7 +7602,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 481, y: 186.83002}
+  m_AnchoredPosition: {x: 481, y: 162}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &571359987
@@ -9101,6 +9105,10 @@ PrefabInstance:
       propertyPath: P1Anim
       value: 
       objectReference: {fileID: 209512677}
+    - target: {fileID: 5698829962065399551, guid: c008c464f8b05c64aa1987bd7b2d1449, type: 3}
+      propertyPath: P1Sprite
+      value: 
+      objectReference: {fileID: 209512674}
     - target: {fileID: 5698829962065399551, guid: c008c464f8b05c64aa1987bd7b2d1449, type: 3}
       propertyPath: abilityManager
       value: 
@@ -15086,7 +15094,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -487, y: 186.83002}
+  m_AnchoredPosition: {x: -487, y: 162}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1626159670
