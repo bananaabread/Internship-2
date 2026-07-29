@@ -9,7 +9,10 @@ public class AudioManager : MonoBehaviour
 
     public AudioClip CelebrationSoundClip;
     public AudioClip FailSoundClip;
-    
+
+    public AudioClip PunchSoundClip;
+    public AudioSource PunchSound;
+
     public void PlayCelebration()
     {
         CelebrationSound.PlayOneShot(CelebrationSoundClip);
@@ -17,5 +20,9 @@ public class AudioManager : MonoBehaviour
     public void PlayFail()
     {
         FailSound.PlayOneShot(FailSoundClip);
+    }
+    public void PlayPunch()
+    {
+        PunchSound.PlayOneShot(PunchSoundClip);
     }
 }
