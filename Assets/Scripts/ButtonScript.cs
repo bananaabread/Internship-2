@@ -13,11 +13,12 @@ public class ButtonScript : Selectable
     public float speed = 15f;
 
     public bool hasEntered = false;
+    public bool canEnter = false;
 
     void Update()
     {
         Dis = Vector2.Distance(transform.position, in_targ_transform.position);
-        if (!hasEntered)
+        if (!hasEntered && canEnter)
         {
             if (Dis > 0)
             {
