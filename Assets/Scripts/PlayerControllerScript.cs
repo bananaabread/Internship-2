@@ -19,6 +19,9 @@ public class PlayerControllerScript : MonoBehaviour
     public float cooldownTime = 1f;
     public GameObject P1Sprite;
 
+    public GameObject _canvas;
+    public GameObject canHitCircle;
+
     private bool isOnCooldown = false;
     private bool canEmulate = true;
     private GameObject Ball;
@@ -33,6 +36,10 @@ public class PlayerControllerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!playing)
+        {
+            canHitCircle.SetActive(false);
+        }
         if (isPlayer1)
         {
             P1Sprite.GetComponent<SpriteRenderer>().flipX = true;
@@ -40,6 +47,14 @@ public class PlayerControllerScript : MonoBehaviour
         }
         if (playing)
         {
+            if (isOnCooldown)
+            {
+                canHitCircle.SetActive(false);
+            }
+            else
+            {
+                canHitCircle.SetActive(true);
+            }
             if (isPlayer1 && Input.GetKeyDown(KeyCode.W) && !isOnCooldown)
             {
                 Ball.GetComponent<BallBehaviorScript>().testForHit(isPlayer1, 3);
@@ -85,6 +100,7 @@ public class PlayerControllerScript : MonoBehaviour
             if (isPlayer1 && Input.GetKeyDown(KeyCode.D) && !isOnCooldown)
             {
                 Ball.GetComponent<BallBehaviorScript>().testForHit(isPlayer1, 1);
+                Ball.GetComponent<BallBehaviorScript>().startHit();
                 isOnCooldown = true;
                 StartCoroutine(cooldown());
                 P1Anim.ResetTrigger("punchup");
@@ -150,21 +166,19 @@ public class PlayerControllerScript : MonoBehaviour
         }
         if (!playing && canRestart)
         {
-            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.LeftArrow))
+            if (Input.GetKeyDown(KeyCode.D))
             {
                 if (is1PlayerScene)
                 {
-                    SceneManager.LoadScene("1PlayerScene");
+                    //SceneManager.LoadScene("1PlayerScene");
+                    _canvas.GetComponent<ScoreScript>().ManualLoad(1);
                 }
                 if (!is1PlayerScene)
                 {
-                    SceneManager.LoadScene("2PlayerScene");
+                    //SceneManager.LoadScene("2PlayerScene");
+                    _canvas.GetComponent<ScoreScript>().ManualLoad(2);
                 }
             }
-        }
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            SceneManager.LoadScene(0);
         }
     }
     public void Celebration(bool player1)

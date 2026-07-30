@@ -16,6 +16,10 @@ public class LimitFps : MonoBehaviour
 
     public GameObject settingsPanel;
 
+    [Header("Check for overlay")]
+    public bool hasSeenMenu = false;
+    public GameObject MainMenu;
+
     public void Start()
     {
         if (PlayerPrefs.GetInt("VSyncOn", 1) == 0)
@@ -33,6 +37,10 @@ public class LimitFps : MonoBehaviour
             hasSetVSync = true;
         }
         SetRate(PlayerPrefs.GetInt("FrameRate", 60));
+        if (!hasSeenMenu && MainMenu != null)
+        {
+            MainMenu.GetComponent<MainMenuScript>().DestroyOverlay();
+        }
     }
     public void Awake()
     {
@@ -45,6 +53,10 @@ public class LimitFps : MonoBehaviour
         else
         {
             Destroy(this.gameObject);
+        }
+        if (!hasSeenMenu && MainMenu == null)
+        {
+            hasSeenMenu = true;
         }
     }
     public void Update()
@@ -62,6 +74,11 @@ public class LimitFps : MonoBehaviour
         }
         Debug.Log(Application.targetFrameRate);
         Debug.Log(QualitySettings.vSyncCount);
+    }
+
+    public void seenMenu()
+    {
+        hasSeenMenu = true;
     }
     public void SetRate(int value)
     {

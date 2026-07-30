@@ -1,6 +1,8 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 public class ScoreScript : MonoBehaviour
@@ -46,6 +48,20 @@ public class ScoreScript : MonoBehaviour
     [Header("Particles")]
     public ParticleSystem p1VictoryParticles;
     public ParticleSystem p2VictoryParticles;
+
+    [Header("Overlay")]
+    public GameObject OverlayIn;
+    public Transform OverlayTargIn;
+
+    public GameObject OverlayOut;
+    public Transform OverlayTargOut;
+
+    public float overlayInDis;
+    public float overlayOutDis;
+    public float overlaySpeed = 15f;
+
+    public int SceneToLoad = 0;
+    public bool isLoadingScene = false;
 
     [Header ("Misc")]
     public bool is1PlayerMode = true;
@@ -156,17 +172,54 @@ public class ScoreScript : MonoBehaviour
             {
                 highScore.GameOver();
             }
-
-
-
-
             StartCoroutine(waitForSceneFinish());
         }
         if (ball != null)
         {
             ball.GetComponent <BallBehaviorScript>().player1SpeedUp((int)Mathf.Floor(score1 / 1000));
         }
-            SetScoreText();
+        SetScoreText();
+
+
+        overlayInDis = Vector2.Distance(OverlayIn.transform.position, OverlayTargIn.position);
+        if (OverlayOut != null)
+        {
+            overlayOutDis = Vector2.Distance(OverlayOut.transform.position, OverlayTargOut.position);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            isLoadingScene = true;
+        }
+        if (isLoadingScene)
+        {
+            if (overlayInDis > 0)
+            {
+                OverlayIn.transform.position = Vector3.MoveTowards(OverlayIn.transform.position, OverlayTargIn.position, overlaySpeed * Time.deltaTime);
+            }
+            if (overlayInDis > -0.1f && overlayInDis < 0.1f)
+            {
+                StartCoroutine(Loading());
+            }
+        }
+        if (overlayOutDis > 0)
+        {
+            if (OverlayOut != null)
+            {
+                Debug.Log("We're moving!");
+                OverlayOut.transform.position = Vector3.MoveTowards(OverlayOut.transform.position, OverlayTargOut.position, overlaySpeed * Time.deltaTime);
+            }
+        }
+    }
+    public IEnumerator Loading()
+    {
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene(SceneToLoad);
+    }
+    public void ManualLoad(int TargScene)
+    {
+        isLoadingScene = true;
+        SceneToLoad = TargScene;
     }
     public void SetScoreText()
     {
@@ -304,8 +357,11 @@ public class ScoreScript : MonoBehaviour
     }
     public void selectAbilityFirst()
     {
-        abilityPrompt.SetActive(true);
-        StartCoroutine(removeAbilityPrompt());
+        if (abilityPrompt != null)
+        {
+            abilityPrompt.SetActive(true);
+            StartCoroutine(removeAbilityPrompt());
+        }
     }
     public IEnumerator removeAbilityPrompt()
     {
@@ -372,9 +428,6 @@ public class ScoreScript : MonoBehaviour
         {
             player.GetComponent<PlayerControllerScript>().canRestart = true;
         }
-        if (!is1PlayerMode)
-        {
-            restartPrompt.SetActive(true);
-        }
+        restartPrompt.SetActive(true);
     }
 }

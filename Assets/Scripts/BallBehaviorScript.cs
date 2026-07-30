@@ -287,15 +287,6 @@ public class BallBehaviorScript : MonoBehaviour
 
                         }
                     }
-
-                    if (shotChoice == 1 || shotChoice == 3)
-                    {
-
-                    }
-                    else if (shotChoice == 2)
-                    {
-
-                    }
                     canHit = false;
                     canScore = true;
                     _canvas.GetComponent<ScoreScript>().play();
@@ -340,6 +331,7 @@ public class BallBehaviorScript : MonoBehaviour
 
                     Player1 = isPlayer1;
                     canHit = false;
+                    canScore = true;
 
                     setTarg(shotChoice);
                     return true;
@@ -498,6 +490,14 @@ public class BallBehaviorScript : MonoBehaviour
         if (is1PlayerMode && !isOnPlayer1Side)
         {
             StartCoroutine(autoRestart());
+        }
+    }
+    public void startHit()
+    {
+        if (is1PlayerMode)
+        {
+            playing = true;
+            testForHit(true, 1);
         }
     }
     public IEnumerator splatDelay()

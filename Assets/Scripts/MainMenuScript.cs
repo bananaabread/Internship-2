@@ -22,13 +22,12 @@ public class MainMenuScript : MonoBehaviour
     public Transform settingsStart;
     public Transform settingsTarg;
 
-    public Transform HSStart;
-    public Transform HSTarg;
-
     [Header("HighScore")]
     public GameObject HighScorePanel;
     public HighScore HSS;
     private bool highScoreEnabled = false;
+    public Transform HSStart;
+    public Transform HSTarg;
 
     [Header ("Buttons")]
     public GameObject SoloButton;
@@ -54,12 +53,28 @@ public class MainMenuScript : MonoBehaviour
     public Slider MusicSlider;
     public Slider SFXSlider;
 
+    [Header("Overlay")]
+    public GameObject OverlayIn;
+    public Transform OverlayTargIn;
+
+    public GameObject OverlayOut;
+    public Transform OverlayTargOut;
+
+    public float overlayInDis;
+    public float overlayOutDis;
+    public float overlaySpeed = 15f;
+
+    public int SceneToLoad = 0;
+    public bool isLoadingScene = false;
+
+    public GameObject NotDestroyed;
+
     private void Start()
     {
         frameRateManager = GameObject.FindGameObjectWithTag("FpsManager");
         //StartCoroutine(removeMenu());
         //Settings.SetActive(false);
-        
+
         switch (PlayerPrefs.GetInt("FrameRate", 60))
         {
             case 30:
@@ -99,7 +114,13 @@ public class MainMenuScript : MonoBehaviour
         DisTarg = Vector2.Distance(Settings.transform.position, settingsTarg.position);
         DisStart = Vector2.Distance(Settings.transform.position, settingsStart.position);
 
-        
+        overlayInDis = Vector2.Distance(OverlayIn.transform.position, OverlayTargIn.position);
+        if (OverlayOut != null)
+        {
+            overlayOutDis = Vector2.Distance(OverlayOut.transform.position, OverlayTargOut.position);
+        }
+
+
         if (VSync.GetComponent<Toggle>().isOn)
         {
             FrameRateOption.GetComponent<TMP_Dropdown>().interactable = false;
@@ -138,6 +159,40 @@ public class MainMenuScript : MonoBehaviour
                 }
                 break;
         }
+        if (isLoadingScene)
+        {
+            SoloButton.GetComponent<ButtonScript>().enabled = false;
+            VsButton.GetComponent<ButtonScript>().enabled = false;
+            SettingsButton.GetComponent<ButtonScript>().enabled = false;
+            HighScoreButton.GetComponent<ButtonScript>().enabled = false;
+            QuitButton.GetComponent<ButtonScript>().enabled = false;
+            SoloButtonReal.GetComponent<Button>().enabled = false;
+            VsButtonReal.GetComponent<Button>().enabled = false;
+            SettingsButtonReal.GetComponent<Button>().enabled = false;
+            HighScoreButtonReal.GetComponent<Button>().enabled = false;
+            QuitButtonReal.GetComponent<Button>().enabled = false;
+            if (overlayInDis > 0)
+            {
+                OverlayIn.transform.position = Vector3.MoveTowards(OverlayIn.transform.position, OverlayTargIn.position, overlaySpeed * Time.deltaTime);
+            }
+            if (overlayInDis > -0.1f && overlayInDis < 0.1f)
+            {
+                StartCoroutine(Loading());
+            }
+        }
+        if (overlayOutDis > 0)
+        {
+            if (OverlayOut != null)
+            {
+                Debug.Log("We're moving!");
+                OverlayOut.transform.position = Vector3.MoveTowards(OverlayOut.transform.position, OverlayTargOut.position, overlaySpeed * Time.deltaTime);
+            }
+        }
+    }
+    public IEnumerator Loading()
+    {
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene(SceneToLoad);
     }
     public void SetMasterVolume()
     {
@@ -161,11 +216,23 @@ public class MainMenuScript : MonoBehaviour
     }
     public void StartSoloMode()
     {
-        SceneManager.LoadScene(1);
+        SceneToLoad = 1;
+        isLoadingScene = true;
+        if (NotDestroyed != null)
+        {
+            NotDestroyed.GetComponent<LimitFps>().seenMenu();
+        }
+        //SceneManager.LoadScene(1);
     }
     public void StartVsMode()
     {
-        SceneManager.LoadScene(2);
+        SceneToLoad = 2;
+        isLoadingScene = true;
+        if (NotDestroyed != null)
+        {
+            NotDestroyed.GetComponent<LimitFps>().seenMenu();
+        }
+        //SceneManager.LoadScene(2);
     }
     public void OpenSettings()
     {
@@ -251,6 +318,11 @@ public class MainMenuScript : MonoBehaviour
     public void VsyncToggle()
     {
         frameRateManager.GetComponent<LimitFps>().ToggleVSync(VSync.GetComponent<Toggle>().isOn);
+    }
+
+    public void DestroyOverlay()
+    {
+        Destroy(OverlayOut);
     }
     public void Exit()
     {
