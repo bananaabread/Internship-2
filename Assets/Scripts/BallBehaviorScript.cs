@@ -368,6 +368,10 @@ public class BallBehaviorScript : MonoBehaviour
         {
             case 1:
                 targ = GameObject.FindGameObjectWithTag(isOnPlayer1Side ? "Target1" : "Target2");
+                if (!isOnPlayer1Side && player2 != null)
+                {
+                    player2.GetComponent<PlayerControllerScript>().emulateAnim(1);
+                }
                 break;
             case 2:
                 foreach (GameObject downTarget in downTargets)
@@ -375,6 +379,10 @@ public class BallBehaviorScript : MonoBehaviour
                     if (downTargets.IndexOf(downTarget) == targNum)
                     {
                         targ = downTarget;
+                        if (!isOnPlayer1Side && player2 != null)
+                        {
+                            player2.GetComponent<PlayerControllerScript>().emulateAnim(2);
+                        }
                     }
                 }
                 break;
@@ -384,6 +392,10 @@ public class BallBehaviorScript : MonoBehaviour
                     if (upTargets.IndexOf(upTarget) == targNum)
                     {
                         targ = upTarget;
+                        if (!isOnPlayer1Side && player2 != null)
+                        {
+                            player2.GetComponent<PlayerControllerScript>().emulateAnim(3);
+                        }
                     }
                 }
                 break;
@@ -441,10 +453,10 @@ public class BallBehaviorScript : MonoBehaviour
                     int roll = Random.Range(1, 100);
                     int shotChoice = roll <= 50 ? 1 : roll <= 74 ? 2 : 3;
                     testForHit(isOnPlayer1Side, shotChoice);
-                    if (player2 != null)
-                    {
-                        player2.GetComponent<PlayerControllerScript>().emulateAnim(shotChoice);
-                    }
+                    //if (!isOnPlayer1Side && player2 != null)
+                    //{
+                    //    player2.GetComponent<PlayerControllerScript>().emulateAnim(shotChoice);
+                    //}
                 }
                 break;
         }

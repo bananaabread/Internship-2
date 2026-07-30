@@ -44,6 +44,7 @@ public class PlayerControllerScript : MonoBehaviour
             {
                 Ball.GetComponent<BallBehaviorScript>().testForHit(isPlayer1, 3);
                 P1Anim.ResetTrigger("punch");
+                P1Anim.ResetTrigger("punchdown");
                 P1Anim.SetTrigger("punchup");
                 isOnCooldown = true;
                 StartCoroutine(cooldown());
@@ -51,27 +52,31 @@ public class PlayerControllerScript : MonoBehaviour
             }
             if (isPlayer1 && Input.GetKeyDown(KeyCode.A))
             {
-                if (abilityManager.RequiresHit(abilityManager.CurrentAbilityP1))
+                if (abilityManager != null)
                 {
-                    if (!isOnCooldown)
+                    if (abilityManager.RequiresHit(abilityManager.CurrentAbilityP1))
                     {
-                        if (Ball.GetComponent<BallBehaviorScript>().testForHit(isPlayer1, 1))
+                        if (!isOnCooldown)
                         {
-                            abilityManager.RunCurrentAbilityP1();
+                            if (Ball.GetComponent<BallBehaviorScript>().testForHit(isPlayer1, 1))
+                            {
+                                abilityManager.RunCurrentAbilityP1();
+                            }
+                            isOnCooldown = true;
+                            StartCoroutine(cooldown());
                         }
-                        isOnCooldown = true;
-                        StartCoroutine(cooldown());
                     }
-                }
-                else
-                {
-                    abilityManager.RunCurrentAbilityP1();
+                    else
+                    {
+                        abilityManager.RunCurrentAbilityP1();
+                    }
                 }
             }
             if (isPlayer1 && Input.GetKeyDown(KeyCode.S) && !isOnCooldown)
             {
                 P1Anim.ResetTrigger("punchup");
-                P1Anim.SetTrigger("punch");
+                P1Anim.ResetTrigger("punch");
+                P1Anim.SetTrigger("punchdown");
                 Ball.GetComponent<BallBehaviorScript>().testForHit(isPlayer1, 2);
                 isOnCooldown = true;
                 StartCoroutine(cooldown());
@@ -83,6 +88,7 @@ public class PlayerControllerScript : MonoBehaviour
                 isOnCooldown = true;
                 StartCoroutine(cooldown());
                 P1Anim.ResetTrigger("punchup");
+                P1Anim.ResetTrigger("punchdown");
                 P1Anim.SetTrigger("punch");
 
 
@@ -90,6 +96,7 @@ public class PlayerControllerScript : MonoBehaviour
             if (!isPlayer1 && Input.GetKeyDown(KeyCode.LeftArrow) && !isOnCooldown)
             {
                 P2Anim.ResetTrigger("punchup");
+                P2Anim.ResetTrigger("punchdown");
                 P2Anim.SetTrigger("punch");
                 Ball.GetComponent<BallBehaviorScript>().testForHit(isPlayer1, 1);
                 isOnCooldown = true;
@@ -103,7 +110,8 @@ public class PlayerControllerScript : MonoBehaviour
                 isOnCooldown = true;
                 StartCoroutine(cooldown());
                 P2Anim.ResetTrigger("punchup");
-                P2Anim.SetTrigger("punch");
+                P2Anim.ResetTrigger("punch");
+                P2Anim.SetTrigger("punchdown");
 
             }
             if (!isPlayer1 && Input.GetKeyDown(KeyCode.UpArrow) && !isOnCooldown)
@@ -112,6 +120,7 @@ public class PlayerControllerScript : MonoBehaviour
                 isOnCooldown = true;
                 StartCoroutine(cooldown());
                 P2Anim.ResetTrigger("punch");
+                P2Anim.ResetTrigger("punchdown");
                 P2Anim.SetTrigger("punchup");
 
             }
@@ -182,23 +191,23 @@ public class PlayerControllerScript : MonoBehaviour
     {
         if (canEmulate)
         {
-            switch (emulationType)
+            if (emulationType == 1)
             {
-                case 1:
-                    P2Anim.ResetTrigger("punchup");
-                    P2Anim.SetTrigger("punch");
-                    Debug.Log("Punch");
-                    break;
-                case 2:
-                    P2Anim.ResetTrigger("punchup");
-                    P2Anim.SetTrigger("punch");
-                    Debug.Log("Punch");
-                    break;
-                case 3:
-                    P2Anim.ResetTrigger("punch");
-                    P2Anim.SetTrigger("punchup");
-                    Debug.Log("UpperCrust!");
-                    break;
+                P2Anim.ResetTrigger("punchdown");
+                P2Anim.ResetTrigger("punchup");
+                P2Anim.SetTrigger("punch");
+            }
+            if (emulationType == 2)
+            {
+                P2Anim.ResetTrigger("punchup");
+                P2Anim.ResetTrigger("punch");
+                P2Anim.SetTrigger("punchdown");
+            }
+            if (emulationType == 3)
+            {
+                P2Anim.ResetTrigger("punchdown");
+                P2Anim.ResetTrigger("punch");
+                P2Anim.SetTrigger("punchup");
             }
             canEmulate = false;
         }

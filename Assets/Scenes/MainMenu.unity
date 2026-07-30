@@ -422,7 +422,7 @@ AudioSource:
   m_GameObject: {fileID: 86666795}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 7494795511402825410, guid: d49fbca994e16fc40905040f091fa219, type: 2}
   m_audioClip: {fileID: 8300000, guid: 58e7234bfdae3444d87cbb9ff049763f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -3093,7 +3093,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -703, y: -232.00002}
+  m_AnchoredPosition: {x: -703, y: -232}
   m_SizeDelta: {x: -43, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &792631955
@@ -3350,7 +3350,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 807832823}
   in_targ_transform: {fileID: 949053248}
   out_targ_transform: {fileID: 792631954}
-  Dis: 6.9825497
+  Dis: 6.977047
   speed: 15
   hasEntered: 0
   canEnter: 0
@@ -4059,7 +4059,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -838, y: -232.00002}
+  m_AnchoredPosition: {x: -838, y: -232}
   m_SizeDelta: {x: -43, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &949053249
@@ -4217,7 +4217,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 980961875}
   in_targ_transform: {fileID: 949053248}
   out_targ_transform: {fileID: 792631954}
-  Dis: 8.688245
+  Dis: 8.681399
   speed: 15
   hasEntered: 0
   canEnter: 0
@@ -6184,7 +6184,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1592044287}
   in_targ_transform: {fileID: 949053248}
   out_targ_transform: {fileID: 792631954}
-  Dis: 8.045703
+  Dis: 8.039363
   speed: 15
   hasEntered: 0
   canEnter: 0
@@ -6480,7 +6480,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1643155218}
   in_targ_transform: {fileID: 949053248}
   out_targ_transform: {fileID: 792631954}
-  Dis: 7.506121
+  Dis: 7.500206
   speed: 15
   hasEntered: 0
   canEnter: 0
@@ -6760,7 +6760,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1774963284}
   in_targ_transform: {fileID: 949053248}
   out_targ_transform: {fileID: 792631954}
-  Dis: 6.4291787
+  Dis: 6.4241114
   speed: 15
   hasEntered: 0
   canEnter: 0
