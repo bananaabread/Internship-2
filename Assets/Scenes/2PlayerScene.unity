@@ -18417,7 +18417,7 @@ PrefabInstance:
     - target: {fileID: 2916259154618074264, guid: e6716cb77998ac54d97d9814f3becd42, type: 3}
       propertyPath: pineapplespriteRend
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8483160184708695000, guid: 88c8928f0d051d240abaeec26a2884cf, type: 3}
     - target: {fileID: 2916259154618074264, guid: e6716cb77998ac54d97d9814f3becd42, type: 3}
       propertyPath: ParticleburstPerfect
       value: 
@@ -42033,6 +42033,10 @@ PrefabInstance:
     - target: {fileID: 6764962729069788624, guid: c008c464f8b05c64aa1987bd7b2d1449, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6886674575589793569, guid: c008c464f8b05c64aa1987bd7b2d1449, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.592
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

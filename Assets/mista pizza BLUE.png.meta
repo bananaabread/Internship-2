@@ -1243,6 +1243,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Fist
+      rect:
+        serializedVersion: 2
+        x: 6170
+        y: 6138
+        width: 222
+        height: 175
+      alignment: 9
+      pivot: {x: 0.50404483, y: 0.49682477}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ae3594cb2577924b873573cc541d747
+      internalID: 867901973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1265,6 +1286,7 @@ TextureImporter:
       Down7: 1774955129
       Down8: -1477421548
       Down9: 102009525
+      Fist: 867901973
       IdleBlue1: 913547691
       IdleBlue10: -1145851952
       IdleBlue11: 406064160

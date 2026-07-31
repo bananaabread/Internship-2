@@ -327,6 +327,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Fist
+      rect:
+        serializedVersion: 2
+        x: 6187
+        y: 6140
+        width: 206
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c6c8c3aa85718741b80f357defa75cc
+      internalID: -1727042997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -349,6 +370,8 @@ TextureImporter:
       Down7: -1272545071
       Down8: -1157614070
       Down9: 384770090
+      Fist: -1727042997
+      mista pizza RED_1: -1034304549
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

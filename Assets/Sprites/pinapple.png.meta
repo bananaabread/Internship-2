@@ -108,7 +108,49 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: pinapple_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 29
+        width: 51
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f944a0404fb766449bd23ba1013575c
+      internalID: 912091679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pinapple_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 85
+        width: 51
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cd4d0085fb4f2c43a935a30ad51a940
+      internalID: 1034344129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline:
     - - {x: -62, y: 64}
       - {x: -64, y: 63}
@@ -132,7 +174,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pinapple_0: 912091679
+      pinapple_1: 1034344129
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

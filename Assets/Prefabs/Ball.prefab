@@ -5226,12 +5226,14 @@ MonoBehaviour:
   isOnPlayer1Side: 1
   is1PlayerMode: 1
   canHit: 0
+  canScore: 0
   canGetPerfect: 1
   hitType: 0
   lastShotChoice: 0
   pineapple: {fileID: 7238184777527461364, guid: 88c8928f0d051d240abaeec26a2884cf, type: 3}
   pineapplespriteRend: {fileID: 0}
   ParticleBurst: {fileID: 8579910409234055053}
+  ParticleburstPerfect: {fileID: 0}
   playing: 1
   rotationSpeed: 50
   player2: {fileID: 0}
