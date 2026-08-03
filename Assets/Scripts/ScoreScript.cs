@@ -141,10 +141,18 @@ public class ScoreScript : MonoBehaviour
                 if (score1 > topScore && is1PlayerMode)
                 {
                     audioControl.GetComponent<AudioManager>().PlayCelebration();
+                    foreach (GameObject player in players)
+                    {
+                        player.GetComponent<PlayerControllerScript>().Celebration(true);
+                    }
                 }
                 if (score1 <= topScore && is1PlayerMode)
                 {
                     audioControl.GetComponent<AudioManager>().PlayFail();
+                    foreach (GameObject player in players)
+                    {
+                        player.GetComponent<PlayerControllerScript>().Celebration(false);
+                    }
                 }
                 if (!is1PlayerMode)
                 {
