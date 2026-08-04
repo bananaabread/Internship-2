@@ -1264,6 +1264,111 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Celebrate1
+      rect:
+        serializedVersion: 2
+        x: 1548
+        y: 3528
+        width: 520
+        height: 872
+      alignment: 9
+      pivot: {x: 0.47563407, y: 0.50360864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 582d7798af0d7ee4881dc655fa7e7fae
+      internalID: -1746258140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Celebrate2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 3488
+        width: 512
+        height: 912
+      alignment: 9
+      pivot: {x: 0.47738838, y: 0.4893052}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 487d6ffac98863e4f90c6f4c2411095e
+      internalID: 1776252521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Celebrate3
+      rect:
+        serializedVersion: 2
+        x: 7132
+        y: 4528
+        width: 504
+        height: 964
+      alignment: 9
+      pivot: {x: 0.46339828, y: 0.47392458}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2370ae0eeef0e7c4e8c5db896c474367
+      internalID: -2133015532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Celebrate4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3468
+        width: 512
+        height: 932
+      alignment: 9
+      pivot: {x: 0.47235036, y: 0.48276293}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99620234a6684764794499290ee40a64
+      internalID: -2043381244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Celebrate5
+      rect:
+        serializedVersion: 2
+        x: 1028
+        y: 3508
+        width: 516
+        height: 892
+      alignment: 9
+      pivot: {x: 0.47395596, y: 0.49671724}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a945d9d848adeb64599d590341e17a13
+      internalID: -1921605413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1275,6 +1380,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Celebrate1: -1746258140
+      Celebrate2: 1776252521
+      Celebrate3: -2133015532
+      Celebrate4: -2043381244
+      Celebrate5: -1921605413
       Down1: 1471620306
       Down10: 1708135705
       Down11: -1605947985

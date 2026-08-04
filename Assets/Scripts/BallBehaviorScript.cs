@@ -17,6 +17,7 @@ public class BallBehaviorScript : MonoBehaviour
     public float maxSpeedd = 20f;
 
     private float startSpeed = 0;
+    private bool canUseSpeed = true;
 
     [Header ("Targ")]
     public int targX;
@@ -115,14 +116,14 @@ public class BallBehaviorScript : MonoBehaviour
             {
                 speed = maxSpeed;
             }
-            if (canHit)
-            {
-                outlineCircle.GetComponent<Outline>().enabled = true;
-            }
-            else
-            {
-                outlineCircle.GetComponent<Outline>().enabled = false;
-            }
+            //if (canHit)
+            //{
+            //    outlineCircle.GetComponent<Outline>().enabled = true;
+            //}
+            //else
+            //{
+            //    outlineCircle.GetComponent<Outline>().enabled = false;
+            //}
         }
 
         float speedconv = speed;
@@ -430,6 +431,7 @@ public class BallBehaviorScript : MonoBehaviour
         {
             case "HitZone":
                 canHit = true;
+                outlineCircle.GetComponent<Outline>().enabled = true;
                 if (player2 != null)
                 {
                     player2.GetComponent<PlayerControllerScript>().emulateAgain();
@@ -466,18 +468,28 @@ public class BallBehaviorScript : MonoBehaviour
             case "Floor":
                 ParticleBurst.Play();
                 break;
+            case "Border1":
+                isOnPlayer1Side = true;
+                break;
+            case "Border2":
+                isOnPlayer1Side = false;
+                break;
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Border1")
-        {
-            isOnPlayer1Side = true;
-        }
-        if (collision.gameObject.tag == "Border2")
-        {
-            isOnPlayer1Side = false;
-        }
+        //if (collision.gameObject.tag == "Border1")
+        //{
+        //    isOnPlayer1Side = true;
+        //}
+        //if (collision.gameObject.tag == "Border2")
+        //{
+        //    isOnPlayer1Side = false;
+        //}
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        outlineCircle.GetComponent<Outline>().enabled = false;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -565,8 +577,27 @@ public class BallBehaviorScript : MonoBehaviour
     {
         if (is1PlayerMode && speed < maxSpeed)
         {
-            speed = 7.5f + (2.5f * multiplier);
+            if (canUseSpeed)
+            {
+                speed = 7.5f + (2.5f * multiplier);
+            }
         }
+    }
+
+    public IEnumerator HitFloor()
+    {
+        float firstSpeed = speed;
+        canUseSpeed = false;
+        speed = 0f;
+        yield return new WaitForSeconds(0.05f);
+        canUseSpeed = true;
+        speed = firstSpeed;
+    }
+    public IEnumerator HitPeak()
+    {
+        canUseSpeed = false;
+        yield return new WaitForSeconds(1.05f);
+        canUseSpeed = true;
     }
 
 
@@ -584,6 +615,11 @@ public class BallBehaviorScript : MonoBehaviour
             {
                 targ = GameObject.FindGameObjectWithTag("Target1");
             }
+            if (targ == downTargets[5] && Dis == 0)
+            {
+                StartCoroutine(HitFloor());
+                StartCoroutine(Tweening(1.5f));
+            }
         }
         if (!Player1)
         {
@@ -594,6 +630,11 @@ public class BallBehaviorScript : MonoBehaviour
             if (Dis == 0 && targNum == 0)
             {
                 targ = GameObject.FindGameObjectWithTag("Target2");
+            }
+            if (targ == downTargets[6] && Dis == 0)
+            {
+                StartCoroutine(HitFloor());
+                StartCoroutine(Tweening(1.5f));
             }
         }
         if (downTargets.Contains(targ))
@@ -620,6 +661,11 @@ public class BallBehaviorScript : MonoBehaviour
             {
                 targ = GameObject.FindGameObjectWithTag("Target1");
             }
+            if (targ == upTargets[6] && Dis == 0)
+            {
+                StartCoroutine(HitPeak());
+                ApplySpeedBoost(5f, 1f, 2);
+            }
         }
         if (!Player1)
         {
@@ -630,6 +676,11 @@ public class BallBehaviorScript : MonoBehaviour
             if (Dis == 0 && targNum == 0)
             {
                 targ = GameObject.FindGameObjectWithTag("Target2");
+            }
+            if (targ == upTargets[6] && Dis == 0)
+            {
+                StartCoroutine(HitPeak());
+                ApplySpeedBoost(5f, 1f, 2);
             }
         }
         if (upTargets.Contains(targ))

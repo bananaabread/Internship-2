@@ -6,7 +6,7 @@ Sprite:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CelebrateBlue5
+  m_Name: Celebrate3
   m_Rect:
     serializedVersion: 2
     x: 1783
@@ -22,7 +22,7 @@ Sprite:
   m_AtlasName: 
   m_PackingTag: 
   m_RenderDataKey:
-    e4b1516eb1648f345bc8f506112b537a: -1243717075
+    e4b1516eb1648f345bc8f506112b537a: -2133015532
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
@@ -259,4 +259,4 @@ Sprite:
     - {x: 0.10447265, y: -4.1686325}
     - {x: -0.17552733, y: -3.5286326}
   m_Bones: []
-  m_SpriteID: 83804321800af5a4e864f039ba60b416
+  m_SpriteID: 2370ae0eeef0e7c4e8c5db896c474367
