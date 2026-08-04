@@ -78,6 +78,9 @@ public class PlayerControllerScript : MonoBehaviour
                                 abilityManager.RunCurrentAbilityP1();
                             }
                             isOnCooldown = true;
+                            P1Anim.ResetTrigger("punchup");
+                            P1Anim.ResetTrigger("punchdown");
+                            P1Anim.SetTrigger("punch");
                             StartCoroutine(cooldown());
                         }
                     }
@@ -153,6 +156,7 @@ public class PlayerControllerScript : MonoBehaviour
                         }
                         isOnCooldown = true;
                         P2Anim.ResetTrigger("punchup");
+                        P2Anim.ResetTrigger("punchdown");
                         P2Anim.SetTrigger("punch");
                         StartCoroutine(cooldown());
                     }
